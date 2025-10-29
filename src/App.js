@@ -1,8 +1,11 @@
 import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
-import InputField from './components/InputField/InputField.jsx';
+import Modal from './components/Modal/Modal';
+import Button from './components/PrimaryButton/Button';
 
 function App() {
+  const [openModal, setOpenModal] = useState(false);
   return (
     <div className="App">
       <header className="App-header">
@@ -19,13 +22,11 @@ function App() {
           Learn React
         </a>
         <div>
-        <InputField
-        label='text'
-        type='text'
-        value=''
-        onChange={() => {}}
-        placeholder='Enter text here'
-        ></InputField></div>
+          <Button onClick={() => setOpenModal(!openModal)} buttonType='primary'>Open Modal</Button>
+          <Modal isOpen={openModal} onClose={() => setOpenModal(!openModal)} title="Sample Modal" variant="dark">
+            <p>This is a sample modal content.</p>
+          </Modal>
+        </div>
       </header>
     </div>
   );

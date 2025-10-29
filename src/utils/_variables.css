@@ -1,8 +1,8 @@
 /* Color Palette */
 :root {
-    --color-primary: #af0956;   /* vibrant rose */
-    --color-primary-hover: #d60377;
-      --color-secondary: #fde2e4;    /* cream-pink */
+  --color-primary: #af0956;   /* vibrant rose */
+  --color-primary-hover: #d60377;
+  --color-secondary: #fde2e4;    /* cream-pink */
   --color-accent: #e5989b;       /* muted rose accent */
   --color-bg: #fffafc;           /* light soft background */
   --color-surface: #ffffff;      /* card/modals base */
