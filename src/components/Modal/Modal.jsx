@@ -6,7 +6,7 @@ import './Modal.css';
 const Modal =({
     isOpen,
     onClose,
-    title,
+    title = 'Modal Title',
     children,
     variant = 'soft' //default variant
 })=> {
