@@ -6,10 +6,11 @@ import './Card.css';
 const Card = ({
     title,
     children,
-    variant = 'soft' //default variant
+    variant = 'soft', //default variant
+    size = 'md' // 'sm', 'md', 'lg'
 }) => {
     return (
-        <div className={`card-container ${variant}`}>
+        <div className={`card-container ${variant} ${size}`}>
             {title && <h3 className="card-title">{title}</h3>}
             <div className="card-body">
                 {children}
@@ -21,11 +22,13 @@ const Card = ({
 Card.propTypes = {
     title: PropTypes.string,
     children: PropTypes.node,
-    variant: PropTypes.oneOf(['soft', 'elevated', 'dark'])
+    variant: PropTypes.oneOf(['soft', 'elevated', 'dark']),
+    size: PropTypes.oneOf(['sm', 'md', 'lg'])
 };
 
 Card.defaultProps = {
-    variant: 'soft'
+    variant: 'soft',
+    size: 'md'
 };
 
 export default Card;
