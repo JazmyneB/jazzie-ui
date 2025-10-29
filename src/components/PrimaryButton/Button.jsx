@@ -5,7 +5,7 @@ import './Button.css';
 const Button = ({
     onClick,
     disabled = false,
-    text, //text to display on the button
+    text= "Primary Button", //text to display on the button
     buttonType, //type of button (primary, secondary, or tertiary)
     children
 }) => {
