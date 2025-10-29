@@ -6,15 +6,16 @@ const Button = ({
     onClick,
     disabled = false,
     text = "Primary Button", //text to display on the button
-    buttonType = "primary" //type of button (primary, secondary, etc.)
+    buttonType = "primary", //type of button (primary, secondary, or tertiary)
+    children
 }) => {
-    
+
     return (
         <button
             onClick={onClick}
             disabled={disabled}
-            className="primaryButton"
-        > {text}
+            className={`button ${buttonType}`}
+        > {children || text}
         </button>
     )
 };
@@ -23,6 +24,8 @@ Button.propTypes = {
     onClick: PropTypes.func.isRequired,
     disabled: PropTypes.bool,
     text: PropTypes.string,
+    children: PropTypes.node,
+    buttonType: PropTypes.oneOf(['primary', 'secondary', 'tertiary'])
     
 };
 
