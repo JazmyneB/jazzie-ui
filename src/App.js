@@ -1,6 +1,5 @@
 import logo from './logo.svg';
 import './App.css';
-import Card from './components/Card/Card';
 
 function App() {
   return (
@@ -18,11 +17,6 @@ function App() {
         >
           Learn React
         </a>
-        <br />
-        <div>
-        <Card title="Welcome to Jazzie UI" variant="dark">
-          <p>This is a sample card component using the Jazzie UI library.</p>
-        </Card></div>
       </header>
     </div>
   );
