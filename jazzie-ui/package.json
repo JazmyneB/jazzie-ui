@@ -15,7 +15,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --coverage --watchAll=false",
+    "test:jest": "jest --coverage --runInBand",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -38,5 +39,15 @@
   },
   "devDependencies": {
     "sass": "^1.93.2"
+  },
+  "jest": {
+  "coverageThreshold": {
+    "global": {
+      "branches": 80,
+      "functions": 85,
+      "lines": 85,
+      "statements": 85
+    }
   }
+}
 }
