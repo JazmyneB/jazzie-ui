@@ -8,10 +8,21 @@
   --color-surface: #ffffff;      /* card/modals base */
   --color-text: #4a4a4a;         /* deep neutral gray */
   --color-muted: #b5838d;
-
-   --color-dark-bg: #2b2b2b;
+  --color-dark-bg: #2b2b2b;
   --color-dark-text: #f9f9f9;
+
+  --blush:#FADADD;
+  --rose:#C48B9F;
+  --deep-rose:#B26B83;
+  --cream:#FFF8F6;
+  --muted:#6b525b;
+  --paper:#FFFDFD;
+  --grid:#F0CFCF;
+  --accent:#D8A7A7;
+  --body:#4a4a4a;
+  --shadow: rgba(180,120,140,0.10);
 }
+
 /* Font Families and Sizes */
 :root {
   --font-primary: 'Poppins', 'Helvetica Neue', sans-serif;
