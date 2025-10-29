@@ -17,8 +17,8 @@ describe('InputField Component', () => {
   });
 
   it('should render an input field with the correct type', () => {
-    render(<InputField label='password' type="password" value="" onChange={() => {}} />);
-    const input = screen.getByLabelText(/password/i);  // Implicitly matches input fields (accessible by default)
+    render(<InputField id="password-input" type="password" value="" onChange={() => {}} />);
+    const input = screen.getByTestId('input-field');  // Implicitly matches input fields (accessible by default)
     expect(input).toHaveAttribute('type', 'password');
   });
 

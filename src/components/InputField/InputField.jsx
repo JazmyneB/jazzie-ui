@@ -4,7 +4,7 @@ import './InputField.css';
 
 const InputField = ({ 
     label, 
-    type, // 'text', 'password', 'email', etc.
+    type = "text", // 'text', 'password', 'email', etc.
     value, 
     onChange, 
     placeholder,
@@ -14,6 +14,7 @@ const InputField = ({
         <div className="input-field-container">
             {label && <label className="input-label">{label}</label>}
             <input
+                data-testid="input-field"
                 id={id}
                 className="input-field"
                 type={type}
