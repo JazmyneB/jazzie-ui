@@ -1,0 +1,66 @@
+@import '../../utils/_variables.css';
+
+.button {
+  font-family: var(--font-primary);
+  font-size: var(--text-md);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+.primary {
+      background-color: var(--color-primary);
+      color: white;
+      box-shadow: var(--shadow-soft);
+}
+
+.primary:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-2px);
+}
+
+.primary:disabled {
+  background-color: var(--color-muted);
+  cursor: not-allowed;
+  transform: none;
+}
+.primary:disabled:hover {
+  background-color: var(--color-muted);
+  transform: none;
+}
+.secondary {
+      background-color: var(--color-secondary);
+      color: var(--color-primary);
+      box-shadow: var(--shadow-soft);
+}
+.secondary:hover {
+  background-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+.secondary:disabled {
+  background-color: var(--color-muted);
+  cursor: not-allowed;
+  transform: none;
+}
+.secondary:disabled:hover {
+  background-color: var(--color-muted);
+  transform: none;
+}
+.tertiary {
+      background-color: transparent;
+      color: var(--color-primary);
+      border: 2px solid var(--color-primary);
+    }
+.tertiary:hover {
+  background-color: var(--color-primary);
+  color: white;
+  transform: translateY(-2px);
+}
+.tertiary:disabled {
+  color: var(--color-muted);
+  border-color: var(--color-muted);
+  cursor: not-allowed;
+  transform: none;
+}
