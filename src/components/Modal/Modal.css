@@ -1,0 +1,114 @@
+/* Base Modal */
+.modal-container {
+  position: fixed;
+  inset: 0;
+  background: rgba(250, 233, 239, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  z-index: 999;
+}
+
+.modal-content {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-soft);
+  width: 90%;
+  max-width: 400px;
+  font-family: var(--font-primary);
+  color: var(--color-text);
+  text-align: center;
+}
+
+.modal-title {
+  font-family: var(--font-accent);
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-md);
+  color: var(--color-primary);
+}
+
+.modal-close {
+  margin-top: var(--space-md);
+  padding: var(--space-xs) var(--space-md);
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+  background: var(--color-primary-hover);
+}
+
+/* 🌸 Soft Variant */
+.modal-container.soft {
+  background: rgba(253, 226, 228, 0.6);
+}
+
+.modal-content.soft {
+  background: var(--color-surface);
+  box-shadow: 0 4px 12px rgba(245, 183, 177, 0.35);
+}
+
+/* 💼 Elevated Variant */
+.modal-container.elevated {
+  background: rgba(229, 152, 155, 0.45);
+}
+
+.modal-content.elevated {
+  border: 2px solid var(--color-accent);
+  box-shadow: 0 8px 20px rgba(175, 9, 86, 0.25);
+}
+
+/* 🌙 Dark Variant */
+.modal-container.dark {
+  background: rgba(43, 43, 43, 0.75);
+}
+
+.modal-content.dark {
+  background: var(--color-dark-bg);
+  color: var(--color-dark-text);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.modal-close.dark {
+  background: var(--color-muted);
+}
+
+/* ✨ Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🌙 Optional: Dark Mode
+@media (prefers-color-scheme: dark) {
+  .modal-content {
+    background: var(--color-dark-bg);
+    color: var(--color-dark-text);
+    border-color: var(--color-muted);
+  }
+
+  .modal-close {
+    background-color: var(--color-accent);
+  }
+
+  .modal-close:hover {
+    background-color: var(--color-primary-hover);
+  }
+} */

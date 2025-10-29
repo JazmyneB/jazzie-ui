@@ -6,7 +6,7 @@ const Button = ({
     onClick,
     disabled = false,
     text= "Primary Button", //text to display on the button
-    buttonType, //type of button (primary, secondary, or tertiary)
+    buttonType="primary", //type of button (primary, secondary, or tertiary)
     children
 }) => {
 
