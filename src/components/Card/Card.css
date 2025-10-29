@@ -1,0 +1,66 @@
+@import '../../utils/_variables.css';
+    
+.card-container {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  padding: var(--space-md);
+  transition: all 0.3s ease;
+}
+
+/* Size variants */
+.card-container.sm {
+  padding: var(--space-sm);
+  max-width: 200px;
+  font-size: var(--text-sm);
+}
+
+.card-container.md {
+  padding: var(--space-md);
+  max-width: 400px;
+  height: 150px;
+  font-size: var(--text-md);
+}
+
+.card-container.lg {
+  padding: var(--space-lg);
+  max-width: 600px;
+  height: 200px;
+  font-size: var(--text-lg);
+}
+
+
+/* Variant: soft (default) */
+.card-container.soft {
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-soft);
+  color: var(--rose);
+}
+
+/* Variant: elevated */
+.card-container.elevated {
+  background-color: var(--color-surface);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  color: var(--color-primary);
+}
+
+/* Variant: dark */
+.card-container.dark {
+  background-color: var(--color-dark-bg);
+  color: var(--blush);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Title */
+.card-title {
+  font-family: var(--font-accent);
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-sm);
+}
+
+/* Body */
+.card-body {
+  font-size: var(--text-md);
+  color: inherit;
+}
