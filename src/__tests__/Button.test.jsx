@@ -4,21 +4,21 @@ import Button from '../components/PrimaryButton/Button';  // Adjust the import i
 
 describe('Button Component', () => {
   
-  test('renders with default text', () => {
-    render(<Button onClick={() => {}} />);
+  test('renders with default text when no text prop is provided', () => {
+    render(<Button onClick={() => {}} />);  // Don't pass text prop here
     const button = screen.getByRole('button');
-    expect(button).toHaveTextContent('Primary Button');
+    expect(button).toHaveTextContent('Primary Button');  // Default text
   });
 
   test('renders with custom text when passed as prop', () => {
     render(<Button onClick={() => {}} text="Custom Button Text" />);
     const button = screen.getByRole('button');
-    expect(button).toHaveTextContent('Custom Button Text');
+    expect(button).toHaveTextContent('Custom Button Text');  // Custom text
   });
 
   test('renders children content when passed', () => {
     render(
-      <Button onClick={() => {}}>
+      <Button onClick={() => {}} >
         <span>Child Button</span>
       </Button>
     );
@@ -59,3 +59,4 @@ describe('Button Component', () => {
   });
 
 });
+
