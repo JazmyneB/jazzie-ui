@@ -1,9 +1,8 @@
 import logo from './logo.svg';
-import { useState } from 'react';
 import './App.css';
+import Card from './components/Card/Card';
 
 function App() {
-  const [openModal, setOpenModal] = useState(false);
   return (
     <div className="App">
       <header className="App-header">
@@ -19,6 +18,11 @@ function App() {
         >
           Learn React
         </a>
+        <br />
+        <div>
+        <Card title="Welcome to Jazzie UI" variant="dark">
+          <p>This is a sample card component using the Jazzie UI library.</p>
+        </Card></div>
       </header>
     </div>
   );
