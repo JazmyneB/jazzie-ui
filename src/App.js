@@ -1,8 +1,9 @@
 import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
-import InputField from './components/InputField/InputField.jsx';
 
 function App() {
+  const [openModal, setOpenModal] = useState(false);
   return (
     <div className="App">
       <header className="App-header">
@@ -18,14 +19,6 @@ function App() {
         >
           Learn React
         </a>
-        <div>
-        <InputField
-        label='text'
-        type='text'
-        value=''
-        onChange={() => {}}
-        placeholder='Enter text here'
-        ></InputField></div>
       </header>
     </div>
   );

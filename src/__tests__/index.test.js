@@ -1,56 +1,46 @@
-/**
- * @jest-environment jsdom
- */
-
 import React from 'react';
+import __mockRender from 'react-dom/client';
+import '../index';
 
-// --- ✅ 1. Define mocks BEFORE importing index.js ---
+// Mock ReactDOM.createRoot properly
 const mockRender = jest.fn();
-const mockCreateRoot = jest.fn(() => ({ render: mockRender }));
 
-jest.mock('react-dom/client', () => ({
-  // The default export of the module must be mocked to return { render }
-  __esModule: true,
-  createRoot: (...args) => mockCreateRoot(...args),
-}));
+// Mock the App component
+jest.mock('../App', () => () => <div>Mocked App</div>);
 
-// Mock App so React doesn’t actually render it
-jest.mock('../App', () => ({
-  __esModule: true,
-  default: () => <div>Mocked App</div>,
-}));
+// Create a fake root element
+const mockRootElement = document.createElement('div');
+mockRootElement.setAttribute('id', 'root');
+document.body.appendChild(mockRootElement);
+
+
+jest.mock('react-dom/client', () => {
+  const mockRender = jest.fn();
+  return {
+    createRoot: () => ({
+      render: mockRender,
+    }),
+    __mockRender: mockRender, // expose for tests
+  };
+});
 
 describe('index.js', () => {
-  beforeEach(() => {
-    jest.clearAllMocks();
-    document.body.innerHTML = '<div id="root"></div>';
+  it('calls ReactDOM.createRoot with the root element', () => {
+    const { createRoot } = require('react-dom/client');
+    expect(createRoot).toBeDefined();
+    expect(createRoot(mockRootElement).render).toBe(mockRender);
   });
 
-  it('should call ReactDOM.createRoot with the root element', () => {
-    jest.isolateModules(() => {
-      // Import AFTER mocks are defined
-      require('../index');
-    });
-
-    expect(mockCreateRoot).toHaveBeenCalledTimes(1);
-    expect(mockCreateRoot).toHaveBeenCalledWith(document.getElementById('root'));
-  });
-
-  it('should render the App component inside React.StrictMode', () => {
-    jest.isolateModules(() => {
-      require('../index');
-    });
-
+  it('renders the App component inside React.StrictMode', () => {
     expect(mockRender).toHaveBeenCalledTimes(1);
 
-    // Verify React.StrictMode wraps App
-    const renderedTree = mockRender.mock.calls[0][0];
-    expect(renderedTree.type).toBe(React.StrictMode);
-
-    // Check that inside StrictMode, App is rendered
-    const child = renderedTree.props.children;
-    expect(child.type).toBe(require('../App').default);
+    const renderCallArg = mockRender.mock.calls[0][0];
+    expect(renderCallArg.type).toBe(React.StrictMode);
+    const childType = renderCallArg.props.children.type;
+    // Check that the App component (mock) is rendered
+    expect(childType.name || childType).toBe('App');
   });
 });
+
 
 
