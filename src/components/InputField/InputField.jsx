@@ -4,16 +4,18 @@ import './InputField.css';
 
 const InputField = ({ 
     label, 
-    type, 
+    type, // 'text', 'password', 'email', etc.
     value, 
     onChange, 
-    placeholder 
+    placeholder,
+    id
 }) => {
     return (
-        <div className="input-field">
+        <div className="input-field-container">
             {label && <label className="input-label">{label}</label>}
             <input
-                className="input-element"
+                id={id}
+                className="input-field"
                 type={type}
                 value={value}
                 onChange={onChange}
@@ -25,7 +27,7 @@ const InputField = ({
 InputField.propTypes = {
     label: PropTypes.string,
     type: PropTypes.string,
-
+    id: PropTypes.string,
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
     placeholder: PropTypes.string,
@@ -33,5 +35,6 @@ InputField.propTypes = {
 InputField.defaultProps = {
     type: 'text',
     placeholder: '',
+    label: ''
 };
 export default InputField;
