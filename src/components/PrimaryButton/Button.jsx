@@ -5,8 +5,8 @@ import './Button.css';
 const Button = ({
     onClick,
     disabled = false,
-    text = "Primary Button", //text to display on the button
-    buttonType = "primary", //type of button (primary, secondary, or tertiary)
+    text= "Primary Button", //text to display on the button
+    buttonType, //type of button (primary, secondary, or tertiary)
     children
 }) => {
 
@@ -27,6 +27,12 @@ Button.propTypes = {
     children: PropTypes.node,
     buttonType: PropTypes.oneOf(['primary', 'secondary', 'tertiary'])
     
+};
+
+Button.defaultProps = {
+    disabled: false,
+    text: "Primary Button",
+    buttonType: "primary"
 };
 
 

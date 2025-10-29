@@ -1,13 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
-import Button from './components/PrimaryButton/Button';
+import InputField from './components/InputField/InputField.jsx';
 
 function App() {
-
-  const handleClick = () => {
-    console.log("Button Clicked!");
-  };
-
   return (
     <div className="App">
       <header className="App-header">
@@ -24,7 +19,13 @@ function App() {
           Learn React
         </a>
         <div>
-        <Button onClick={handleClick}>Click Me</Button></div>
+        <InputField
+        label='text'
+        type='text'
+        value=''
+        onChange={() => {}}
+        placeholder='Enter text here'
+        ></InputField></div>
       </header>
     </div>
   );

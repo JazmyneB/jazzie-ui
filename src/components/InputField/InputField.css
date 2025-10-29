@@ -1,0 +1,47 @@
+/* General styling for the container */
+.input-field-container {
+  margin: 15px 0;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Label styling */
+.input-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #e7a7b8;  /* Soft blush pink */
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Styling for the input field */
+.input-field {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #f0c7da; /* Very light blush pink */
+  border-radius: 8px;
+  background-color: #fdf1f2; /* Light creamy pink */
+  font-size: 16px;
+  color: #b98fa8; /* Rose pink */
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+/* Focus effect for the input field */
+.input-field:focus {
+  border-color: #f2a1c6; /* Slightly darker pink when focused */
+  background-color: #ffeef2; /* Light rose background on focus */
+  box-shadow: 0 0 5px rgba(242, 161, 198, 0.6); /* Soft pink shadow */
+}
+
+/* Placeholder styling */
+.input-field::placeholder {
+  color: #d4a4b0; /* Soft pink for placeholder */
+  opacity: 0.8;
+}
+
+/* Disabled input field */
+.input-field:disabled {
+  background-color: #f7e9ea;
+  border-color: #f2d1d5;
+  color: #b8a8b6;
+}
