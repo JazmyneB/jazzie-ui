@@ -1,4 +1,5 @@
-/* Base Modal */
+@import '../../utils/_variables.css';
+
 .modal-container {
   position: fixed;
   inset: 0;
