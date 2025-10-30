@@ -50,8 +50,10 @@
   font-size: 4rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  color: var(--color-primary);
-  text-shadow: 1px 1px 6px rgba(255, 255, 255, 0.4);
+  background: linear-gradient(90deg, #af0956, #d60377, #fadadd, #f8c8d8);
+  -webkit-background-clip: text; /* Clip background to text */
+  -webkit-text-fill-color: transparent; /* Make text itself transparent */
+  background-clip: text; /* For non-webkit browsers */
 }
 
 /* Updated subtitle */
@@ -94,7 +96,7 @@
   filter: blur(3px) opacity(0.4);
   z-index: 1;
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
-}
+} 
 
 /* CTA button */
 .cta-button {
