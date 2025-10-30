@@ -1,25 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import NavBar from './components/NavBar/NavBar';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      <NavBar
+        brand={"🌸 JazzieUI"}
+        links={[
+          { label: 'Home' },
+          { label: 'Components' },
+          { label: 'Docs' },
+          { label: 'Contact' }
+        ]}
+        onLinkClick={(link) => console.log(`Clicked ${link.label}`)}
+      />
+
+      <div className="hero">
+        <h1>Welcome to JazzieUI</h1>
+        <p className="hero-subtitle">Soft Girl meet Boss Tech Energy 🌸</p>
+        <button className="cta-button">Explore Components</button>
+      </div>
     </div>
   );
 }
 
 export default App;
+
+
+
