@@ -33,6 +33,9 @@ The goal:
 | Navbar & Footer | Responsive layout essentials |
 | Alert / Toast Message | Lightweight notification system |
 
+- Started 10/28 Projected completion: Nov 7, Actual done: 10/31
+- Consider that Hero component was added in this wave. While developing, design was often tweaked depending on the looks and feels with the flow.
+
 ---
 
 ### **Wave 2 — Soft Girl Aesthetic Components** (Due Nov 18)
