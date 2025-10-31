@@ -1,104 +1,74 @@
-/* Container holding nav + hero */
+/* 🌸 Container */
 .app-container {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-/* Full viewport hero layout */
+/* 🌈 Hero Section — split layout */
 .hero {
   position: relative;
-  min-height: 100vh; /* full viewport height */
   display: flex;
-  padding-top: 100px;
-  top: 30px;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  overflow: hidden;
-  border-radius: var(--radius-md);
-
-  /* Conic gradient flipped (dark part on right) */
+  justify-content: space-between;
+  min-height: 100vh;
+  padding: 120px 80px 40px 80px;
   background: conic-gradient(
-  from 180deg at 50% 50%, 
-  #fde2e4, #f8c8d8, #fadadd, #af0956, #fde2e4
-);
-
-
-  color: var(--color-dark-text);
+    from 180deg at 50% 50%, 
+    #fde2e4, #f8c8d8, #fadadd, #af0956, #fde2e4
+  );
   font-family: var(--font-primary);
-  transition: background 1s ease;
+  color: var(--color-dark-text);
+  overflow: hidden;
 }
 
-/* .hero {
-  background: conic-gradient(
-  from 180deg at 50% 50%, 
-  #fde2e4, #f8c8d8, #fadadd, #af0956, #fde2e4);
-  background-size: 200% 200%;
-  animation: slideBackground 10s ease-in 1;
+/* 🌷 Left Side Content */
+.hero-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Left align */
+  z-index: 2;
+  padding-right: 40px;
+  max-width: 600px;
 }
 
-@keyframes slideBackground {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-} */
-
-/* Heading style */
-.hero h1 {
+.hero-content h1 {
   font-family: var(--font-accent);
   font-size: 4rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  background: linear-gradient(90deg, #af0956, #d60377, #fadadd, #f8c8d8);
-  -webkit-background-clip: text; /* Clip background to text */
-  -webkit-text-fill-color: transparent; /* Make text itself transparent */
-  background-clip: text; /* For non-webkit browsers */
+  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-hover));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Updated subtitle */
+
 .hero-subtitle {
   font-size: 1.5rem;
   color: var(--muted);
   margin-bottom: 2rem;
 }
 
-/* Left image blurred */
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 100%;
-  background-image: url('./assets/RoboRose.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: left center;
-  filter: blur(3px) opacity(0.4);
-  z-index: 1;
-  border-radius: var(--radius-md) 0 0 var(--radius-md);
+/* 💖 Right Side Image */
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
 }
 
-/* Right image mirrored */
-.hero::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50%;
-  height: 100%;
-  background-image: url('./assets/RoboRose.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: right center;
-  transform: scaleX(-1);
-  filter: blur(3px) opacity(0.4);
-  z-index: 1;
-  border-radius: 0 var(--radius-md) var(--radius-md) 0;
-} 
+.hero-image img {
+  width: 80%;
+  max-width: 500px;
+  filter: drop-shadow(0 8px 16px rgba(175, 9, 86, 0.25)) opacity(0.8);
+  object-fit: fill;
+}
 
-/* CTA button */
+/* ✨ CTA Button */
 .cta-button {
   padding: 0.8rem 2rem;
   font-size: 1.2rem;
@@ -110,7 +80,6 @@
   cursor: pointer;
   box-shadow: 0 8px 15px rgba(175, 9, 86, 0.3);
   transition: all 0.3s ease;
-  z-index: 10; /* ensure on top of blurred background */
 }
 
 .cta-button:hover {
@@ -118,19 +87,24 @@
   box-shadow: 0 12px 20px rgba(175, 9, 86, 0.4);
 }
 
-/* Conic rotation animation
-@keyframes rotateConic {
-  from {
-    background: conic-gradient(from 180deg at 50% 50%, #fde2e4, #af0956, #fadadd, #f8c8d8, #fde2e4);
-  }
-  to {
-    background: conic-gradient(from 540deg at 50% 50%, #fde2e4, #af0956, #fadadd, #f8c8d8, #fde2e4);
-  }
-} */
-
-/* Responsive adjustments */
+/* 📱 Responsive */
 @media (max-width: 768px) {
-  .hero h1 {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 100px 20px;
+  }
+
+  .hero-content {
+    align-items: center;
+    padding-right: 0;
+  }
+
+  .hero-image {
+    margin-top: 40px;
+  }
+
+  .hero-content h1 {
     font-size: 3rem;
   }
 
@@ -138,10 +112,10 @@
     font-size: 1.2rem;
   }
 
-  .cta-button {
-    font-size: 1rem;
-    padding: 0.6rem 1.5rem;
+  .hero-image img {
+    width: 90%;
   }
 }
+
 
 
