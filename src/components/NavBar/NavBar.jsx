@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 import './NavBar.css';
 import Button from '../PrimaryButton/Button';
 
-const NavBar = ({ brand, links, onLinkClick }) => {
+const NavBar = ({
+  brand,
+  links,
+  onLinkClick
+}) => {
   return (
      <nav className="navbar">
   <div className="navbar-left">

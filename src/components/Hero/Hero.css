@@ -1,0 +1,76 @@
+/* Root variables (optional if already defined in App.css) */
+:root {
+  --color-primary: #af0956;
+  --color-primary-hover: #d60377;
+  --color-secondary: #fde2e4;
+  --color-accent: #e5989b;
+  --color-bg: #fffafc;
+  --color-text: #4a4a4a;
+  --color-muted: #b5838d;
+
+  --radius-md: 12px;
+  --radius-full: 9999px;
+  --shadow-soft: 0 8px 30px rgba(245, 183, 177, 0.3);
+
+  --font-primary: 'Poppins', sans-serif;
+  --font-accent: 'Playfair Display', serif;
+}
+
+/* Hero section */
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 64px;
+  gap: 40px;
+  overflow: visible;
+  perspective: 1200px;
+  user-select: none;
+  background: var(--color-bg);
+  z-index: 1;
+}
+
+/* Glass Panel behind text for depth */
+.glass-panel {
+  position: absolute;
+  top: 25%;
+  left: 10%;
+  width: 45%;
+  height: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(36px);
+  border-radius: var(--radius-md);
+  box-shadow: 0 0 30px rgba(255, 200, 220, 0.4);
+  pointer-events: none;
+  z-index: 1;
+  filter: drop-shadow(0 0 12px var(--color-primary));
+  animation: pulseGlow 6s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 30px rgba(255, 200, 220, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 45px rgba(255, 200, 220, 0.65);
+  }
+}
+
+/* Hero content (text and button) */
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  cursor: default;
+}
+
+.hero-title {
+  font-family: var(--font-accent);
+  font-size: 4.5rem;
+}
