@@ -1,5 +1,6 @@
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
+import RoboRose from './assets/RoboRose.png';
 
 function App() {
   return (
@@ -15,16 +16,23 @@ function App() {
         onLinkClick={(link) => console.log(`Clicked ${link.label}`)}
       />
 
-      <div className="hero">
-        <h1>Welcome to JazzieUI</h1>
-        <p className="hero-subtitle">Soft Girl meet Boss Tech Energy 🌸</p>
-        <button className="cta-button">Explore Components</button>
-      </div>
+      <section className="hero">
+        <div className="hero-content">
+          <h1>Welcome to JazzieUI</h1>
+          <p className="hero-subtitle">Soft Girl meets Boss Tech Energy 🌸</p>
+          <button className="cta-button">Explore Components</button>
+        </div>
+
+        <div className="hero-image">
+          <img src={RoboRose} alt="Robo Rose" />
+        </div>
+      </section>
     </div>
   );
 }
 
 export default App;
+
 
 
 
