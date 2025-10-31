@@ -1,5 +1,6 @@
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
+import Hero from './components/Hero/Hero';
 
 function App() {
   return (
@@ -14,17 +15,10 @@ function App() {
         ]}
         onLinkClick={(link) => console.log(`Clicked ${link.label}`)}
       />
-
-      <div className="hero">
-        <h1>Welcome to JazzieUI</h1>
-        <p className="hero-subtitle">Soft Girl meet Boss Tech Energy 🌸</p>
-        <button className="cta-button">Explore Components</button>
-      </div>
+      <Hero />
     </div>
   );
 }
 
 export default App;
-
-
 

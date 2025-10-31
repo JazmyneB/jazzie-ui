@@ -1,0 +1,155 @@
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  overflow: hidden;
+  font-family: var(--font-primary);
+  color: var(--color-text);
+}
+
+/* 🌈 Holographic Animated Background */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    var(--color-secondary),
+    var(--blush),
+    var(--rose),
+    var(--deep-rose),
+    var(--secondary)
+  );
+  animation: rotateGradient 20s linear infinite;
+  filter: blur(80px);
+  opacity: 0.6;
+  z-index: 0;
+}
+
+@keyframes rotateGradient {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 🌷 Hero Content */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  padding-left: 10%;
+  backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 32px rgba(175, 9, 86, 0.1);
+  padding: 60px;
+  max-width: 550px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  font-family: var(--font-accent);
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+.hero-content .brand {
+  background: linear-gradient(90deg, var(--color-primary), var(--rose), var(--color-primary-hover));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+
+/* 🌸 CTA Button */
+.cta-button {
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  border: none;
+  background: linear-gradient(120deg, var(--color-primary), var(--color-primary-hover));
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(175, 9, 86, 0.3);
+  transition: all 0.4s ease;
+  backdrop-filter: blur(10px);
+}
+
+.cta-button:hover {
+  background: linear-gradient(120deg, var(--color-primary-hover), var(--rose));
+  box-shadow: 0 0 40px rgba(175, 9, 86, 0.5);
+  transform: translateY(-3px);
+}
+
+/* 💖 Floating RoboRose Images */
+.hero-image {
+  position: absolute;
+  z-index: 2;
+}
+
+.image-left {
+  top: -120px;
+  left: -150px;
+}
+
+.image-left img {
+  width: 400px;
+  transform: scaleX(-1) scaleY(-1) rotate(-10deg);
+  opacity: 0.8;
+  filter: drop-shadow(0 8px 16px rgba(175, 9, 86, 0.3));
+}
+
+.image-right {
+  bottom: 0;
+  right: -100px;
+}
+
+.image-right img {
+  width: 500px;
+  filter: drop-shadow(0 8px 16px rgba(175, 9, 86, 0.3));
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 100px 20px;
+  }
+
+  .hero-content {
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.8rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .image-left,
+  .image-right {
+    display: none;
+  }
+}
