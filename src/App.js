@@ -17,14 +17,17 @@ function App() {
       />
 
       <section className="hero">
+        <div className="hero-image image-left">
+          <img src={RoboRose} alt="Robo Rose Left" />
+        </div>
         <div className="hero-content">
           <h1>Welcome to JazzieUI</h1>
-          <p className="hero-subtitle">Soft Girl meets Boss Tech Energy 🌸</p>
+          <p className="hero-subtitle">Soft Girl Meets Boss Tech Energy 🌸</p>
           <button className="cta-button">Explore Components</button>
         </div>
 
-        <div className="hero-image">
-          <img src={RoboRose} alt="Robo Rose" />
+        <div className="hero-image image-right">
+          <img src={RoboRose} alt="Robo Rose Right" />
         </div>
       </section>
     </div>

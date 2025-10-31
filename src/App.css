@@ -4,8 +4,7 @@
   flex-direction: column;
   width: 100%;
 }
-
-/* 🌈 Hero Section — split layout */
+/* 🌷 Hero Section */
 .hero {
   position: relative;
   display: flex;
@@ -28,10 +27,41 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start; /* Left align */
+  align-items: flex-start; /* text aligns left within itself */
+  text-align: left;
   z-index: 2;
-  padding-right: 40px;
-  max-width: 600px;
+  max-width: 500px;
+
+  /* 👇 these move content visually left without breaking layout */
+  transform: translateX(-420px);
+  padding-left: 0;
+  margin: 0;
+}
+
+
+
+
+.image-left {
+  position: absolute;
+  left: 20%;
+  top: -220px;
+  height: 100%;
+  z-index: 1;
+}
+
+.image-left img {
+  width: 70%;
+  max-width: 350px;
+  transform: scaleX(-1) scaleY(-1) rotate(-12deg);
+  opacity: 0.8;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px var(--secondary));
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.image-left img:hover {
+  transform: scaleX(-1) scaleY(-1) rotate(-10deg) translateY(5px);
+  opacity: 1;
 }
 
 .hero-content h1 {
@@ -48,7 +78,7 @@
 .hero-subtitle {
   font-size: 1.5rem;
   color: var(--muted);
-  margin-bottom: 2rem;
+  margin-bottom: 32px;
 }
 
 /* 💖 Right Side Image */
@@ -61,11 +91,26 @@
   z-index: 2;
 }
 
-.hero-image img {
+.image-right {
+  right: 20%;
+  top: 90px;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.image-right img {
   width: 80%;
   max-width: 500px;
+  object-fit: contain;
   filter: drop-shadow(0 8px 16px rgba(175, 9, 86, 0.25)) opacity(0.8);
-  object-fit: fill;
+}
+
+.image-right img:hover {
+  transform: rotate(-10deg) translateY(5px);
+  opacity: 1;
 }
 
 /* ✨ CTA Button */
@@ -87,35 +132,7 @@
   box-shadow: 0 12px 20px rgba(175, 9, 86, 0.4);
 }
 
-/* 📱 Responsive */
-@media (max-width: 768px) {
-  .hero {
-    flex-direction: column;
-    text-align: center;
-    padding: 100px 20px;
-  }
 
-  .hero-content {
-    align-items: center;
-    padding-right: 0;
-  }
-
-  .hero-image {
-    margin-top: 40px;
-  }
-
-  .hero-content h1 {
-    font-size: 3rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1.2rem;
-  }
-
-  .hero-image img {
-    width: 90%;
-  }
-}
 
 
 
