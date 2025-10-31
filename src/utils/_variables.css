@@ -45,4 +45,5 @@
   --radius-md: 12px;
   --radius-full: 9999px;
   --shadow-soft: 0 4px 8px rgba(245, 183, 177, 0.25);
+  --shadow-softer: 0 8px 30px rgba(245, 183, 177, 0.3);
 }
