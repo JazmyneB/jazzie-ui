@@ -1,11 +1,14 @@
+import React from 'react';
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
+import Footer from './components/Footer/Footer';
+import Hero from './components/Hero/Hero';
 
 function App() {
   return (
     <div className="app-container">
       <NavBar
-        brand={"🌸 JazzieUI"}
+        brand="🌸 JazzieUI"
         links={[
           { label: 'Home' },
           { label: 'Components' },
@@ -15,16 +18,11 @@ function App() {
         onLinkClick={(link) => console.log(`Clicked ${link.label}`)}
       />
 
-      <div className="hero">
-        <h1>Welcome to JazzieUI</h1>
-        <p className="hero-subtitle">Soft Girl meet Boss Tech Energy 🌸</p>
-        <button className="cta-button">Explore Components</button>
-      </div>
+      <Hero />
+
+      <Footer />
     </div>
   );
 }
 
 export default App;
-
-
-
