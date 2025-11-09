@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Hero Component matches snapshot for stable DOM structure 1`] = `
+<DocumentFragment>
+  <main
+    class="hero"
+  >
+    <div
+      animate="[object Object]"
+      class="floating-shape shape-1"
+      transition="[object Object]"
+    />
+    <div
+      animate="[object Object]"
+      class="floating-shape shape-2"
+      transition="[object Object]"
+    />
+    <div
+      class="glass-panel"
+    />
+    <div
+      animate="[object Object]"
+      class="hero-content"
+      initial="[object Object]"
+      transition="[object Object]"
+    >
+      <h1
+        animate="[object Object]"
+        class="hero-title"
+        style="background-size: 600% 600%; animation: gradientShift 10s ease infinite;"
+      >
+        Welcome to JazzieUI
+      </h1>
+      <p
+        class="hero-subtitle"
+      >
+        Where soft girl energy meets sleek design.
+        <br />
+         Get Jazzie with JazzieUI
+      </p>
+      <button
+        class="cta-button"
+        whilehover="[object Object]"
+        whiletap="[object Object]"
+      >
+        Explore Components
+      </button>
+    </div>
+  </main>
+</DocumentFragment>
+`;
