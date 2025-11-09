@@ -73,10 +73,23 @@ const Footer = ({
         </div>
         <div className="footer-bottom-right">
           <div className="footer-social">
-  {socialLinks.instagram && <a href={socialLinks.instagram}><FaInstagram /></a>}
-  {socialLinks.twitter && <a href={socialLinks.twitter}><FaTwitter /></a>}
-  {socialLinks.github && <a href={socialLinks.github}><FaGithub /></a>}
+  {socialLinks.instagram && (
+    <a href={socialLinks.instagram} aria-label="Instagram">
+      <FaInstagram />
+    </a>
+  )}
+  {socialLinks.twitter && (
+    <a href={socialLinks.twitter} aria-label="Twitter">
+      <FaTwitter />
+    </a>
+  )}
+  {socialLinks.github && (
+    <a href={socialLinks.github} aria-label="GitHub">
+      <FaGithub />
+    </a>
+  )}
 </div>
+
 
         </div>
       </div>
