@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   HiOutlineInformationCircle,
@@ -8,7 +9,12 @@ import {
 } from 'react-icons/hi2';
 import './Toast.css';
 
-const Toast = ({ message, type = 'info', show, onClose, duration = 2500 }) => {
+const Toast = ({ 
+    message, 
+    type = 'info', 
+    show, 
+    onClose, 
+    duration = 25000 }) => {
   useEffect(() => {
     if (show) {
       const timer = setTimeout(() => onClose?.(), duration);
@@ -42,5 +48,14 @@ const Toast = ({ message, type = 'info', show, onClose, duration = 2500 }) => {
     </AnimatePresence>
   );
 };
+
+Toast.propTypes = {
+    message: PropTypes.string.isRequired,
+    type: PropTypes.oneOf(['info', 'success', 'warning', 'error']),
+    show: PropTypes.bool.isRequired,
+    onClose: PropTypes.func,
+    duration: PropTypes.number,
+};
+
 
 export default Toast;
