@@ -7,16 +7,22 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-primary);
   pointer-events: none;
+
+  /* important: remove flex and let size fit content */
+  display: block;
+  width: auto;
+  transform-origin: center center; /* fix scale animation */
 }
+
+
+
 
 /* Glassy toast card */
 .toast-card {
   display: flex;
+  margin: 0;
+  width: 100%; /* optional, matches parent width */
   align-items: center;
   gap: var(--space-sm);
   padding: var(--space-md) var(--space-xl);
@@ -28,7 +34,6 @@
   text-align: center;
   animation: pulseGlow 6s ease-in-out infinite;
   transition: all 0.3s ease;
-  max-width: 320px;
   box-shadow: 0 8px 25px rgba(175, 9, 86, 0.08);
 }
 
