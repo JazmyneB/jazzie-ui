@@ -1,0 +1,52 @@
+import ButtonDocs from "./docs/ButtonDocs";
+
+export const componentsData = [
+  { 
+    name: "Button", 
+    component: <ButtonDocs />,
+  },
+  { 
+    name: "Input Fields", 
+    description: "Form-ready, accessible, with validation" 
+  },
+  { 
+    name: "Modal / Popup", 
+    description: "Reusable overlay modal with animation" 
+  },
+  { 
+    name: "Card Component", 
+    description: "Elegant containers for content or media" 
+  },
+  { 
+    name: "Navbar & Footer", 
+    description: "Responsive layout essentials" 
+  },
+  { 
+    name: "Alert / Toast Message", 
+    description: "Lightweight notification system" 
+  },
+  { 
+    name: "Gradient Buttons", 
+    description: "Blush-to-cream gradients ✨" 
+  },
+  { 
+    name: "Avatar + Badge", 
+    description: "Rounded, status-aware user images" 
+  },
+  { 
+    name: "Soft Toggle Switch", 
+    description: "Feminine and fluid motion toggles" 
+  },
+  { 
+    name: "Skeleton Loader", 
+    description: "Smooth animated placeholders" 
+  },
+  { 
+    name: "Tab Navigation", 
+    description: "Minimal and elegant tab system" 
+  },
+  { 
+    name: "Custom Scrollbar", 
+    description: "The perfect finishing touch 🌸" 
+  },
+];
