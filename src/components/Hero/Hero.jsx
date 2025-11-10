@@ -52,16 +52,6 @@ function Hero() {
         <motion.h1
           className="hero-title"
           animate={controls}
-          style={{
-            perspective: 1000,
-            transformStyle: 'preserve-3d',
-            background:
-              'linear-gradient(270deg, #af0956, #d60377, #e5989b, #fde2e4, #af0956)',
-            backgroundSize: '600% 600%',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            animation: 'gradientShift 10s ease infinite',
-          }}
         >
           Welcome to JazzieUI
         </motion.h1>
