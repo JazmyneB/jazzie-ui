@@ -3,14 +3,16 @@ import './App.css';
 import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
 import Hero from './components/Hero/Hero';
-import Loader from './components/Loader/Loader';
+import Tabs from './components/Tabs/Tabs'
 
 function App() {
-  const [on, setOn] = useState(false);
+  const tabs = [
+    { label: "Overview", content: <p>This is the overview content.</p> },
+    { label: "Details", content: <p>Details content goes here.</p> },
+    { label: "Settings", content: <p>Settings content goes here.</p> },
+  ];
 
-  const handleToggle = (e) => {
-    setOn(e.target.checked);
-  };
+
   return (
     <div className="app-container">
       <NavBar
@@ -29,6 +31,7 @@ function App() {
       style={{
         width: "300px",
         padding: "16px",
+        margin: '35px',
         backgroundColor: "var(--color-surface)",
         borderRadius: "var(--radius-md)",
         boxShadow: "var(--shadow-soft)",
@@ -37,16 +40,8 @@ function App() {
         gap: "12px",
       }}
     >
-      {/* Image Placeholder */}
-      <Loader type="card" />
+      <Tabs tabs={tabs} />
 
-      {/* Title Placeholder */}
-      <Loader type="text-lg" />
-
-      {/* Text Line Placeholders */}
-      <Loader type="text-md" />
-      <Loader type="text-md" />
-      <Loader type="text-sm" />
     </div>
 
 
