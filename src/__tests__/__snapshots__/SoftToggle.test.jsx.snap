@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SoftToggle Component matches snapshot 1`] = `
+<label
+  class="soft-toggle md "
+>
+  <input
+    checked=""
+    type="checkbox"
+  />
+  <span
+    class="slider"
+  />
+</label>
+`;
