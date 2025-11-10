@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JazzieButton Component matches snapshot for consistency 1`] = `
+<DocumentFragment>
+  <button
+    class="btn soft-blush"
+  >
+    <span
+      class="btn-label"
+    >
+      Snapshot
+    </span>
+  </button>
+</DocumentFragment>
+`;
