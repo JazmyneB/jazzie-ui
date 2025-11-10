@@ -1,3 +1,4 @@
+/* === Base Setup === */
 .soft-toggle {
   position: relative;
   display: inline-block;
@@ -19,7 +20,6 @@
   position: absolute;
   cursor: pointer;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: var(--color-secondary);
   border-radius: var(--radius-full);
   transition: background 0.4s ease, box-shadow 0.3s ease;
   box-shadow: inset 0 0 6px rgba(0,0,0,0.08);
@@ -30,56 +30,92 @@
   content: "";
   bottom: 3px;
   left: 3px;
-  background: linear-gradient(135deg, var(--blush), var(--rose));
   transition: transform 0.4s ease, background 0.4s ease;
   border-radius: 50%;
   box-shadow: 0 2px 6px var(--shadow);
 }
 
 /* knob sizes */
-.soft-toggle.sm .slider::before {
-  width: 14px;
-  height: 14px;
-  bottom: 3px;
-  left: 3px;
-}
+.soft-toggle.sm .slider::before { width: 14px; height: 14px; }
+.soft-toggle.md .slider::before { width: 22px; height: 22px; }
+.soft-toggle.lg .slider::before { width: 32px; height: 32px; }
 
-.soft-toggle.md .slider::before {
-  width: 22px;
-  height: 22px;
-  bottom: 3px;
-  left: 3px;
-}
-
-.soft-toggle.lg .slider::before {
-  width: 32px;
-  height: 32px;
-  bottom: 3px;
-  left: 3px;
-}
-
-/* === Checked states === */
-input:checked + .slider {
-  background: linear-gradient(135deg, var(--blush), var(--rose));;
-}
-
-.soft-toggle.sm input:checked + .slider::before {
-  transform: translateX(20px);
-}
-
-.soft-toggle.md input:checked + .slider::before {
-  transform: translateX(22px);
-}
-
-.soft-toggle.lg input:checked + .slider::before {
-  transform: translateX(32px);
-}
-
-input:checked + .slider::before {
-  background: linear-gradient(135deg, var(--deep-rose), var(--rose));
-}
-
+/* Disabled */
 .soft-toggle.disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+/* === Rose Variant === */
+.soft-toggle.rose .slider {
+  background: var(--color-secondary);
+}
+.soft-toggle.rose .slider::before {
+  background: linear-gradient(135deg, var(--blush), var(--rose));
+}
+.soft-toggle.rose input:checked + .slider {
+  background: linear-gradient(135deg, var(--deep-rose), var(--blush));
+}
+.soft-toggle.rose input:checked + .slider::before {
+  background: linear-gradient(135deg, var(--deep-rose), var(--rose));
+}
+
+/* === Blush Variant === */
+.soft-toggle.blush .slider {
+  background: linear-gradient(135deg, #fffafc, #fde2e4);
+}
+.soft-toggle.blush .slider::before {
+  background: linear-gradient(135deg, #fadadd, #fbcfe8);
+}
+.soft-toggle.blush input:checked + .slider {
+  background: linear-gradient(135deg, #fbcfe8, #e5989b);
+}
+.soft-toggle.blush input:checked + .slider::before {
+  background: linear-gradient(135deg, #e5989b, #fadadd);
+}
+
+/* === Accent Variant === */
+.soft-toggle.accent .slider {
+  background: linear-gradient(135deg, #fff8f6, #f5c0cb);
+}
+.soft-toggle.accent .slider::before {
+  background: linear-gradient(135deg, #e5989b, #d46a8c);
+}
+.soft-toggle.accent input:checked + .slider {
+  background: linear-gradient(135deg, #d60377, #af0956);
+}
+.soft-toggle.accent input:checked + .slider::before {
+  background: linear-gradient(135deg, #af0956, #fde2e4);
+}
+
+/* === Modern Tech Variant (Neo) === */
+.soft-toggle.neo .slider {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+    inset 2px 2px 6px rgba(255, 255, 255, 0.3),
+    inset -2px -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.soft-toggle.neo .slider::before {
+  background: radial-gradient(circle at 30% 30%, #fff, #ddd);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.soft-toggle.neo input:checked + .slider {
+  background: linear-gradient(135deg, var(--color-primary-hover), var(--color-primary));
+  box-shadow:
+    0 0 12px rgba(175, 9, 86, 0.4),
+    inset 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+.soft-toggle.neo input:checked + .slider::before {
+  background: radial-gradient(circle at 70% 70%, #fff, #f0c0d0);
+  box-shadow: 0 0 10px rgba(175, 9, 86, 0.3);
+}
+
+/* knob translation */
+.soft-toggle.sm input:checked + .slider::before { transform: translateX(20px); }
+.soft-toggle.md input:checked + .slider::before { transform: translateX(22px); }
+.soft-toggle.lg input:checked + .slider::before { transform: translateX(32px); }
