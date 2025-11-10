@@ -48,7 +48,7 @@ The goal:
 | Tab Navigation | Minimal and elegant tab system |
 | Custom Scrollbar | The perfect finishing touch 🌸 |
 
-- Started 11/09. Wave 2 Completion Set: 11/18, Actual Completion: 11/11
+- Started 11/09. Wave 2 Completion Set: 11/18, Actual Completion: 11/10
 
 ---
 
