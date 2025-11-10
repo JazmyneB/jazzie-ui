@@ -1,0 +1,145 @@
+@import '../../utils/_variables.css';
+
+/* Center the toast softly */
+.jazzie-toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  pointer-events: none;
+
+  /* important: remove flex and let size fit content */
+  display: block;
+  width: auto;
+  transform-origin: center center; /* fix scale animation */
+}
+
+
+
+
+/* Glassy toast card */
+.toast-card {
+  display: flex;
+  margin: 0;
+  width: 100%; /* optional, matches parent width */
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  pointer-events: all;
+  text-align: center;
+  animation: pulseGlow 6s ease-in-out infinite;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(175, 9, 86, 0.08);
+}
+
+/* Text */
+.toast-message {
+  font-size: var(--text-md);
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  color: var(--color-text);
+}
+
+/* Icons */
+.toast-icon {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+/* === Variant backgrounds (more distinct) === */
+
+/* Info — soft glass lavender–cream gradient */
+.jazzie-toast.info .toast-card {
+  background: radial-gradient(
+      circle at top left,
+      rgba(253, 242, 246, 0.95),
+      rgba(248, 229, 242, 0.7)
+    ),
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.2)
+    );
+  border: 1px solid rgba(175, 9, 86, 0.15);
+  box-shadow: 0 0 25px rgba(175, 9, 86, 0.08),
+    inset 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Success — minty-pink light gradient */
+.jazzie-toast.success .toast-card {
+  background: linear-gradient(
+    145deg,
+    rgba(236, 255, 244, 0.85),
+    rgba(220, 245, 230, 0.6)
+  );
+}
+
+/* Warning — warm honey glow */
+.jazzie-toast.warning .toast-card {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 249, 235, 0.9),
+    rgba(255, 241, 220, 0.6)
+  );
+}
+
+/* Error — deeper rose glow glass */
+.jazzie-toast.error .toast-card {
+  background: radial-gradient(
+      circle at top right,
+      rgba(255, 220, 230, 0.9),
+      rgba(214, 3, 119, 0.25)
+    ),
+    linear-gradient(
+      160deg,
+      rgba(245, 190, 200, 0.4),
+      rgba(240, 150, 170, 0.2)
+    );
+  border: 1px solid rgba(214, 3, 119, 0.25);
+  box-shadow: 0 0 20px rgba(214, 3, 119, 0.15),
+    inset 0 0 15px rgba(255, 255, 255, 0.15);
+  color: var(--color-dark-text);
+}
+
+/* === Icon color accents === */
+.info-icon {
+  color: var(--color-primary);
+  stroke-width: 1.5;
+  filter: drop-shadow(0 0 6px rgba(175, 9, 86, 0.25));
+}
+
+.success-icon {
+  color: #4caf50;
+  stroke-width: 1.5;
+  filter: drop-shadow(0 0 6px rgba(76, 175, 80, 0.25));
+}
+
+.warning-icon {
+  color: #fbc02d;
+  stroke-width: 1.5;
+  filter: drop-shadow(0 0 6px rgba(251, 192, 45, 0.25));
+}
+
+.error-icon {
+  color: var(--color-primary-hover);
+  stroke-width: 1.5;
+  filter: drop-shadow(0 0 6px rgba(214, 3, 119, 0.25));
+}
+
+/* Subtle breathing glow animation */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 12px rgba(175, 9, 86, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 22px rgba(229, 152, 155, 0.25);
+  }
+  100% {
+    box-shadow: 0 0 12px rgba(175, 9, 86, 0.1);
+  }
+}
