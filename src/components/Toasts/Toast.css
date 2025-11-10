@@ -3,17 +3,14 @@
 /* Center the toast softly */
 .jazzie-toast {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 9999;
   pointer-events: none;
-
-  /* important: remove flex and let size fit content */
-  display: block;
-  width: auto;
-  transform-origin: center center; /* fix scale animation */
 }
+
 
 
 
@@ -21,20 +18,19 @@
 /* Glassy toast card */
 .toast-card {
   display: flex;
-  margin: 0;
-  width: 100%; /* optional, matches parent width */
   align-items: center;
+  justify-content: center;
   gap: var(--space-sm);
   padding: var(--space-md) var(--space-xl);
   border-radius: var(--radius-md);
   backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
   border: 1px solid rgba(255, 255, 255, 0.4);
   pointer-events: all;
   text-align: center;
   animation: pulseGlow 6s ease-in-out infinite;
   transition: all 0.3s ease;
   box-shadow: 0 8px 25px rgba(175, 9, 86, 0.08);
+  max-width: 360px;
 }
 
 /* Text */

@@ -27,7 +27,6 @@ exports[`Hero Component matches snapshot for stable DOM structure 1`] = `
       <h1
         animate="[object Object]"
         class="hero-title"
-        style="background-size: 600% 600%; animation: gradientShift 10s ease infinite;"
       >
         Welcome to JazzieUI
       </h1>
