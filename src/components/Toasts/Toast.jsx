@@ -14,7 +14,7 @@ const Toast = ({
     type = 'info', 
     show, 
     onClose, 
-    duration = 25000 }) => {
+    duration = 2500 }) => {
   useEffect(() => {
     if (show) {
       const timer = setTimeout(() => onClose?.(), duration);

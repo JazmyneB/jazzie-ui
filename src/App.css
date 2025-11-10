@@ -5,99 +5,6 @@
   width: 100%;
 }
 
-/* Full viewport hero layout */
-.hero {
-  position: relative;
-  min-height: 100vh; /* full viewport height */
-  display: flex;
-  padding-top: 100px;
-  top: 30px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  overflow: hidden;
-  border-radius: var(--radius-md);
-
-  /* Conic gradient flipped (dark part on right) */
-  background: conic-gradient(
-  from 180deg at 50% 50%, 
-  #fde2e4, #f8c8d8, #fadadd, #af0956, #fde2e4
-);
-
-
-  color: var(--color-dark-text);
-  font-family: var(--font-primary);
-  transition: background 1s ease;
-}
-
-/* .hero {
-  background: conic-gradient(
-  from 180deg at 50% 50%, 
-  #fde2e4, #f8c8d8, #fadadd, #af0956, #fde2e4);
-  background-size: 200% 200%;
-  animation: slideBackground 10s ease-in 1;
-}
-
-@keyframes slideBackground {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-} */
-
-/* Heading style */
-.hero h1 {
-  font-family: var(--font-accent);
-  font-size: 4rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  background: linear-gradient(90deg, #af0956, #d60377, #fadadd, #f8c8d8);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; 
-  background-clip: text;
-}
-
-/* Updated subtitle */
-.hero-subtitle {
-  font-size: 1.5rem;
-  color: var(--muted);
-  margin-bottom: 2rem;
-}
-
-/* Left image blurred */
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 100%;
-  background-image: url('./assets/RoboRose.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: left center;
-  filter: blur(3px) opacity(0.4);
-  z-index: 1;
-  border-radius: var(--radius-md) 0 0 var(--radius-md);
-}
-
-/* Right image mirrored */
-.hero::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50%;
-  height: 100%;
-  background-image: url('./assets/RoboRose.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: right center;
-  transform: scaleX(-1);
-  filter: blur(3px) opacity(0.4);
-  z-index: 1;
-  border-radius: 0 var(--radius-md) var(--radius-md) 0;
-} 
-
 /* CTA button */
 .cta-button {
   padding: 0.8rem 2rem;
@@ -115,18 +22,9 @@
 
 .cta-button:hover {
   transform: translateY(-3px);
+  background: var(--color-primary-hover);
   box-shadow: 0 12px 20px rgba(175, 9, 86, 0.4);
 }
-
-/* Conic rotation animation
-@keyframes rotateConic {
-  from {
-    background: conic-gradient(from 180deg at 50% 50%, #fde2e4, #af0956, #fadadd, #f8c8d8, #fde2e4);
-  }
-  to {
-    background: conic-gradient(from 540deg at 50% 50%, #fde2e4, #af0956, #fadadd, #f8c8d8, #fde2e4);
-  }
-} */
 
 /* Responsive adjustments */
 @media (max-width: 768px) {

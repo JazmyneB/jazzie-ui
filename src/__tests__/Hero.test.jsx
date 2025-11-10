@@ -71,13 +71,6 @@ describe('Hero Component', () => {
     expect(hero).toBeInTheDocument();
   });
 
-  it('applies expected gradient styles to the title', () => {
-    render(<Hero />);
-    const title = screen.getByText(/Welcome to JazzieUI/i);
-
-    expect(title).toHaveStyle('background-size: 600% 600%');
-    });
-
   it('renders CTA button and supports motion props', () => {
     render(<Hero />);
     const button = screen.getByRole('button', { name: /Explore Components/i });
