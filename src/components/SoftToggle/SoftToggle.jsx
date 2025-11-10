@@ -6,10 +6,13 @@ const SoftToggle = ({
   checked,
   onChange,
   size = 'md',
-  disabled = false
+  disabled = false,
+  variant = 'rose', // rose | blush | accent | neo
 }) => {
   return (
-    <label className={`soft-toggle ${size} ${disabled ? 'disabled' : ''}`}>
+    <label
+      className={`soft-toggle ${size} ${variant} ${disabled ? 'disabled' : ''}`}
+    >
       <input
         type="checkbox"
         checked={checked}
@@ -26,6 +29,7 @@ SoftToggle.propTypes = {
   onChange: PropTypes.func.isRequired,
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
   disabled: PropTypes.bool,
+  variant: PropTypes.oneOf(['rose', 'blush', 'accent', 'neo']),
 };
 
 export default SoftToggle;

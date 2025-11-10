@@ -2,7 +2,7 @@
 
 exports[`SoftToggle Component matches snapshot 1`] = `
 <label
-  class="soft-toggle md "
+  class="soft-toggle md rose "
 >
   <input
     checked=""
