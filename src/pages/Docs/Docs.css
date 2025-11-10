@@ -1,0 +1,58 @@
+@import '../../utils/_variables.css';
+
+.docs-container {
+  padding: 2rem;
+  padding-top: 100px;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-primary);
+}
+
+.docs-container h1 {
+  font-family: var(--font-accent);
+  font-size: var(--text-xl);
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+}
+
+.docs-container h2 {
+  font-family: var(--font-accent);
+  color: var(--color-deep-rose);
+  font-size: var(--text-lg);
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-sm);
+}
+
+.docs-container p {
+  color: var(--body);
+  font-size: var(--text-md);
+  line-height: 1.6;
+  margin-bottom: var(--space-md);
+}
+
+.code-block {
+  background-color: var(--paper);
+  color: var(--muted);
+  font-family: 'Courier New', monospace;
+  font-size: var(--text-sm);
+  border: 1px solid var(--grid);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-soft);
+  overflow-x: auto;
+  white-space: pre-wrap;
+  margin-bottom: var(--space-lg);
+}
+
+.code-block code {
+  display: block;
+  color: var(--color-text);
+}
+
+.code-block:hover {
+  background-color: var(--cream);
+  transform: translateY(-1px);
+  transition: all 0.2s ease-in-out;
+}

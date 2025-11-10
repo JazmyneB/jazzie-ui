@@ -5,7 +5,7 @@ import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
 import Hero from './components/Hero/Hero';
 import Tabs from './components/Tabs/Tabs';
-import Docs from './pages/Docs';
+import Docs from './pages/Docs/Docs';
 import ComponentsPage from './pages/ComponentsPage/ComponentsPage';
 
 function App() {
