@@ -1,0 +1,86 @@
+@import '../../utils/_variables.css';
+
+.btn {
+  color: #fff;
+  padding: 0.8rem 2.2rem;
+  border: none;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  transition: all 0.4s ease;
+  box-shadow: 0 6px 20px rgba(175, 9, 86, 0.25);
+}
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(214, 3, 119, 0.4);
+}
+
+.aurora {
+    background: linear-gradient(135deg, var(--grid), #e5989b, #fadadd);
+    animation: auroraShift 8s ease-in-out infinite;
+}
+
+@keyframes auroraShift {
+  0% { background-position: 0% 0%; filter: brightness(1); }
+  50% { background-position: 100% 100%; filter: brightness(1.15); }
+  100% { background-position: 0% 0%; filter: brightness(1); }
+}
+
+.aurora:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 25px rgba(175, 9, 86, 0.3);
+}
+
+.pearl-glass {
+    background: linear-gradient(135deg, #fde2e4, #fadadd, #fbcfe8);
+}
+
+.pearl-glass:hover {
+  box-shadow: 0 6px 20px rgba(214, 3, 119, 0.35);
+  transform: translateY(-3px);
+}
+
+.radiant {
+  background: linear-gradient(270deg, #af0956, #d60377, #fadadd, #fde2e4);
+  background-size: 300% 300%;
+  animation: gradientMove 6s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.rose-quartz {
+    background: linear-gradient(120deg, #af0956, #d60377, #fadadd);
+    animation: quartzPulse 5s ease-in-out infinite;
+}
+
+@keyframes quartzPulse {
+  0%, 100% { filter: drop-shadow(0 0 8px rgba(214, 3, 119, 0.3)); }
+  50% { filter: drop-shadow(0 0 15px rgba(214, 3, 119, 0.45)); }
+}
+
+.rose-quartz:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(214, 3, 119, 0.35);
+}
+
+.soft-blush {
+  background: linear-gradient(135deg, var(--blush), var(--rose), var(--cream));
+  animation: blushBreathe 9s ease-in-out infinite;
+}
+
+@keyframes blushBreathe {
+  0% { background-position: 0% 50%; opacity: 0.95; }
+  50% { background-position: 100% 50%; opacity: 1; }
+  100% { background-position: 0% 50%; opacity: 0.95; }
+}
+
+.soft-blush:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(214, 3, 119, 0.25);
+}
+
+
+
