@@ -1,0 +1,85 @@
+.soft-toggle {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+}
+
+.soft-toggle.sm { width: 40px; height: 20px; }
+.soft-toggle.md { width: 50px; height: 28px; }
+.soft-toggle.lg { width: 70px; height: 38px; }
+
+.soft-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--color-secondary);
+  border-radius: var(--radius-full);
+  transition: background 0.4s ease, box-shadow 0.3s ease;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.08);
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  bottom: 3px;
+  left: 3px;
+  background: linear-gradient(135deg, var(--blush), var(--rose));
+  transition: transform 0.4s ease, background 0.4s ease;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px var(--shadow);
+}
+
+/* knob sizes */
+.soft-toggle.sm .slider::before {
+  width: 14px;
+  height: 14px;
+  bottom: 3px;
+  left: 3px;
+}
+
+.soft-toggle.md .slider::before {
+  width: 22px;
+  height: 22px;
+  bottom: 3px;
+  left: 3px;
+}
+
+.soft-toggle.lg .slider::before {
+  width: 32px;
+  height: 32px;
+  bottom: 3px;
+  left: 3px;
+}
+
+/* === Checked states === */
+input:checked + .slider {
+  background: linear-gradient(135deg, var(--blush), var(--rose));;
+}
+
+.soft-toggle.sm input:checked + .slider::before {
+  transform: translateX(20px);
+}
+
+.soft-toggle.md input:checked + .slider::before {
+  transform: translateX(22px);
+}
+
+.soft-toggle.lg input:checked + .slider::before {
+  transform: translateX(32px);
+}
+
+input:checked + .slider::before {
+  background: linear-gradient(135deg, var(--deep-rose), var(--rose));
+}
+
+.soft-toggle.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
