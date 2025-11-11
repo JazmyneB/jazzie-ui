@@ -19,7 +19,7 @@
 
 .docs-container h2 {
   font-family: var(--font-accent);
-  color: var(--color-deep-rose);
+  color: var(--deep-rose);
   font-size: var(--text-lg);
   margin-top: var(--space-lg);
   margin-bottom: var(--space-sm);
@@ -32,7 +32,9 @@
   margin-bottom: var(--space-md);
 }
 
+/* Code Block */
 .code-block {
+  position: relative;
   background-color: var(--paper);
   color: var(--muted);
   font-family: 'Courier New', monospace;
@@ -44,15 +46,43 @@
   overflow-x: auto;
   white-space: pre-wrap;
   margin-bottom: var(--space-lg);
-}
-
-.code-block code {
-  display: block;
-  color: var(--color-text);
+  transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
 .code-block:hover {
   background-color: var(--cream);
   transform: translateY(-1px);
+}
+
+/* Copy Button */
+.copy-btn {
+  position: absolute;
+  top: var(--space-xs);
+  right: var(--space-xs);
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  border: none;
+  font-size: var(--text-sm);
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
   transition: all 0.2s ease-in-out;
+  box-shadow: var(--shadow-soft);
+}
+
+.copy-btn:hover {
+  background-color: var(--color-primary);
+  color: var(--color-dark-text);
+}
+
+.copy-btn:active {
+  transform: scale(0.95);
+}
+
+/* Copied State */
+.copy-btn:disabled,
+.copy-btn.copied {
+  background-color: var(--color-primary-hover);
+  color: var(--color-dark-text);
+  cursor: default;
 }

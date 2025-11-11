@@ -1,0 +1,142 @@
+@import '../../utils/_variables.css';
+
+.docs-container {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: var(--font-primary);
+  color: var(--color-text);
+  animation: fadeIn 0.4s ease-in-out;
+  background-color: var(--color-bg);
+}
+
+/* Headings */
+.docs-container h1 {
+  font-family: var(--font-accent);
+  font-size: var(--text-xl);
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+}
+
+.docs-container h2 {
+  font-family: var(--font-accent);
+  font-size: var(--text-lg);
+  color: var(--color-accent);
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-sm);
+}
+
+/* Paragraphs */
+.docs-container p {
+  color: var(--color-body);
+  font-size: var(--text-md);
+  line-height: 1.6;
+  margin-bottom: var(--space-md);
+}
+
+/* Live Example Area */
+.input-preview {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  background-color: var(--color-surface);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  margin-bottom: var(--space-lg);
+}
+
+/* Code Block */
+.code-block {
+  position: relative;
+  background: var(--color-paper);
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  font-family: 'Fira Code', monospace;
+  font-size: 14px;
+  color: var(--color-text);
+  overflow-x: auto;
+  white-space: pre-wrap;
+  border: 1px solid var(--color-muted);
+  box-shadow: 0 2px 4px rgba(230, 180, 190, 0.2);
+  margin-bottom: var(--space-lg);
+}
+
+/* Copy Button */
+.copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  border: none;
+  font-size: var(--text-sm);
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: var(--shadow-soft);
+}
+
+.copy-btn:hover {
+  background-color: var(--color-primary);
+  color: var(--color-dark-text);
+}
+
+/* Props Table */
+.props-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--space-md);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.props-table th,
+.props-table td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--color-muted);
+}
+
+.props-table th {
+  background-color: var(--color-primary);
+  color: var(--color-dark-text);
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.props-table td code {
+  background: var(--color-paper);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--color-primary);
+  font-family: 'Fira Code', monospace;
+  font-size: 13px;
+}
+
+/* Tips List */
+.docs-container ul {
+  margin-top: var(--space-md);
+  margin-left: var(--space-lg);
+  color: var(--color-body);
+  font-size: var(--text-md);
+}
+
+.docs-container li {
+  margin-bottom: 8px;
+}
+
+/* Subtle Fade Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
