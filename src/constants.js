@@ -1,4 +1,6 @@
-import ButtonDocs from "./docs/ButtonDocs";
+import ButtonDocs from "./docs/ButtonDocs/ButtonDocs";
+import InputDocs from "./docs/InputDocs/InputDocs";
+import ModalDocs from "./docs/ModalDocs/ModalDocs";
 
 export const componentsData = [
   { 
@@ -7,11 +9,11 @@ export const componentsData = [
   },
   { 
     name: "Input Fields", 
-    description: "Form-ready, accessible, with validation" 
+    component: <InputDocs />, 
   },
   { 
     name: "Modal / Popup", 
-    description: "Reusable overlay modal with animation" 
+    component: <ModalDocs />
   },
   { 
     name: "Card Component", 

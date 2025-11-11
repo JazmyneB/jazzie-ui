@@ -4,17 +4,10 @@ import './App.css';
 import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
 import Hero from './components/Hero/Hero';
-import Tabs from './components/Tabs/Tabs';
-import Docs from './pages/Docs/Docs';
+import Docs from './pages/DocsPage/DocsPage';
 import ComponentsPage from './pages/ComponentsPage/ComponentsPage';
 
 function App() {
-  const tabs = [
-    { label: "Overview", content: <p>This is the overview content.</p> },
-    { label: "Details", content: <p>Details content goes here.</p> },
-    { label: "Settings", content: <p>Settings content goes here.</p> },
-  ];
-
   return (
     <Router>
       <div className="app-container">
@@ -42,7 +35,6 @@ function App() {
               gap: "12px",
             }}
           >
-            <Tabs tabs={tabs} />
           </div></>} />
           
           <Route path="/docs" element={<Docs />} />
