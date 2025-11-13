@@ -1,17 +1,33 @@
 import React, { useState } from "react";
 import Modal from "../../components/Modal/Modal";
+import Button from "../../components/PrimaryButton/Button";
 import DocsLayout from "../DocsLayout/DocsLayout";
+import "../ButtonDocs/ButtonDocs.css";
 
 const ModalDocs = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isElevatedOpen, setIsElevatedOpen] = useState(false);
   const [isDarkOpen, setIsDarkOpen] = useState(false);
 
-  const exampleButtons = [
-    { label: "Open Soft Modal", variant: "primary", onClick: () => setIsOpen(true) },
-    { label: "Open Elevated Modal", variant: "secondary", onClick: () => setIsElevatedOpen(true) },
-    { label: "Open Dark Modal", variant: "tertiary", onClick: () => setIsDarkOpen(true) },
-  ];
+  const example = (
+    <div className="button-preview">
+        <Button 
+        buttonType='primary'
+        onClick={()=> setIsOpen(true)}
+        text='Open Soft Modal'
+        />
+        <Button
+        buttonType='secondary'
+        onClick={()=> setIsElevatedOpen(true)}
+        text='Open Elevated Modal'
+        />
+        <Button
+        buttonType='tertiary'
+        onClick={()=> setIsDarkOpen(true)}
+        text='Open Dark Modal'
+        />
+    </div>
+  )
 
   const codeExample = `import React, { useState } from 'react';
 import { Modal } from 'jazzie-ui';
@@ -53,7 +69,6 @@ export default App;`;
 
   return (
     <>
-      {/* Modal instances */}
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} title="Soft Modal 🌷" variant="soft">
         <p>This is a gentle and elegant modal — perfect for subtle messages.</p>
       </Modal>
@@ -66,7 +81,6 @@ export default App;`;
         <p>Ideal for darker layouts or night-mode themes.</p>
       </Modal>
 
-      {/* DocsLayout */}
       <DocsLayout
         title="Modal / Popup Component 🌸"
         description={
@@ -77,11 +91,12 @@ export default App;`;
             variants for different moods or themes.
           </>
         }
-        exampleButtons={exampleButtons}
         codeExample={codeExample}
         propsTable={propsTable}
         tips={tips}
-      />
+      >
+        {example} 
+      </DocsLayout>
     </>
   );
 };

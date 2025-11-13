@@ -158,6 +158,17 @@
   line-height: 1.6;
 }
 
+.input-preview {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  background-color: var(--color-surface);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  margin-bottom: var(--space-lg);
+}
+
 /* ===== Fade Animation ===== */
 @keyframes fadeIn {
   from {
