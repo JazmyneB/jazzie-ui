@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import './NavBar.css';
 import Button from '../PrimaryButton/Button';
 
 const NavBar = ({
   brand,
   links,
-  onLinkClick
 }) => {
+  const navigate = useNavigate();
   return (
      <nav className="navbar">
   <div className="navbar-left">
@@ -18,7 +19,7 @@ const NavBar = ({
     <ul className="navbar-links">
       {links.map((link, index) => (
         <li key={index} className="navbar-item">
-          <button className="navbar-link" onClick={() => onLinkClick && onLinkClick(link)}>
+          <button className="navbar-link" onClick={() => link.path && navigate(link.path)}>
             {link.label}
           </button>
         </li>
@@ -42,7 +43,6 @@ NavBar.propTypes = {
       href: PropTypes.string
     })
   ).isRequired,
-  onLinkClick: PropTypes.func
 };
 
 export default NavBar;

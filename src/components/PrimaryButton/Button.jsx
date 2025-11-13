@@ -15,6 +15,7 @@ const Button = ({
             onClick={onClick}
             disabled={disabled}
             className={`button ${buttonType}`}
+            data-testid={`btn-${buttonType}`}
         > {children || text}
         </button>
     )
