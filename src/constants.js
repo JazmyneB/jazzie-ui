@@ -1,6 +1,7 @@
 import ButtonDocs from "./docs/ButtonDocs/ButtonDocs";
 import InputDocs from "./docs/InputDocs/InputDocs";
 import ModalDocs from "./docs/ModalDocs/ModalDocs";
+import CardDocs from "./docs/CardDocs/CardDocs";
 
 export const componentsData = [
   { 
@@ -17,7 +18,7 @@ export const componentsData = [
   },
   { 
     name: "Card Component", 
-    description: "Elegant containers for content or media" 
+    component: <CardDocs />
   },
   { 
     name: "Navbar & Footer", 
