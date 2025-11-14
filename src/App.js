@@ -22,20 +22,12 @@ function App() {
         />
 
         <Routes>
-          <Route path="/" element={<><Hero /><div
-            style={{
-              width: "300px",
-              padding: "16px",
-              margin: '35px',
-              backgroundColor: "var(--color-surface)",
-              borderRadius: "var(--radius-md)",
-              boxShadow: "var(--shadow-soft)",
-              display: "flex",
-              flexDirection: "column",
-              gap: "12px",
-            }}
-          >
-          </div></>} />
+          <Route 
+          path="/" 
+          element=
+          {
+            <Hero />
+          } />
           
           <Route path="/docs" element={<Docs />} />
           <Route path="/components" element={<ComponentsPage />} />
