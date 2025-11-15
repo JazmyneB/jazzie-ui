@@ -111,9 +111,15 @@
   font-size: 4.5rem;
   transform-style: preserve-3d;
   perspective: 1000;
-  background: linear-gradient(270deg, #af0956, #d60377, #e5989b, #fde2e4, #af0956);
+  background: linear-gradient(
+    270deg,
+    var(--color-primary),
+    var(--color-primary-hover),
+    var(--color-accent),
+    var(--color-secondary),
+    var(--color-primary)
+  );
   background-size: 600% 600%;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradientShift 10s ease infinite;
 }
