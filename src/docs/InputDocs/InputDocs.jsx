@@ -47,7 +47,7 @@ export default App;`;
 
   const tips = [
     "Keep your labels short and descriptive for accessibility.",
-    'Use type=\"email\" or type=\"password\" for better validation UX.',
+    'Use type="email" or type="password" for better validation UX.',
     "Combine with Modal or Card components for cohesive layouts."
   ];
 

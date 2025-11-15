@@ -42,10 +42,12 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.0",
-    "jest": "^27.5.1",
     "sass": "^1.93.2"
   },
   "jest": {
+    "transformIgnorePatterns": [
+      "/node_modules/(?!react-router-dom)/"
+    ],
     "coverageThreshold": {
       "global": {
         "branches": 80,
