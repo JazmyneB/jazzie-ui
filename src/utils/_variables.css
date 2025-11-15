@@ -248,4 +248,5 @@
   --radius-md: 12px;
   --radius-full: 9999px;
   --shadow-soft: 0 4px 8px rgba(245, 183, 177, 0.25);
+  --navbar-height: 80px;
 }
