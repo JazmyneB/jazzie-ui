@@ -1,70 +1,58 @@
-import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import ThemeSwitcher from "../components/ThemeSwitcher/ThemeSwitcher";
+import { ThemeContext } from "../context/ThemeContext";
 
-// Mock ThemeContext
-jest.mock("../context/ThemeContext", () => ({
-  useTheme: () => ({
-    theme: mockTheme,
-    setTheme: mockSetTheme,
-  }),
-}));
+describe("ThemeSwitcher", () => {
+  const mockSetTheme = jest.fn();
 
-let mockTheme = "rose";
-const mockSetTheme = jest.fn();
+  const renderWithTheme = (theme = "rose") => {
+    render(
+      <ThemeContext.Provider value={{ theme, setTheme: mockSetTheme }}>
+        <ThemeSwitcher />
+      </ThemeContext.Provider>
+    );
+  };
 
-describe("ThemeSwitcher Component", () => {
   beforeEach(() => {
-    mockTheme = "rose";  // reset theme
     mockSetTheme.mockClear();
   });
 
-  test("renders all four theme buttons", () => {
-    render(<ThemeSwitcher />);
-    
-    expect(screen.getByText("🌸 Rose")).toBeInTheDocument();
-    expect(screen.getByText("💙 Royal Blue")).toBeInTheDocument();
-    expect(screen.getByText("🤎 Neutral")).toBeInTheDocument();
-    expect(screen.getByText("⚪ Silver")).toBeInTheDocument();
+  it("renders all theme buttons", () => {
+    renderWithTheme();
+
+    const buttons = [
+      "🌸 Rose",
+      "💙 Royal Blue",
+      "🤎 Neutral",
+      "⚪ Silver",
+      "🍭 Cotton Candy",
+      "💜 Lavender Dream",
+      "🥛 Milk Tea",
+      "🌿 Pastel Mint",
+      "🍃 Jaded",
+    ];
+
+    buttons.forEach((text) => {
+      expect(screen.getByText(text)).toBeInTheDocument();
+    });
   });
 
-  test("renders Rose theme as active by default", () => {
-    render(<ThemeSwitcher />);
-    
-    const roseButton = screen.getByText("🌸 Rose");
-    expect(roseButton.classList.contains("active-theme")).toBe(true);
-  });
+  it("calls setTheme with correct theme when button is clicked", () => {
+    renderWithTheme();
 
-  test("clicking Royal Blue button calls setTheme('royal-blue')", () => {
-    render(<ThemeSwitcher />);
-    
     fireEvent.click(screen.getByText("💙 Royal Blue"));
     expect(mockSetTheme).toHaveBeenCalledWith("royal-blue");
+
+    fireEvent.click(screen.getByText("🥛 Milk Tea"));
+    expect(mockSetTheme).toHaveBeenCalledWith("milk-tea");
   });
 
-  test("clicking Neutral button calls setTheme('neutral')", () => {
-    render(<ThemeSwitcher />);
-    
-    fireEvent.click(screen.getByText("🤎 Neutral"));
-    expect(mockSetTheme).toHaveBeenCalledWith("neutral");
-  });
+  it("applies active-theme class to current theme", () => {
+    renderWithTheme("jaded");
+    const jadedButton = screen.getByText("🍃 Jaded");
+    expect(jadedButton).toHaveClass("active-theme");
 
-  test("clicking Silver button calls setTheme('silver')", () => {
-    render(<ThemeSwitcher />);
-    
-    fireEvent.click(screen.getByText("⚪ Silver"));
-    expect(mockSetTheme).toHaveBeenCalledWith("silver");
-  });
-
-  test("active class moves when theme changes", () => {
-    // first render as rose
-    mockTheme = "royal-blue"; // simulate context theme change
-    render(<ThemeSwitcher />);
-
-    const royalBlue = screen.getByText("💙 Royal Blue");
-    expect(royalBlue.classList.contains("active-theme")).toBe(true);
-
-    const rose = screen.getByText("🌸 Rose");
-    expect(rose.classList.contains("active-theme")).toBe(false);
+    const roseButton = screen.getByText("🌸 Rose");
+    expect(roseButton).not.toHaveClass("active-theme");
   });
 });

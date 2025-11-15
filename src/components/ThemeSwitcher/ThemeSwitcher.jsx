@@ -36,6 +36,20 @@ export default function ThemeSwitcher() {
       >
         ⚪ Silver
       </button>
+
+      <button style={styles.button} onClick={() => setTheme("cotton-candy")} className={theme === "cotton-candy" ? "active-theme" : ""}>🍭 Cotton Candy</button>
+<button style={styles.button} onClick={() => setTheme("lavender-dream")} className={theme === "lavender-dream" ? "active-theme" : ""}>💜 Lavender Dream</button>
+<button style={styles.button} onClick={() => setTheme("milk-tea")} className={theme === "milk-tea" ? "active-theme" : ""}>🥛 Milk Tea</button>
+<button style={styles.button} onClick={() => setTheme("pastel-mint")} className={theme === "pastel-mint" ? "active-theme" : ""}>🌿 Pastel Mint</button>
+    <button
+    style={styles.button}
+  onClick={() => setTheme("jaded")}
+  className={theme === "jaded" ? "active-theme" : ""}
+>
+  🍃 Jaded
+</button>
+
+
     </div>
   );
 }
