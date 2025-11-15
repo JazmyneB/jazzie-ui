@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, within } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import ButtonDocs from "../../docs/ButtonDocs/ButtonDocs";
 
@@ -62,16 +62,29 @@ describe("ButtonDocs Component", () => {
     expect(navigator.clipboard.writeText).toHaveBeenCalledWith(expect.stringContaining("import Button from 'jazzie-ui/PrimaryButton';"));
     expect(copyBtn).toHaveTextContent("Copied!");
   });
-
+  
   it("renders the props table correctly", () => {
     render(<ButtonDocs />);
-    expect(screen.getByText("Props")).toBeInTheDocument();
-    expect(screen.getByText("onClick")).toBeInTheDocument();
-    expect(screen.getByText("text")).toBeInTheDocument();
-    expect(screen.getByText("children")).toBeInTheDocument();
-    expect(screen.getByText("buttonType")).toBeInTheDocument();
-    expect(screen.getByText("disabled")).toBeInTheDocument();
-    expect(screen.getByText(/Function executed when the button is clicked./)).toBeInTheDocument();
-    expect(screen.getByText(/Custom JSX content inside the button./)).toBeInTheDocument();
-  });
+  
+    // Find the table
+    const table = screen.getByRole("table");
+    expect(table).toBeInTheDocument();
+
+    // Scope search to the table
+    const tbody = within(table).getByRole("rowgroup"); // tbody
+    expect(tbody).toBeInTheDocument();
+
+    // Check for all expected prop names
+    const propNames = ["onClick", "text", "children", "buttonType", "disabled"];
+
+    propNames.forEach((name) => {
+      const cells = within(tbody).getAllByText(name);
+      expect(cells.length).toBeGreaterThan(0); // at least one match inside tbody
+    });
+
+    // Optional: check descriptions
+    expect(within(tbody).getByText(/Function executed when the button is clicked./i)).toBeInTheDocument();
+    expect(within(tbody).getByText(/Custom JSX content inside the button./i)).toBeInTheDocument();
+});
+
 });

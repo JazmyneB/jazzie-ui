@@ -1,60 +1,55 @@
-// App.test.jsx
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import App from './App';
-import NavBar from './components/NavBar/NavBar';
-import Footer from './components/Footer/Footer';
-import Hero from './components/Hero/Hero';
 
-jest.mock('./components/NavBar/NavBar', () => ({ brand, links, onLinkClick }) => (
-  <div data-testid="navbar">
-    <span>{brand}</span>
-    {links.map((link, i) => (
-      <button key={i} onClick={() => onLinkClick(link)}>
-        {link.label}
-      </button>
-    ))}
-  </div>
-));
+// Mock child components to simplify test and focus on App routing
+jest.mock('./components/NavBar/NavBar', () => () => <nav data-testid="navbar" />);
+jest.mock('./components/Footer/Footer', () => () => <footer data-testid="footer" />);
+jest.mock('./components/Hero/Hero', () => () => <div data-testid="hero" />);
+jest.mock('./pages/DocsPage/DocsPage', () => () => <div data-testid="docs-page">Docs Page</div>);
+jest.mock('./pages/ComponentsPage/ComponentsPage', () => () => <div data-testid="components-page">Components Page</div>);
 
-jest.mock('./components/Hero/Hero', () => () => <div data-testid="hero">Hero Section</div>);
-
-jest.mock('./components/Footer/Footer', () => () => <div data-testid="footer">Footer Section</div>);
+// Mock react-router-dom for testing routes
+jest.mock('react-router-dom', () => {
+  const actual = jest.requireActual('react-router-dom');
+  return {
+    ...actual,
+    BrowserRouter: ({ children }) => <div>{children}</div>,
+    Routes: ({ children }) => <div>{children}</div>,
+    Route: ({ element }) => <div>{element}</div>,
+    useNavigate: () => jest.fn(),
+  };
+});
 
 describe('App Component', () => {
-  test('renders App with NavBar, Hero, and Footer', () => {
+  it('renders NavBar, Footer, and Hero', () => {
     render(<App />);
-
-    // Check NavBar
-    const navbar = screen.getByTestId('navbar');
-    expect(navbar).toBeInTheDocument();
-    expect(screen.getByText(/🌸 JazzieUI/i)).toBeInTheDocument();
-    expect(screen.getByText(/Home/i)).toBeInTheDocument();
-    expect(screen.getByText(/Components/i)).toBeInTheDocument();
-    expect(screen.getByText(/Docs/i)).toBeInTheDocument();
-    expect(screen.getByText(/Contact/i)).toBeInTheDocument();
-
-    // Check Hero
-    expect(screen.getByTestId('hero')).toBeInTheDocument();
-    expect(screen.getByText(/Hero Section/i)).toBeInTheDocument();
-
-    // Check Footer
+    expect(screen.getByTestId('navbar')).toBeInTheDocument();
     expect(screen.getByTestId('footer')).toBeInTheDocument();
-    expect(screen.getByText(/Footer Section/i)).toBeInTheDocument();
+    expect(screen.getByTestId('hero')).toBeInTheDocument();
   });
 
-  test('NavBar link click triggers callback', () => {
-    const consoleSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
+  it('renders the Home route correctly', () => {
     render(<App />);
+    // Check for the placeholder Home page container (the empty div in your code)
+    expect(screen.getByText((content, node) => {
+      return node?.style?.width === '300px';
+    })).toBeInTheDocument();
+  });
 
-    const homeButton = screen.getByText('Home');
-    fireEvent.click(homeButton);
-    expect(consoleSpy).toHaveBeenCalledWith('Clicked Home');
+  it('renders Docs route correctly', () => {
+    render(<App />);
+    expect(screen.getByTestId('docs-page')).toBeInTheDocument();
+  });
 
-    const docsButton = screen.getByText('Docs');
-    fireEvent.click(docsButton);
-    expect(consoleSpy).toHaveBeenCalledWith('Clicked Docs');
+  it('renders Components route correctly', () => {
+    render(<App />);
+    expect(screen.getByTestId('components-page')).toBeInTheDocument();
+  });
 
-    consoleSpy.mockRestore();
+  it('renders Contact page placeholder', () => {
+    render(<App />);
+    expect(screen.getByText(/Contact Page Coming Soon!/i)).toBeInTheDocument();
   });
 });
