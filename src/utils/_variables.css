@@ -74,29 +74,156 @@
 }
 
 /* -------------------------------------------------- */
-/*  SILVER TECH — soft girl chrome                    */
+/*  WARM SILVER — soft girl chrome                   */
 /* -------------------------------------------------- */
 :root[data-theme="silver"] {
-  --color-primary: #6E6E78;
-  --color-primary-hover: #8F8F99;
-  --color-secondary: #E6E7EB;
-  --color-accent: #C5C6CC;
-  --color-bg: #F8F8F9;
-  --color-surface: #ffffff;
-  --color-text: #3a3a40;
+  --color-primary: #B0B0C0;          /* soft gray with warmth */
+  --color-primary-hover: #C0C0D0;
+  --color-secondary: #E0E0E5;        /* light, soft background accent */
+  --color-accent: #D1D1E0;           /* gentle lavender-tinted silver */
+  --color-bg: #F6F6F8;               /* page background */
+  --color-surface: #ffffff;          /* card/modal surface */
+  --color-text: #3A3A40;             /* deep gray for readability */
   --color-muted: #A8A8B0;
 
-  --blush:#ececee;
-  --rose:#cfcfd4;
-  --deep-rose:#8b8c91;
-  --cream:#fbfbfc;
-  --muted:#5e6066;
-  --paper:#ffffff;
-  --grid:#d8d8de;
-  --accent:#bfc0c7;
-  --body:#3a3a40;
-  --shadow: rgba(150,150,160,0.15);
+  --blush:#E6E6EB;
+  --rose:#CFCFD4;
+  --deep-rose:#8B8C91;
+  --cream:#FBFBFC;
+  --muted:#5E6066;
+  --paper:#FFFFFF;
+  --grid:#D8D8DE;
+  --accent:#BFC0C7;
+  --body:#3A3A40;
+  --shadow: rgba(160,160,180,0.15);
 }
+
+
+/* -------------------------------------------------- */
+/*  COTTON CANDY — soft playful pastel               */
+/* -------------------------------------------------- */
+:root[data-theme="cotton-candy"] {
+  --color-primary: #FF8EC7;       /* bubblegum pink */
+  --color-primary-hover: #FFA0D1;
+  --color-secondary: #A9C8FF;     /* baby blue */
+  --color-accent: #FFB2E0;        /* soft highlight */
+  --color-bg: #FFF5FB;            /* light pastel background */
+  --color-surface: #FFFFFF;
+  --color-text: #4A4A4A;
+  --color-muted: #C4ACBC;
+
+  --blush: #FFD0EB;
+  --rose: #FFA3CC;
+  --deep-rose: #FF7FBF;
+  --cream: #FFF8FA;
+  --muted: #A98BA5;
+  --paper: #FFFFFF;
+  --grid: #FFDFF2;
+  --accent: #FFB2E0;
+  --body: #4A4A4A;
+  --shadow: rgba(255, 140, 199, 0.15);
+}
+
+/* -------------------------------------------------- */
+/*  LAVENDER DREAM — dreamy lilac                     */
+/* -------------------------------------------------- */
+:root[data-theme="lavender-dream"] {
+  --color-primary: #B799FF;
+  --color-primary-hover: #CBB3FF;
+  --color-secondary: #DCC6FF;
+  --color-accent: #E9DBFF;
+  --color-bg: #FAF7FF;
+  --color-surface: #FFFFFF;
+  --color-text: #3E3A49;
+  --color-muted: #9C92B1;
+
+  --blush: #E5D8FF;
+  --rose: #C9B2FF;
+  --deep-rose: #9F7FFF;
+  --cream: #F9F6FF;
+  --muted: #7F77A1;
+  --paper: #FFFFFF;
+  --grid: #E8DFFF;
+  --accent: #DCC6FF;
+  --body: #3E3A49;
+  --shadow: rgba(183, 153, 255, 0.15);
+}
+
+/* -------------------------------------------------- */
+/*  MILK TEA — soft warm neutral                     */
+/* -------------------------------------------------- */
+:root[data-theme="milk-tea"] {
+  --color-primary: #C2A68C;
+  --color-primary-hover: #B18B73;
+  --color-secondary: #E8DCCF;
+  --color-accent: #D9C3B0;
+  --color-bg: #FDF9F5;
+  --color-surface: #FFFFFF;
+  --color-text: #5A4E44;
+  --color-muted: #A8907F;
+
+  --blush: #F3E9E1;
+  --rose: #D4B9A3;
+  --deep-rose: #B18C70;
+  --cream: #FFF8F3;
+  --muted: #8C7664;
+  --paper: #FFFFFF;
+  --grid: #EDE1D7;
+  --accent: #D9C3B0;
+  --body: #5A4E44;
+  --shadow: rgba(194, 166, 140, 0.15);
+}
+
+/* -------------------------------------------------- */
+/*  PASTEL MINT — soft fresh green                   */
+/* -------------------------------------------------- */
+:root[data-theme="pastel-mint"] {
+  --color-primary: #A8E8D1;
+  --color-primary-hover: #B8F1DD;
+  --color-secondary: #DFF9F1;
+  --color-accent: #C3F0E0;
+  --color-bg: #F7FFFC;
+  --color-surface: #FFFFFF;
+  --color-text: #3A4A42;
+  --color-muted: #7EB9A7;
+
+  --blush: #D4FFF1;
+  --rose: #A8E8D1;
+  --deep-rose: #5FD1B1;
+  --cream: #F7FFFC;
+  --muted: #6CA68F;
+  --paper: #FFFFFF;
+  --grid: #DFF9F1;
+  --accent: #C3F0E0;
+  --body: #3A4A42;
+  --shadow: rgba(168, 232, 209, 0.15);
+}
+
+/* -------------------------------------------------- */
+/*  JADED — soft muted green                          */
+/* -------------------------------------------------- */
+:root[data-theme="jaded"] {
+  --color-primary: #7DAE7D;       /* soft muted green */
+  --color-primary-hover: #91C191;
+  --color-secondary: #DFF5DF;     /* pale minty background */
+  --color-accent: #A8D6A8;        /* highlight accent */
+  --color-bg: #F4FAF4;            /* light green background */
+  --color-surface: #FFFFFF;
+  --color-text: #3A4A3A;
+  --color-muted: #8AA88A;
+
+  --blush: #DFF5DF;
+  --rose: #A8D6A8;
+  --deep-rose: #7DAE7D;
+  --cream: #F6FBF6;
+  --muted: #6E8B6E;
+  --paper: #FFFFFF;
+  --grid: #D6EAD6;
+  --accent: #A8D6A8;
+  --body: #3A4A3A;
+  --shadow: rgba(125, 174, 125, 0.15);
+}
+
 
 
 /* Font Families and Sizes */
