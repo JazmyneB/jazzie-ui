@@ -6,6 +6,7 @@ import Footer from './components/Footer/Footer';
 import Hero from './components/Hero/Hero';
 import Docs from './pages/DocsPage/DocsPage';
 import ComponentsPage from './pages/ComponentsPage/ComponentsPage';
+import ThemeSwitcher from './components/ThemeSwitcher/ThemeSwitcher';
 
 function App() {
   return (
@@ -26,7 +27,16 @@ function App() {
           path="/" 
           element=
           {
+            <>
             <Hero />
+            <div style={{ 
+        marginTop: "2rem", 
+        display: "flex",
+        justifyContent: "center" 
+      }}>
+        <ThemeSwitcher />
+      </div>
+            </>
           } />
           
           <Route path="/docs" element={<Docs />} />
