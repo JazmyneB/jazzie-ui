@@ -1,0 +1,53 @@
+@import '../../utils/_variables.css';
+
+.jazzie-form {
+  background: var(--color-surface);
+  padding: 24px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.form-label {
+  font-size: var(--text-md);
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: var(--color-text);
+  font-family: var(--font-primary);
+}
+
+.form-input {
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--grid);
+  background: var(--paper);
+  color: var(--color-text);
+  font-size: var(--text-md);
+  font-family: var(--font-primary);
+  transition: 0.2s ease;
+}
+
+.form-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-accent);
+  outline: none;
+}
+
+.form-error {
+  border-color: #e63946;
+  background: #ffe8e8;
+}
+
+.form-error-text {
+  margin-top: 4px;
+  color: #d62828;
+  font-size: 14px;
+}

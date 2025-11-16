@@ -7,6 +7,7 @@ import Hero from './components/Hero/Hero';
 import Docs from './pages/DocsPage/DocsPage';
 import ComponentsPage from './pages/ComponentsPage/ComponentsPage';
 import ThemeSwitcher from './components/ThemeSwitcher/ThemeSwitcher';
+import ContactForm from './components/ContactForm/ContactForm';
 
 function App() {
   return (
@@ -29,13 +30,15 @@ function App() {
           {
             <>
             <Hero />
-            <div style={{ 
-        marginTop: "2rem", 
-        display: "flex",
-        justifyContent: "center" 
-      }}>
-        <ThemeSwitcher />
-      </div>
+            <div 
+            style={{
+              marginTop: "4rem",
+              marginBottom: "4rem",
+              display: "flex",
+              justifyContent: "center"
+              }}>
+                <ContactForm />
+            </div>
             </>
           } />
           

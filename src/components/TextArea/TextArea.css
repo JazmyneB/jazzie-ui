@@ -1,0 +1,39 @@
+@import '../../utils/_variables.css';
+
+.textarea-field-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  font-family: var(--font-primary);
+}
+
+.textarea-label {
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.textarea-field {
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--grid);
+  background-color: var(--paper);
+  color: var(--body);
+  font-size: var(--text-md);
+  resize: vertical;
+  min-height: 100px;
+  outline: none;
+  transition: 0.2s ease;
+  font-family: var(--font-primary);
+}
+
+.textarea-field:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px var(--color-secondary);
+}
+
+.textarea-field::placeholder {
+  color: var(--muted);
+}
