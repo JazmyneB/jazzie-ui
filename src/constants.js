@@ -2,6 +2,8 @@ import ButtonDocs from "./docs/ButtonDocs/ButtonDocs";
 import InputDocs from "./docs/InputDocs/InputDocs";
 import ModalDocs from "./docs/ModalDocs/ModalDocs";
 import CardDocs from "./docs/CardDocs/CardDocs";
+import { SoftModal, ElevatedModal, DarkModal } from "./stories/Modal.stories";
+
 
 export const componentsData = [
   { 
@@ -12,10 +14,20 @@ export const componentsData = [
     name: "Input Fields", 
     component: <InputDocs />, 
   },
-  { 
-    name: "Modal / Popup", 
-    component: <ModalDocs />
-  },
+  {
+  name: "Modal / Popup",
+  component: (
+    <div>
+      <h2>Soft Modal</h2>
+      <SoftModal />
+      <h2>Elevated Modal</h2>
+      <ElevatedModal />
+      <h2>Dark Modal</h2>
+      <DarkModal />
+    </div>
+  ),
+},
+
   { 
     name: "Card Component", 
     component: <CardDocs />
