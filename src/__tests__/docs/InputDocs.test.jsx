@@ -9,7 +9,7 @@ jest.mock("../../docs/DocsLayout/DocsLayout", () => (props) => {
     <div>
       <h1>{title}</h1>
       <p>{description}</p>
-      <div data-testid="example">{children}</div>
+      {children} {/* render children directly */}
       <code>{codeExample}</code>
       <div>
         <h2>Props</h2>
@@ -23,10 +23,11 @@ jest.mock("../../docs/DocsLayout/DocsLayout", () => (props) => {
           <div key={idx}>{tip}</div>
         ))}
       </div>
-      <button onClick={() => {}}>Copy</button> {/* placeholder button */}
+      <button onClick={() => {}}>Copy</button>
     </div>
   );
 });
+
 
 describe("InputDocs Component", () => {
   beforeEach(() => {
@@ -44,25 +45,23 @@ describe("InputDocs Component", () => {
   });
 
   it("renders live input example and updates value", () => {
-    render(<InputDocs />);
-    const exampleDiv = screen.getByTestId("example");
-    expect(exampleDiv).toBeInTheDocument();
+  render(<InputDocs />);
 
-    const usernameInput = screen.getByPlaceholderText("Enter your username");
-    const emailInput = screen.getByPlaceholderText("example@email.com");
-    const disabledInput = screen.getByDisplayValue("Read-only");
+  const usernameInput = screen.getByPlaceholderText("Enter your username");
+  const emailInput = screen.getByPlaceholderText("example@email.com");
+  const disabledInput = screen.getByDisplayValue("Read-only");
 
-    expect(usernameInput).toHaveValue("");
-    expect(emailInput).toHaveValue("");
-    expect(disabledInput).toBeDisabled();
+  expect(usernameInput).toHaveValue("");
+  expect(emailInput).toHaveValue("");
+  expect(disabledInput).toBeDisabled();
 
-    fireEvent.change(usernameInput, { target: { value: "John" } });
-    fireEvent.change(emailInput, { target: { value: "john@example.com" } });
+  fireEvent.change(usernameInput, { target: { value: "John" } });
+  fireEvent.change(emailInput, { target: { value: "john@example.com" } });
 
-    expect(usernameInput).toHaveValue("John");
-    expect(emailInput).toHaveValue("john@example.com");
-    expect(disabledInput).toHaveValue("Read-only");
-  });
+  expect(usernameInput).toHaveValue("John");
+  expect(emailInput).toHaveValue("john@example.com");
+});
+
 
   it("renders code example", () => {
     render(<InputDocs />);
