@@ -1,0 +1,57 @@
+.jazzie-grid-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--color-surface);
+  color: var(--body);
+  box-shadow: 0 2px 8px var(--shadow);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  font-family: var(--font-primary);
+}
+
+.jazzie-grid-table th,
+.jazzie-grid-table td {
+  padding: var(--space-sm) var(--space-md);
+  text-align: left;
+  border-bottom: 1px solid var(--accent);
+}
+
+.jazzie-grid-table th {
+  background-color: var(--grid);
+  color: var(--color-text);
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+.jazzie-grid-table th.sortable-header:hover {
+  background-color: var(--accent);
+  color: var(--color-bg);
+}
+
+.jazzie-grid-table th.active {
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+}
+
+.jazzie-grid-table tr:nth-child(even) {
+  background-color: var(--color-secondary);
+}
+
+.jazzie-grid-table tr:hover {
+  background-color: var(--accent);
+  color: var(--color-bg);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sort-arrow {
+  margin-left: 6px;
+  font-size: 0.8rem;
+}
+
+.pagination-wrapper {
+  margin-top: var(--space-md);
+  display: flex;
+  justify-content: center;
+}
