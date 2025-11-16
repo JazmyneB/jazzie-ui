@@ -17,7 +17,7 @@ const Pagination = ({
     const end = Math.min(totalPages, currentPage + siblingCount);
 
     if (start > 1) pages.push(1);
-    if (start > 2) pages.push("...");
+    if (start > 4) pages.push("...");
 
     for (let i = start; i <= end; i++) {
       pages.push(i);
