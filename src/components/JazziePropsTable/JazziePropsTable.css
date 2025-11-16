@@ -1,0 +1,45 @@
+@import '../../utils//_variables.css';
+
+.jazzie-props-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+  box-shadow: var(--shadow-soft);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-top: var(--space-md);
+}
+
+.jazzie-props-table th {
+  background-color: var(--color-primary);
+  color: var(--paper);
+  text-align: left;
+  padding: 12px;
+  font-family: var(--font-accent);
+  font-size: 15px;
+}
+
+.jazzie-props-table td {
+  padding: 10px;
+  border-bottom: 1px solid var(--color-muted);
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+.jazzie-props-table tr:nth-child(even) {
+  background-color: var(--color-surface);
+}
+
+.jazzie-props-table tr:hover {
+  background-color: var(--color-accent);
+  transition: background-color 0.2s ease-in-out;
+}
+
+.jazzie-props-table td code {
+  background: var(--color-paper);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--color-primary);
+  font-family: 'Fira Code', monospace;
+  font-size: 13px;
+}

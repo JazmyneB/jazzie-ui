@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./DocsL.css";
+import JazziePropsTable from "../../components/JazziePropsTable/JazziePropsTable";
 
 const DocsLayout = ({ 
     title,
@@ -43,29 +44,7 @@ const DocsLayout = ({
     )}
 
     {propsTable && (
-      <>
-        <h2>Props</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Prop</th>
-              <th>Type</th>
-              <th>Default</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            {propsTable.map((prop, idx) => (
-              <tr key={idx}>
-                <td><code>{prop.name}</code></td>
-                <td>{prop.type}</td>
-                <td>{prop.default}</td>
-                <td>{prop.description}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </>
+      <JazziePropsTable propsData={propsTable} />
     )}
 
     {tips && tips.length > 0 && (
