@@ -1,0 +1,95 @@
+@import '../../utils/_variables.css';
+
+.dashboard-widget {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  transition: all 0.2s ease-in-out;
+  background-color: var(--color-surface);
+  width: max-content; /* shrink to content */
+}
+
+.dashboard-widget.soft {
+  background-color: var(--color-surface);
+  box-shadow: 0 3px 8px rgba(245, 183, 177, 0.25);
+}
+
+.dashboard-widget.elevated {
+  border: 1px solid var(--color-accent);
+  box-shadow: 0 5px 15px rgba(175, 9, 86, 0.2);
+}
+
+/* 🌙 Dark Variant */
+.dashboard-widget.dark {
+  background-color: #1e1e1e; /* deep dark gray */
+  color: #f5f5f5; /* bright text */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7); /* stronger shadow */
+  border: 1px solid #333; /* subtle border for structure */
+}
+
+.dashboard-widget.dark .widget-title {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.dashboard-widget.dark .widget-value {
+  color: #ffffff;
+}
+
+.dashboard-widget.dark .widget-trend.up {
+  color: #4caf50; /* green trend */
+}
+
+.dashboard-widget.dark .widget-trend.down {
+  color: #f44336; /* red trend */
+}
+
+.dashboard-widget.dark .widget-icon {
+  filter: brightness(1.5); /* makes icon stand out */
+}
+
+
+.widget-icon {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+}
+
+.widget-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.widget-title {
+  font-family: var(--font-accent);
+  font-size: var(--text-sm);
+  color: var(--color-primary);
+}
+
+.widget-value {
+  font-size: var(--text-md);
+  font-weight: 600;
+  color: var(--color-body);
+}
+
+.widget-trend {
+  font-size: var(--text-xs);
+  font-weight: 500;
+}
+
+.widget-trend.positive {
+  color: var(--color-success);
+}
+
+.widget-trend.negative {
+  color: var(--color-danger);
+}
+
+/* Hover effect */
+.dashboard-widget:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}

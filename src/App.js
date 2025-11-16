@@ -7,7 +7,8 @@ import Hero from './components/Hero/Hero';
 import Docs from './pages/DocsPage/DocsPage';
 import ComponentsPage from './pages/ComponentsPage/ComponentsPage';
 import JazzieGrid from './components/JazzieGrid/JazzieGrid';
-import JazzieTable from './components/JazzieTable/JazzieTable';
+import DashboardWidget from './components/DashboardWidget/DashboardWidget';
+import { FaDollarSign, FaUser } from "react-icons/fa";
 
 const items = Array.from({ length: 12 }, (_, i) => `Item ${i + 1}`);
 const columns = [
@@ -60,9 +61,31 @@ function App() {
         ))}
       </JazzieGrid>
       </div>
-      <div style={{ padding: "2rem" }} data-theme="rose">
-      <h2>JazzieGrid Table Example</h2>
-      <JazzieTable columns={columns} data={data} rowsPerPage={5} />
+      <div style={{ padding: "2rem" }} >
+      <h2>Widget Example</h2>
+      <DashboardWidget
+  title="Revenue"
+  value="$24,300"
+  trend={{ direction: "up", percentage: 12.5 }}
+  icon={<FaDollarSign />}
+  variant="soft" // soft | elevated | dark
+  footer={<button>View Details</button>}
+/>
+<br />
+  <DashboardWidget
+  title="Users"
+  value="1,245"
+  trend={{ direction: "down", percentage: 4.3 }}
+  icon={<FaUser />}
+  variant="elevated" />
+  <br/>
+  <DashboardWidget
+  title="Users"
+  value="1,245"
+  trend={{ direction: "down", percentage: 4.3 }}
+  icon={<FaUser />}
+  variant="dark" />
+
     </div>
             </>
           } />
