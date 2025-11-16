@@ -6,8 +6,24 @@ import Footer from './components/Footer/Footer';
 import Hero from './components/Hero/Hero';
 import Docs from './pages/DocsPage/DocsPage';
 import ComponentsPage from './pages/ComponentsPage/ComponentsPage';
-import ThemeSwitcher from './components/ThemeSwitcher/ThemeSwitcher';
-import Pagination from './components/Pagination/Pagination';
+import JazzieGrid from './components/JazzieGrid/JazzieGrid';
+import JazzieTable from './components/JazzieTable/JazzieTable';
+
+const items = Array.from({ length: 12 }, (_, i) => `Item ${i + 1}`);
+const columns = [
+  { header: "Name", accessor: "name" },
+  { header: "Age", accessor: "age" },
+  { header: "City", accessor: "city" },
+];
+
+const data = [
+  { name: "Alice", age: 25, city: "Roseville" },
+  { name: "Bea", age: 30, city: "Cotton Candy" },
+  { name: "Cleo", age: 22, city: "Lavender Dream" },
+  { name: "Daisy", age: 28, city: "Milk Tea" },
+  { name: "Ella", age: 26, city: "Pastel Mint" },
+  { name: "Faye", age: 29, city: "Jaded" },
+];
 
 function App() {
   const [page, setPage] = useState(1);
@@ -37,13 +53,17 @@ function App() {
         display: "flex",
         justifyContent: "center" 
       }}>
-        <Pagination
-        currentPage = {page}
-        totalPages={20}
-        onPageChange={(p)=> setPage(p)}
-        siblingCount={1}
-        />
+         <h2>JazzieGrid Example</h2>
+      <JazzieGrid columns={4} gap="1.5rem" rowHeight="150px">
+        {items.map((item, idx) => (
+          <div key={idx}>{item}</div>
+        ))}
+      </JazzieGrid>
       </div>
+      <div style={{ padding: "2rem" }} data-theme="rose">
+      <h2>JazzieGrid Table Example</h2>
+      <JazzieTable columns={columns} data={data} rowsPerPage={5} />
+    </div>
             </>
           } />
           
