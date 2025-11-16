@@ -39,8 +39,8 @@ function App() {
       }}>
         <Pagination
         currentPage = {page}
-        totlPages={20}
-        onPageChange={(p)=> setPage(p+1)}
+        totalPages={20}
+        onPageChange={(p)=> setPage(p)}
         siblingCount={1}
         />
       </div>
