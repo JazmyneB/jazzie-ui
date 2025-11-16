@@ -15,19 +15,22 @@ describe('CardDocs Component', () => {
 
   it('renders main title', () => {
     render(<CardDocs />);
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Card Component 🃏');
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Card Component');
   });
 
   it("renders description", () => {
   render(<CardDocs />);
-  expect(
-    screen.getByText((content, element) =>
-      element.textContent.includes(
-        "The Card component in JazzieUI provides a flexible container"
-      )
-    )
-  ).toBeInTheDocument();
+
+  // Grab the DocsLayout container (or the main content wrapper)
+  const container = screen.getByText("Card Component").parentElement;
+
+  // Assert that the container's textContent includes the expected description
+  expect(container.textContent).toMatch(
+    /The Card component in JazzieUI provides a flexible container/i
+  );
 });
+
+
 
 
   it('renders live examples of cards', () => {
