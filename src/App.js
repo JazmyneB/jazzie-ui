@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
@@ -7,8 +7,10 @@ import Hero from './components/Hero/Hero';
 import Docs from './pages/DocsPage/DocsPage';
 import ComponentsPage from './pages/ComponentsPage/ComponentsPage';
 import ThemeSwitcher from './components/ThemeSwitcher/ThemeSwitcher';
+import Pagination from './components/Pagination/Pagination';
 
 function App() {
+  const [page, setPage] = useState(1);
   return (
     <Router>
       <div className="app-container">
@@ -30,11 +32,17 @@ function App() {
             <>
             <Hero />
             <div style={{ 
-        marginTop: "2rem", 
+        marginTop: "4rem",
+        marginBottom: "4rem",
         display: "flex",
         justifyContent: "center" 
       }}>
-        <ThemeSwitcher />
+        <Pagination
+        currentPage = {page}
+        totlPages={20}
+        onPageChange={(p)=> setPage(p)}
+        siblingCount={1}
+        />
       </div>
             </>
           } />
