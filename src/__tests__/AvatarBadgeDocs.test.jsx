@@ -1,4 +1,3 @@
-// AvatarBadgeDocs.test.jsx
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import AvatarBadgeDocs from '../docs/AvatarBadgeDocs';

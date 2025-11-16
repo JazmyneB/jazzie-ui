@@ -1,10 +1,8 @@
-// JazzieButtonDocs.test.jsx
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import JazzieButtonDocs from "../docs/JazzieButtonDocs";
 
-// Mock DocsLayout so we can focus on child content
-jest.mock("./DocsLayout/DocsLayout", () => ({ title, description, codeExample, propsTable, tips, children }) => (
+jest.mock("../docs/DocsLayout/DocsLayout", () => ({ title, description, codeExample, propsTable, tips, children }) => (
   <div>
     <h1>{title}</h1>
     <div data-testid="description">{description}</div>

@@ -1,4 +1,3 @@
-// components/Footer/Footer.test.jsx
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import Footer from '../components/Footer/Footer';
@@ -29,12 +28,10 @@ describe('Footer component', () => {
 
   test('renders Explore and Resources links', () => {
     render(<Footer links={links} />);
-    // Explore links
     expect(screen.getByText('Home')).toHaveAttribute('href', '#home');
     expect(screen.getByText('Components')).toHaveAttribute('href', '#components');
     expect(screen.getByText('Docs')).toHaveAttribute('href', '#docs');
     expect(screen.getByText('Contact')).toHaveAttribute('href', '#contact');
-    // Resources links
     expect(screen.getByText('Terms & Conditions')).toHaveAttribute('href', '#terms');
     expect(screen.getByText('Privacy Policy')).toHaveAttribute('href', '#privacy');
   });
@@ -48,7 +45,6 @@ describe('Footer component', () => {
     expect(input).toHaveAttribute('type', 'email');
     expect(button).toBeInTheDocument();
 
-    // simulate submit
     fireEvent.submit(button);
   });
 
