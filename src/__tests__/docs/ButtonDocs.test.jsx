@@ -1,6 +1,5 @@
 import React from "react";
 import { render, screen, fireEvent, within } from "@testing-library/react";
-import "@testing-library/jest-dom";
 import ButtonDocs from "../../docs/ButtonDocs/ButtonDocs";
 
 jest.mock("../../components/PrimaryButton/Button", () => ({ buttonType, children, disabled, onClick }) => (
