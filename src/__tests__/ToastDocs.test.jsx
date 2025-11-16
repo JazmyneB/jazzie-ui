@@ -107,7 +107,6 @@ describe("ToastDocs Component", () => {
 
   it("renders props table", () => {
     render(<ToastDocs />);
-    // Check the row for "message"
     const messageRow = screen.getByText("message").closest("tr");
     expect(messageRow).toHaveTextContent("string");
     expect(messageRow).toHaveTextContent("-");
@@ -116,9 +115,7 @@ describe("ToastDocs Component", () => {
 
   it("renders tips section", () => {
     render(<ToastDocs />);
-    // Look for the heading "Tips"
     expect(screen.getByText("Tips")).toBeInTheDocument();
-    // Optionally, check one of the tip items
     expect(screen.getByText(/Use the 'show' prop to control/i)).toBeInTheDocument();
   });
 });
