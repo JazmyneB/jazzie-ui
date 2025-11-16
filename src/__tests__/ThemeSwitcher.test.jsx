@@ -49,6 +49,7 @@ describe("ThemeSwitcher", () => {
 
   it("applies active-theme class to current theme", () => {
     renderWithTheme("jaded");
+
     const jadedButton = screen.getByText("🍃 Jaded");
     expect(jadedButton).toHaveClass("active-theme");
 

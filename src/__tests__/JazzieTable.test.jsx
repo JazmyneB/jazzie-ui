@@ -20,7 +20,7 @@ describe("JazzieTable Component", () => {
   it("renders column headers", () => {
     render(<JazzieTable data={data} columns={columns} rowsPerPage={5} />);
     columns.forEach((col) => {
-      expect(screen.getByText(col.label)).toBeInTheDocument();
+      expect(screen.getByText(col.header)).toBeInTheDocument();
     });
   });
 

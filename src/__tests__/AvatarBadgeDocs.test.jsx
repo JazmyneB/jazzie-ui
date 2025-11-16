@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import AvatarBadgeDocs from '../docs/AvatarBadgeDocs';
-import '@testing-library/jest-dom';
 
 describe('AvatarBadgeDocs', () => {
 

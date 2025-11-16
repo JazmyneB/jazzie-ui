@@ -2,7 +2,6 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import Hero from '../components/Hero/Hero';
 
-// Mock framer-motion to simplify behavior
 jest.mock('framer-motion', () => {
   const actual = jest.requireActual('framer-motion');
   return {
