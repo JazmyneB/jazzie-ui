@@ -1,8 +1,19 @@
+@import './utils/_variables.css';
+
 /* Container holding nav + hero */
 .app-container {
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+
+.active-theme {
+  border: 2px solid var(--color-primary);
+  background: var(--color-accent);
+  color: white !important;
+  font-weight: 600;
+  box-shadow: 0 0 8px var(--color-primary);
+  transition: 0.2s;
 }
 
 /* CTA button */
