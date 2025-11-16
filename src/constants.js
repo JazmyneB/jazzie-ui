@@ -2,6 +2,7 @@ import ButtonDocs from "./docs/ButtonDocs/ButtonDocs";
 import InputDocs from "./docs/InputDocs/InputDocs";
 import ModalDocs from "./docs/ModalDocs/ModalDocs";
 import CardDocs from "./docs/CardDocs/CardDocs";
+import NavFooterDocs from "./docs/NavFooterDocs/NavFooterDocs";
 
 export const componentsData = [
   { 
@@ -22,7 +23,7 @@ export const componentsData = [
   },
   { 
     name: "Navbar & Footer", 
-    description: "Responsive layout essentials" 
+    component: <NavFooterDocs /> 
   },
   { 
     name: "Alert / Toast Message", 
