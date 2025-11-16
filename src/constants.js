@@ -3,6 +3,7 @@ import InputDocs from "./docs/InputDocs/InputDocs";
 import ModalDocs from "./docs/ModalDocs/ModalDocs";
 import CardDocs from "./docs/CardDocs/CardDocs";
 import ToastDocs from "./docs/ToastDocs";
+import JazzieButtonDocs from './docs/JazzieButtonDocs';
 
 export const componentsData = [
   { 
@@ -29,52 +30,18 @@ export const componentsData = [
     name: "Alert / Toast Message", 
     component: <ToastDocs /> 
   },
-  { 
-    name: "Gradient Buttons", 
-    description: "Blush-to-cream gradients ✨" 
-  },
-  { 
-    name: "Avatar + Badge", 
-    description: "Rounded, status-aware user images" 
-  },
-  { 
-    name: "Soft Toggle Switch", 
-    description: "Feminine and fluid motion toggles" 
-  },
-  { 
-    name: "Skeleton Loader", 
-    description: "Smooth animated placeholders" 
-  },
-  { 
-    name: "Tab Navigation", 
-    description: "Minimal and elegant tab system" 
-  },
-  { 
-    name: "Custom Scrollbar", 
-    description: "The perfect finishing touch 🌸" 
-  },
-  {
-    name: "Theme Switcher",
-    description: "custom theme switcher"
-  },
-  {
-    name: "Form",
-    description: "reuasable Form builder"
-  },
-  {
-    name: "Pagination",
-    description: "pagination component"
-  },
-  {
-    name: "JazzieGrid",
-    description: "grid layout"
-  },
-  {
-    name: "JazzieTable",
-    description: "table component"
-  },
-  {
-    name: "Mini Dashboard Widget",
-    description: "dashboard"
-  }
+  { name: "Gradient Buttons", component: <JazzieButtonDocs /> },
+// { name: "Avatar + Badge", component: <AvatarBadgeDocs /> },
+// { name: "Soft Toggle Switch", component: <ToggleDocs /> },
+// { name: "Skeleton Loader", component: <SkeletonDocs /> },
+// { name: "Tab Navigation", component: <TabDocs /> },
+// { name: "Custom Scrollbar", component: <ScrollbarDocs /> },
+// { name: "Theme Switcher", component: <ThemeSwitcherDocs /> },
+// { name: "Form", component: <FormDocs /> },
+// { name: "Pagination", component: <PaginationDocs /> },
+// { name: "JazzieGrid", component: <JazzieGridDocs /> },
+// { name: "JazzieTable", component: <JazzieTableDocs /> },
+// { name: "Mini Dashboard Widget", component: <MiniWidgetDocs /> },
+// { name: "Dashboard", component: <DashboardDocs /> },
+
 ];
