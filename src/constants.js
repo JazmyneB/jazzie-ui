@@ -2,6 +2,7 @@ import ButtonDocs from "./docs/ButtonDocs/ButtonDocs";
 import InputDocs from "./docs/InputDocs/InputDocs";
 import ModalDocs from "./docs/ModalDocs/ModalDocs";
 import CardDocs from "./docs/CardDocs/CardDocs";
+import ToastDocs from "./docs/ToastDocs";
 
 export const componentsData = [
   { 
@@ -26,7 +27,7 @@ export const componentsData = [
   },
   { 
     name: "Alert / Toast Message", 
-    description: "Lightweight notification system" 
+    component: <ToastDocs /> 
   },
   { 
     name: "Gradient Buttons", 
@@ -52,4 +53,28 @@ export const componentsData = [
     name: "Custom Scrollbar", 
     description: "The perfect finishing touch 🌸" 
   },
+  {
+    name: "Theme Switcher",
+    description: "custom theme switcher"
+  },
+  {
+    name: "Form",
+    description: "reuasable Form builder"
+  },
+  {
+    name: "Pagination",
+    description: "pagination component"
+  },
+  {
+    name: "JazzieGrid",
+    description: "grid layout"
+  },
+  {
+    name: "JazzieTable",
+    description: "table component"
+  },
+  {
+    name: "Mini Dashboard Widget",
+    description: "dashboard"
+  }
 ];
