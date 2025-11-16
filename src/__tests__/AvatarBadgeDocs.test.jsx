@@ -5,6 +5,7 @@ import AvatarBadgeDocs from '../docs/AvatarBadgeDocs';
 import '@testing-library/jest-dom';
 
 describe('AvatarBadgeDocs', () => {
+
   it('renders the title', () => {
     render(<AvatarBadgeDocs />);
     expect(screen.getByText('Avatar & Badge')).toBeInTheDocument();
@@ -12,35 +13,56 @@ describe('AvatarBadgeDocs', () => {
 
   it('renders the description', () => {
     render(<AvatarBadgeDocs />);
-    expect(screen.getByText(/displays user profile images or initials/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/displays user profile images or initials/i)
+    ).toBeInTheDocument();
   });
 
   it('renders the code snippet', () => {
     render(<AvatarBadgeDocs />);
-    expect(screen.getByText(/<Avatar size="sm" initials="AB" status="online" badgeCount={3} \/>/i)).toBeInTheDocument();
+    expect(
+  screen.getByText((content) =>
+    content.includes('<Avatar size="sm" initials="AB" status="online" badgeCount={3} />')
+  )
+).toBeInTheDocument();
+
   });
 
   it('renders all props in the props table', () => {
     render(<AvatarBadgeDocs />);
-    expect(screen.getByText('size')).toBeInTheDocument();
-    expect(screen.getByText('src')).toBeInTheDocument();
-    expect(screen.getByText('initials')).toBeInTheDocument();
-    expect(screen.getByText('status')).toBeInTheDocument();
-    expect(screen.getByText('badgeCount')).toBeInTheDocument();
-    expect(screen.getByText('variant')).toBeInTheDocument();
+
+    const props = ['size', 'src', 'initials', 'status', 'badgeCount', 'variant'];
+
+    props.forEach(prop => {
+      expect(screen.getAllByText(prop).length).toBeGreaterThan(0);
+    });
   });
 
   it('renders the tips section', () => {
     render(<AvatarBadgeDocs />);
-    expect(screen.getByText(/Use initials if user image is not available/i)).toBeInTheDocument();
-    expect(screen.getByText(/Combine with status indicators/i)).toBeInTheDocument();
-    expect(screen.getByText(/Badge counts are useful/i)).toBeInTheDocument();
-    expect(screen.getByText(/Gradient and glass variants/i)).toBeInTheDocument();
+
+    expect(
+      screen.getByText(/Use initials if user image is not available/i)
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByText(/Combine with status indicators/i)
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByText(/Badge counts are useful/i)
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByText(/Gradient and glass variants/i)
+    ).toBeInTheDocument();
   });
 
   it('renders at least one live Avatar example', () => {
     render(<AvatarBadgeDocs />);
-    const avatars = screen.getAllByRole('img', { hidden: true }); // our Avatar images might be hidden
+
+    // Avatar uses <img /> when src exists, so we check by role
+    const avatars = screen.getAllByRole('img', { hidden: false });
     expect(avatars.length).toBeGreaterThanOrEqual(1);
   });
 });
