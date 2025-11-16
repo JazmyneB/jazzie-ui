@@ -4,6 +4,7 @@ import ModalDocs from "./docs/ModalDocs/ModalDocs";
 import CardDocs from "./docs/CardDocs/CardDocs";
 import ToastDocs from "./docs/ToastDocs";
 import JazzieButtonDocs from './docs/JazzieButtonDocs';
+import AvatarBadgeDocs from "./docs/AvatarBadgeDocs";
 
 export const componentsData = [
   { 
@@ -31,7 +32,7 @@ export const componentsData = [
     component: <ToastDocs /> 
   },
   { name: "Gradient Buttons", component: <JazzieButtonDocs /> },
-// { name: "Avatar + Badge", component: <AvatarBadgeDocs /> },
+{ name: "Avatar + Badge", component: <AvatarBadgeDocs /> },
 // { name: "Soft Toggle Switch", component: <ToggleDocs /> },
 // { name: "Skeleton Loader", component: <SkeletonDocs /> },
 // { name: "Tab Navigation", component: <TabDocs /> },
