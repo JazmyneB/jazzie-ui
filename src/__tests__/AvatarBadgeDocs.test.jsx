@@ -59,7 +59,6 @@ describe('AvatarBadgeDocs', () => {
   it('renders at least one live Avatar example', () => {
     render(<AvatarBadgeDocs />);
 
-    // Avatar uses <img /> when src exists, so we check by role
     const avatars = screen.getAllByRole('img', { hidden: false });
     expect(avatars.length).toBeGreaterThanOrEqual(1);
   });

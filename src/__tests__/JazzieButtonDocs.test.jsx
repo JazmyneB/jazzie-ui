@@ -76,7 +76,6 @@ describe("JazzieButtonDocs", () => {
     const children = screen.getByTestId("children");
     const radiantButton = children.querySelector("button:nth-child(1)");
     expect(radiantButton).toBeInTheDocument();
-    // fireEvent.click will trigger alert, so we can just spy on window.alert
     const alertSpy = jest.spyOn(window, "alert").mockImplementation(() => {});
     fireEvent.click(radiantButton);
     expect(alertSpy).toHaveBeenCalledWith("Radiant clicked!");
