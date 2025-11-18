@@ -2,14 +2,14 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import InputDocs from "../../docs/InputDocs/InputDocs";
 
-// Mock DocsLayout with a self-contained component
+
 jest.mock("../../docs/DocsLayout/DocsLayout", () => (props) => {
   const { children, title, description, codeExample, propsTable, tips } = props;
   return (
     <div>
       <h1>{title}</h1>
       <p>{description}</p>
-      {children} {/* render children directly */}
+      {children}
       <code>{codeExample}</code>
       <div>
         <h2>Props</h2>

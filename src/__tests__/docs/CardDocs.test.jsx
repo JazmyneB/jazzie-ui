@@ -21,10 +21,8 @@ describe('CardDocs Component', () => {
   it("renders description", () => {
   render(<CardDocs />);
 
-  // Grab the DocsLayout container (or the main content wrapper)
   const container = screen.getByText("Card Component").parentElement;
 
-  // Assert that the container's textContent includes the expected description
   expect(container.textContent).toMatch(
     /The Card component in JazzieUI provides a flexible container/i
   );
@@ -55,12 +53,10 @@ describe('CardDocs Component', () => {
     expect(navigator.clipboard.writeText).toHaveBeenCalledTimes(1);
     expect(navigator.clipboard.writeText).toHaveBeenCalledWith(expect.stringContaining('<Card title="Soft Card"'));
 
-    // Wait for "Copied!" message
     await waitFor(() => {
       expect(copyButton).toHaveTextContent('Copied!');
     });
 
-    // After 2 seconds, should revert back
     jest.useFakeTimers();
     fireEvent.click(copyButton);
     jest.advanceTimersByTime(2000);
@@ -76,7 +72,7 @@ describe('CardDocs Component', () => {
   const table = screen.getByRole("table");
   expect(table).toBeInTheDocument();
 
-  const tbody = table.querySelector("tbody"); // select only tbody
+  const tbody = table.querySelector("tbody");
 
   const propNames = ["title", "children", "variant", "size"];
   propNames.forEach((name) => {
@@ -94,9 +90,6 @@ describe('CardDocs Component', () => {
     expect(within(tbody).getByText(desc)).toBeInTheDocument();
   });
 });
-
-
-
 
   it('renders tips section', () => {
     render(<CardDocs />);

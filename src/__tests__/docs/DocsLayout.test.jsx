@@ -35,12 +35,10 @@ describe("DocsLayout Component", () => {
   it("renders the props table and tips list correctly", () => {
   render(<DocsLayout {...mockProps} />);
 
-  // Check props table using role
   const propsTable = screen.getByRole("table");
   expect(propsTable).toBeInTheDocument();
   expect(propsTable).toHaveTextContent("label");
 
-  // Check tips list
   const tipItems = screen.getAllByText((_, el) =>
     el.tagName === 'LI' && el.textContent.includes("Use clear labels")
   );
