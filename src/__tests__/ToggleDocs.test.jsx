@@ -2,7 +2,6 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import ToggleDocs from '../docs/ToggleDocs';
 
-// Mock DocsLayout to render everything we need
 jest.mock('../docs/DocsLayout/DocsLayout', () => ({ title, description, codeExample, propsTable, tips, children }) => (
   <div>
     <h1>{title}</h1>
@@ -14,7 +13,6 @@ jest.mock('../docs/DocsLayout/DocsLayout', () => ({ title, description, codeExam
   </div>
 ));
 
-// Mock SoftToggle as a simple button respecting disabled and onClick
 jest.mock('../components/SoftToggle/SoftToggle', () => {
   return ({ checked, onChange, disabled, variant }) => (
     <button
@@ -41,8 +39,6 @@ expect(screen.getByTestId('toggle-disabled')).toBeInTheDocument();
 
   it('calls onChange when interactive toggles are clicked', () => {
     const handleChange = jest.fn();
-
-    // Render a simple interactive toggle with our mock
     render(
       <button data-testid="test-toggle" onClick={handleChange}>on</button>
     );

@@ -47,13 +47,13 @@ describe("JazzieTable Component", () => {
     
     const ageHeader = screen.getByText("Age");
     
-    fireEvent.click(ageHeader); // ascending
-    const firstRow = screen.getAllByRole("row")[1]; // first row after header
-    expect(firstRow).toHaveTextContent("Charlie"); // age 20
+    fireEvent.click(ageHeader);
+    const firstRow = screen.getAllByRole("row")[1];
+    expect(firstRow).toHaveTextContent("Charlie");
 
-    fireEvent.click(ageHeader); // descending
+    fireEvent.click(ageHeader);
     const newFirstRow = screen.getAllByRole("row")[1];
-    expect(newFirstRow).toHaveTextContent("David"); // age 35
+    expect(newFirstRow).toHaveTextContent("David");
   });
 
   it("renders 'No data available' for empty data", () => {
@@ -64,9 +64,9 @@ describe("JazzieTable Component", () => {
   it("displays sort arrow on active sorted column", () => {
     render(<JazzieTable data={data} columns={columns} rowsPerPage={5} />);
     const ageHeader = screen.getByText("Age");
-    fireEvent.click(ageHeader); // sort ascending
+    fireEvent.click(ageHeader);
     expect(screen.getByText("↑")).toBeInTheDocument();
-    fireEvent.click(ageHeader); // sort descending
+    fireEvent.click(ageHeader);
     expect(screen.getByText("↓")).toBeInTheDocument();
   });
 });

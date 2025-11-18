@@ -34,7 +34,7 @@ describe('SoftToggle Component', () => {
   render(<SoftToggle checked={false} onChange={mockOnChange} disabled />);
   const input = screen.getByRole('checkbox');
   expect(input).toBeDisabled();
-  await userEvent.click(input); // works in v13 and lower
+  await userEvent.click(input);
   expect(mockOnChange).not.toHaveBeenCalled();
 });
 
