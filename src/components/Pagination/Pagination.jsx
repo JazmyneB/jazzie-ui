@@ -10,22 +10,16 @@ const Pagination = ({
 
   const generatePages = () => {
     const pages = [];
-
-    // Always show page 1
     pages.push(1);
-
-    // Always show pages 2 and 3 if they exist
     if (totalPages >= 2) pages.push(2);
     if (totalPages >= 3) pages.push(3);
 
-    // Case 1: We are on page 1–3 → fixed 1 2 3 ... N
     if (currentPage <= 3) {
       if (totalPages > 4) pages.push("...");
       if (totalPages > 3) pages.push(totalPages);
       return pages;
     }
 
-    // Case 2: Middle range (sliding window)
     if (currentPage > 3 && currentPage < totalPages - 2) {
       pages.push("...");
       pages.push(currentPage - 1);
@@ -36,7 +30,6 @@ const Pagination = ({
       return pages;
     }
 
-    // Case 3: Near the end (show last 4 pages)
     if (currentPage >= totalPages - 2) {
       pages.push("...");
       for (let i = totalPages - 3; i <= totalPages; i++) {
@@ -45,13 +38,11 @@ const Pagination = ({
       return pages;
     }
 
-    return pages; // <- IMPORTANT final fallback
+    return pages;
   };
 
   return (
     <div className="pagination-container">
-      
-      {/* Prev Button */}
       <button
         className="pagination-btn"
         onClick={() => onPageChange(currentPage - 1)}
@@ -59,8 +50,6 @@ const Pagination = ({
       >
         ← Prev
       </button>
-
-      {/* Page Numbers */}
       {generatePages().map((pg, idx) => (
         <button
           key={idx}
@@ -73,8 +62,6 @@ const Pagination = ({
           {pg}
         </button>
       ))}
-
-      {/* Next Button */}
       <button
         className="pagination-btn"
         onClick={() => onPageChange(currentPage + 1)}
