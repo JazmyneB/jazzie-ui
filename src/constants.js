@@ -6,6 +6,7 @@ import ToastDocs from "./docs/ToastDocs";
 import JazzieButtonDocs from './docs/JazzieButtonDocs';
 import AvatarBadgeDocs from "./docs/AvatarBadgeDocs";
 import ToggleDocs from "./docs/ToggleDocs";
+import LoaderDocs from "./docs/LoaderDocs";
 
 export const componentsData = [
   { 
@@ -35,7 +36,7 @@ export const componentsData = [
   { name: "Gradient Buttons", component: <JazzieButtonDocs /> },
 { name: "Avatar + Badge", component: <AvatarBadgeDocs /> },
 { name: "Soft Toggle Switch", component: <ToggleDocs /> },
-// { name: "Skeleton Loader", component: <SkeletonDocs /> },
+{ name: "Skeleton Loader", component: <LoaderDocs /> },
 // { name: "Tab Navigation", component: <TabDocs /> },
 // { name: "Custom Scrollbar", component: <ScrollbarDocs /> },
 // { name: "Theme Switcher", component: <ThemeSwitcherDocs /> },
