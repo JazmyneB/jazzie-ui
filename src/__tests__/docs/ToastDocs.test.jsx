@@ -1,8 +1,8 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import ToastDocs from "../docs/ToastDocs";
+import ToastDocs from "../../docs/ToastDocs";
 
-jest.mock("../components/Toasts/Toast", () => ({ message, type, show, onClose }) => {
+jest.mock("../../components/Toasts/Toast", () => ({ message, type, show, onClose }) => {
   if (!show) return null;
   return (
     <div data-testid={`toast-${type}`}>
@@ -12,7 +12,7 @@ jest.mock("../components/Toasts/Toast", () => ({ message, type, show, onClose })
   );
 });
 
-jest.mock("../docs/DocsLayout/DocsLayout", () => ({ children, title, description, codeExample, propsTable, tips }) => (
+jest.mock("../../docs/DocsLayout/DocsLayout", () => ({ children, title, description, codeExample, propsTable, tips }) => (
   <div>
     <h1>{title}</h1>
     <p>{description}</p>

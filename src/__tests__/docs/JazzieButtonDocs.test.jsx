@@ -1,8 +1,8 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import JazzieButtonDocs from "../docs/JazzieButtonDocs";
+import JazzieButtonDocs from "../../docs/JazzieButtonDocs";
 
-jest.mock("../docs/DocsLayout/DocsLayout", () => ({ title, description, codeExample, propsTable, tips, children }) => (
+jest.mock("../../docs/DocsLayout/DocsLayout", () => ({ title, description, codeExample, propsTable, tips, children }) => (
   <div>
     <h1>{title}</h1>
     <div data-testid="description">{description}</div>
