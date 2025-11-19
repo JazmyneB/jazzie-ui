@@ -1,4 +1,4 @@
-import React, {useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
@@ -11,23 +11,8 @@ import DashboardWidget from './components/DashboardWidget/DashboardWidget';
 import { FaDollarSign, FaUser } from "react-icons/fa";
 
 const items = Array.from({ length: 12 }, (_, i) => `Item ${i + 1}`);
-const columns = [
-  { header: "Name", accessor: "name" },
-  { header: "Age", accessor: "age" },
-  { header: "City", accessor: "city" },
-];
-
-const data = [
-  { name: "Alice", age: 25, city: "Roseville" },
-  { name: "Bea", age: 30, city: "Cotton Candy" },
-  { name: "Cleo", age: 22, city: "Lavender Dream" },
-  { name: "Daisy", age: 28, city: "Milk Tea" },
-  { name: "Ella", age: 26, city: "Pastel Mint" },
-  { name: "Faye", age: 29, city: "Jaded" },
-];
 
 function App() {
-  const [page, setPage] = useState(1);
   return (
     <Router>
       <div className="app-container">

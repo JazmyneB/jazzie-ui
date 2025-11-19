@@ -1,10 +1,22 @@
 module.exports = {
-  testEnvironment: 'jsdom',
-  moduleFileExtensions: ['js', 'jsx', 'json', 'ts', 'tsx'],
+  testEnvironment: "jsdom",
   transform: {
-    '^.+\\.[jt]sx?$': 'babel-jest',
+    "^.+\\.[jt]sx?$": "babel-jest",
   },
   moduleNameMapper: {
-    '\\.(css|less|scss|sass)$': 'identity-obj-proxy'
+    "\\.(css|less|scss)$": "identity-obj-proxy",
+  },
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
+  transformIgnorePatterns: [
+    "/node_modules/(?!react-router-dom)/"
+  ],
+
+  coverageThreshold: {
+    global: {
+      branches: 80,
+      functions: 85,
+      lines: 85,
+      statements: 85,
+    },
   },
 };

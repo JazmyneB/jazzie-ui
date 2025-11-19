@@ -3,7 +3,6 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import ComponentsPage from "../../pages/ComponentsPage/ComponentsPage";
 
-// Mock the componentsData
 jest.mock("../../constants", () => ({
   componentsData: [
     { name: "Button", description: "Button component description" },
@@ -36,18 +35,12 @@ describe("ComponentsPage", () => {
     const modalButton = screen.getByText("Modal");
     fireEvent.click(modalButton);
 
-    // Check that the clicked button is now active
     expect(modalButton).toHaveClass("active");
-
-    // Previous active button is no longer active
     expect(screen.getByText("Button")).not.toHaveClass("active");
-
-    // Content area updates
     expect(screen.getByText("Modal component description")).toBeInTheDocument();
   });
 
   it("renders component JSX if provided instead of description", () => {
-    // Override the mock to have a JSX component
     const { componentsData } = require("../../constants");
     componentsData[1].component = <div>Custom Modal Component</div>;
 

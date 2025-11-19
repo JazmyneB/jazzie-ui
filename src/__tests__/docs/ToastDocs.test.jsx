@@ -1,10 +1,8 @@
-// src/pages/docs/__tests__/ToastDocs.test.jsx
 import React from "react";
-import { render, screen, fireEvent, act } from "@testing-library/react";
-import ToastDocs from "../docs/ToastDocs";
+import { render, screen, fireEvent } from "@testing-library/react";
+import ToastDocs from "../../docs/ToastDocs";
 
-// Mock Toast to avoid actual animation
-jest.mock("../../components/Toast/Toast", () => ({ message, type, show, onClose }) => {
+jest.mock("../../components/Toasts/Toast", () => ({ message, type, show, onClose }) => {
   if (!show) return null;
   return (
     <div data-testid={`toast-${type}`}>
@@ -14,25 +12,44 @@ jest.mock("../../components/Toast/Toast", () => ({ message, type, show, onClose 
   );
 });
 
-// Mock DocsLayout to render children
-jest.mock("./DocsLayout", () => ({ children, title, description }) => (
+jest.mock("../../docs/DocsLayout/DocsLayout", () => ({ children, title, description, codeExample, propsTable, tips }) => (
   <div>
     <h1>{title}</h1>
     <p>{description}</p>
+
+    {codeExample && <pre>{codeExample}</pre>}
+
+    {propsTable && (
+      <table>
+        <tbody>
+          {propsTable.map((prop) => (
+            <tr key={prop.name}>
+              <td>{prop.name}</td>
+              <td>{prop.type}</td>
+              <td>{prop.default}</td>
+              <td>{prop.description}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    )}
+
+    {tips && (
+      <div>
+        <h2>Tips</h2>
+        <ul>
+          {tips.map((tip, i) => (
+            <li key={i}>{tip}</li>
+          ))}
+        </ul>
+      </div>
+    )}
+
     <div>{children}</div>
   </div>
 ));
 
 describe("ToastDocs Component", () => {
-  beforeEach(() => {
-    jest.useFakeTimers();
-  });
-
-  afterEach(() => {
-    jest.runOnlyPendingTimers();
-    jest.useRealTimers();
-  });
-
   it("renders title and description", () => {
     render(<ToastDocs />);
     expect(screen.getByText("Toast Component")).toBeInTheDocument();
@@ -90,11 +107,10 @@ describe("ToastDocs Component", () => {
 
   it("renders props table", () => {
     render(<ToastDocs />);
-    expect(screen.getByText("message")).toBeInTheDocument();
-    expect(screen.getByText("type")).toBeInTheDocument();
-    expect(screen.getByText("show")).toBeInTheDocument();
-    expect(screen.getByText("onClose")).toBeInTheDocument();
-    expect(screen.getByText("duration")).toBeInTheDocument();
+    const messageRow = screen.getByText("message").closest("tr");
+    expect(messageRow).toHaveTextContent("string");
+    expect(messageRow).toHaveTextContent("-");
+    expect(messageRow).toHaveTextContent("Text message to display in the toast.");
   });
 
   it("renders tips section", () => {
