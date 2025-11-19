@@ -12,6 +12,7 @@ import ThemeDocs from "./docs/ThemeDocs";
 import PaginationDocs from "./docs/PaginationDocs";
 import JazzieGridDocs from "./docs/JazzieGridDocs";
 import JazzieTableDocs from "./docs/JazzieTableDocs";
+import WidgetDocs from "./docs/WidgetDocs";
 
 export const componentsData = [
   { 
@@ -48,7 +49,7 @@ export const componentsData = [
 { name: "Pagination", component: <PaginationDocs /> },
 { name: "JazzieGrid", component: <JazzieGridDocs /> },
 { name: "JazzieTable", component: <JazzieTableDocs /> },
-// { name: "Mini Dashboard Widget", component: <MiniWidgetDocs /> },
+{ name: "Mini Dashboard Widget", component: <WidgetDocs /> },
 // { name: "Dashboard", component: <DashboardDocs /> },
 
 ];
