@@ -1,9 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import NavBar from '../components/NavBar/NavBar';
 
-// Mock react-router-dom's useNavigate
 const mockNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
   useNavigate: () => mockNavigate,

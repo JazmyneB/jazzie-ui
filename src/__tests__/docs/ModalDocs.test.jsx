@@ -1,14 +1,11 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import "@testing-library/jest-dom";
 import ModalDocs from "../../docs/ModalDocs/ModalDocs";
 
-// Mock Modal to render children when isOpen is true
 jest.mock("../../components/Modal/Modal", () => ({ isOpen, children }) => {
   return isOpen ? <div data-testid="modal">{children}</div> : null;
 });
 
-// Mock DocsLayout
 jest.mock("../../docs/DocsLayout/DocsLayout", () => ({ title, description, codeExample, propsTable, tips, children }) => (
   <div>
     <h1>{title}</h1>
@@ -24,10 +21,12 @@ jest.mock("../../docs/DocsLayout/DocsLayout", () => ({ title, description, codeE
 
 describe("ModalDocs Component", () => {
   it("renders title and description", () => {
-    render(<ModalDocs />);
-    expect(screen.getByText("Modal / Popup Component 🌸")).toBeInTheDocument();
-    expect(screen.getByText(/The Modal component in JazzieUI provides/i)).toBeInTheDocument();
-  });
+  render(<ModalDocs />);
+  expect(screen.getByText("Modal / Popup Component 🌸")).toBeInTheDocument();
+  expect(
+    screen.getByText(/reusable, animated overlay popup/i)
+  ).toBeInTheDocument();
+});
 
   it("renders code example", () => {
     render(<ModalDocs />);

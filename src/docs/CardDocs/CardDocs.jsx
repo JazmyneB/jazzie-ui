@@ -87,7 +87,7 @@ export default App;`;
 
   return (
     <DocsLayout
-      title="Card Component 🃏"
+      title="Card Component"
       description={
         <>
           The <strong>Card</strong> component in <strong>JazzieUI</strong> provides a flexible 

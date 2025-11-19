@@ -1,10 +1,8 @@
-// JazzieButtonDocs.test.jsx
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import JazzieButtonDocs from "../docs/JazzieButtonDocs";
+import JazzieButtonDocs from "../../docs/JazzieButtonDocs";
 
-// Mock DocsLayout so we can focus on child content
-jest.mock("./DocsLayout/DocsLayout", () => ({ title, description, codeExample, propsTable, tips, children }) => (
+jest.mock("../../docs/DocsLayout/DocsLayout", () => ({ title, description, codeExample, propsTable, tips, children }) => (
   <div>
     <h1>{title}</h1>
     <div data-testid="description">{description}</div>
@@ -78,7 +76,6 @@ describe("JazzieButtonDocs", () => {
     const children = screen.getByTestId("children");
     const radiantButton = children.querySelector("button:nth-child(1)");
     expect(radiantButton).toBeInTheDocument();
-    // fireEvent.click will trigger alert, so we can just spy on window.alert
     const alertSpy = jest.spyOn(window, "alert").mockImplementation(() => {});
     fireEvent.click(radiantButton);
     expect(alertSpy).toHaveBeenCalledWith("Radiant clicked!");

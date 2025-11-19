@@ -1,6 +1,5 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import "@testing-library/jest-dom";
 import DocsLayout from "../../docs/DocsLayout/DocsLayout";
 
 describe("DocsLayout Component", () => {
@@ -34,9 +33,17 @@ describe("DocsLayout Component", () => {
   });
 
   it("renders the props table and tips list correctly", () => {
-    render(<DocsLayout {...mockProps} />);
-    expect(screen.getByText("Props")).toBeInTheDocument();
-    expect(screen.getByText("Tips")).toBeInTheDocument();
-    expect(screen.getByText("Use clear labels")).toBeInTheDocument();
-  });
+  render(<DocsLayout {...mockProps} />);
+
+  const propsTable = screen.getByRole("table");
+  expect(propsTable).toBeInTheDocument();
+  expect(propsTable).toHaveTextContent("label");
+
+  const tipItems = screen.getAllByText((_, el) =>
+    el.tagName === 'LI' && el.textContent.includes("Use clear labels")
+  );
+  expect(tipItems.length).toBeGreaterThan(0);
+});
+
+
 });

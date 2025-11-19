@@ -1,20 +1,16 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
-const ThemeContext = createContext();
+export const ThemeContext = createContext();  // <-- named export
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState(() => {
-    return localStorage.getItem("theme") || "rose";
-  });
+  const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "rose");
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
   }, [theme]);
 
-  const value = { theme, setTheme };
-
-  return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
+  return <ThemeContext.Provider value={{ theme, setTheme }}>{children}</ThemeContext.Provider>;
 };
 
 export const useTheme = () => useContext(ThemeContext);

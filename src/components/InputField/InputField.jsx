@@ -8,7 +8,8 @@ const InputField = ({
     value, 
     onChange, 
     placeholder,
-    id
+    id,
+    disabled
 }) => {
     return (
         <div className="input-field-container">
@@ -21,6 +22,7 @@ const InputField = ({
                 value={value}
                 onChange={onChange}
                 placeholder={placeholder}
+                disabled={disabled}
             />
         </div>
     );

@@ -26,11 +26,8 @@ describe("Tabs Component", () => {
   render(<Tabs tabs={tabsData} />);
   expect(screen.getByText("Content 1")).toBeVisible();
 
-  // Click on Tab 2
   fireEvent.click(screen.getByText("Tab 2"));
   expect(screen.getByText("Content 2")).toBeVisible();
-
-  // Fix: element is removed, not hidden
   expect(screen.queryByText("Content 1")).not.toBeInTheDocument();
 });
 
@@ -46,11 +43,9 @@ describe("Tabs Component", () => {
     const tab1 = screen.getByText("Tab 1");
     const tab2 = screen.getByText("Tab 2");
 
-    // Initially Tab 1 is active
     expect(tab1).toHaveClass("active");
     expect(tab2).not.toHaveClass("active");
 
-    // Click Tab 2
     fireEvent.click(tab2);
     expect(tab2).toHaveClass("active");
     expect(tab1).not.toHaveClass("active");

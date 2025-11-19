@@ -1,12 +1,7 @@
-/**
- * @jest-environment jsdom
- */
-
 import React from 'react';
 import { render, screen, act } from '@testing-library/react';
 import Toast from '../components/Toasts/Toast';
 
-// 🪄 Mock Framer Motion to simplify animation layers for testing
 jest.mock('framer-motion', () => {
   const actual = jest.requireActual('framer-motion');
   return {

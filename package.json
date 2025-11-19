@@ -40,21 +40,12 @@
     ]
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.28.5",
+    "@babel/preset-react": "^7.28.5",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.0",
+    "babel-jest": "^30.2.0",
+    "identity-obj-proxy": "^3.0.0",
     "sass": "^1.93.2"
-  },
-  "jest": {
-    "transformIgnorePatterns": [
-      "/node_modules/(?!react-router-dom)/"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 80,
-        "functions": 85,
-        "lines": 85,
-        "statements": 85
-      }
-    }
   }
 }
