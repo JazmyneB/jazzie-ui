@@ -8,6 +8,7 @@ import AvatarBadgeDocs from "./docs/AvatarBadgeDocs";
 import ToggleDocs from "./docs/ToggleDocs";
 import LoaderDocs from "./docs/LoaderDocs";
 import TabDocs from "./docs/TabDocs";
+import ThemeDocs from "./docs/ThemeDocs";
 
 export const componentsData = [
   { 
@@ -39,8 +40,7 @@ export const componentsData = [
 { name: "Soft Toggle Switch", component: <ToggleDocs /> },
 { name: "Skeleton Loader", component: <LoaderDocs /> },
 { name: "Tab Navigation", component: <TabDocs /> },
-// { name: "Custom Scrollbar", component: <ScrollbarDocs /> },
-// { name: "Theme Switcher", component: <ThemeSwitcherDocs /> },
+{ name: "Theme Switcher", component: <ThemeDocs /> },
 // { name: "Form", component: <FormDocs /> },
 // { name: "Pagination", component: <PaginationDocs /> },
 // { name: "JazzieGrid", component: <JazzieGridDocs /> },
