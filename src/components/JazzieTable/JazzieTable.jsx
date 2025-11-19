@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from "react";
 import Pagination from "../Pagination/Pagination";
-import "./JazzieTable.css"; // your soft-girl CSS
+import "./JazzieTable.css";
 
 const JazzieTable = ({ data, columns, rowsPerPage = 5 }) => {
   const [currentPage, setCurrentPage] = useState(1);

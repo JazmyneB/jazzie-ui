@@ -10,7 +10,8 @@ import LoaderDocs from "./docs/LoaderDocs";
 import TabDocs from "./docs/TabDocs";
 import ThemeDocs from "./docs/ThemeDocs";
 import PaginationDocs from "./docs/PaginationDocs";
-import JazzieGridDocs from "./docs/JazzieGridDocs"
+import JazzieGridDocs from "./docs/JazzieGridDocs";
+import JazzieTableDocs from "./docs/JazzieTableDocs";
 
 export const componentsData = [
   { 
@@ -46,7 +47,7 @@ export const componentsData = [
 // { name: "Form", component: <FormDocs /> },
 { name: "Pagination", component: <PaginationDocs /> },
 { name: "JazzieGrid", component: <JazzieGridDocs /> },
-// { name: "JazzieTable", component: <JazzieTableDocs /> },
+{ name: "JazzieTable", component: <JazzieTableDocs /> },
 // { name: "Mini Dashboard Widget", component: <MiniWidgetDocs /> },
 // { name: "Dashboard", component: <DashboardDocs /> },
 
