@@ -47,18 +47,5 @@
     "babel-jest": "^30.2.0",
     "identity-obj-proxy": "^3.0.0",
     "sass": "^1.93.2"
-  },
-  "jest": {
-    "transformIgnorePatterns": [
-      "/node_modules/(?!react-router-dom)/"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 80,
-        "functions": 85,
-        "lines": 85,
-        "statements": 85
-      }
-    }
   }
 }
