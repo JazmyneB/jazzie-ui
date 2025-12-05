@@ -1,27 +1,76 @@
-import React, { useState } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import "./Carousel.css";
 
-const JazzieCarousel = ({ children, visibleCount = 4 }) => {
+const SIZE_PRESETS = {
+  sm: 100,
+  md: 150,
+  lg: 200,
+  xl: 250
+};
+
+const JazzieCarousel = ({
+  children,
+  visibleCount = 4,
+  size = "md",
+  itemWidth,
+  itemHeight,
+}) => {
   const [startIndex, setStartIndex] = React.useState(0);
 
-  const items = React.Children.toArray(children); // converts children to array
+  const items = React.Children.toArray(children);
 
   const handlePrev = () => setStartIndex(Math.max(0, startIndex - 1));
-  const handleNext = () => setStartIndex(Math.min(items.length - visibleCount, startIndex + 1));
+  const handleNext = () =>
+    setStartIndex(Math.min(items.length - visibleCount, startIndex + 1));
 
   const visibleItems = items.slice(startIndex, startIndex + visibleCount);
 
+  // Size handling
+  const baseSize = SIZE_PRESETS[size] || SIZE_PRESETS.md;
+
+  const width = itemWidth || baseSize;
+  const height = itemHeight || baseSize;
+
   return (
     <div className="carousel-container">
-      <button className="carousel-btn" onClick={handlePrev} disabled={startIndex === 0}>◀</button>
+      <button
+        className="carousel-btn"
+        onClick={handlePrev}
+        disabled={startIndex === 0}
+      >
+        ◀
+      </button>
+
       <div className="carousel-window">
         {visibleItems.map((child, idx) => (
-          <div className="carousel-item" key={idx}>{child}</div>
+          <div
+            className="carousel-item"
+            key={idx}
+            style={{ width: `${width}px`, height: `${height}px` }}
+          >
+            {child}
+          </div>
         ))}
       </div>
-      <button className="carousel-btn" onClick={handleNext} disabled={startIndex + visibleCount >= items.length}>▶</button>
+
+      <button
+        className="carousel-btn"
+        onClick={handleNext}
+        disabled={startIndex + visibleCount >= items.length}
+      >
+        ▶
+      </button>
     </div>
   );
+};
+
+JazzieCarousel.propTypes = {
+  children: PropTypes.node.isRequired,
+  visibleCount: PropTypes.number,
+  size: PropTypes.oneOf(["sm", "md", "lg", "xl"]),
+  itemWidth: PropTypes.number,
+  itemHeight: PropTypes.number,
 };
 
 
