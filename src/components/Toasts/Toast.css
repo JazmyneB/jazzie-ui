@@ -1,6 +1,3 @@
-@import '../../utils/_variables.css';
-
-/* Center the toast softly */
 .jazzie-toast {
   position: fixed;
   inset: 0;
@@ -11,11 +8,6 @@
   pointer-events: none;
 }
 
-
-
-
-
-/* Glassy toast card */
 .toast-card {
   display: flex;
   align-items: center;
@@ -41,15 +33,11 @@
   color: var(--color-text);
 }
 
-/* Icons */
 .toast-icon {
   font-size: 1.6rem;
   flex-shrink: 0;
 }
 
-/* === Variant backgrounds (more distinct) === */
-
-/* Info — soft glass lavender–cream gradient */
 .jazzie-toast.info .toast-card {
   background: radial-gradient(
       circle at top left,
@@ -66,7 +54,6 @@
     inset 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
-/* Success — minty-pink light gradient */
 .jazzie-toast.success .toast-card {
   background: linear-gradient(
     145deg,
@@ -75,7 +62,6 @@
   );
 }
 
-/* Warning — warm honey glow */
 .jazzie-toast.warning .toast-card {
   background: linear-gradient(
     145deg,
@@ -84,7 +70,6 @@
   );
 }
 
-/* Error — deeper rose glow glass */
 .jazzie-toast.error .toast-card {
   background: radial-gradient(
       circle at top right,
@@ -102,7 +87,6 @@
   color: var(--color-dark-text);
 }
 
-/* === Icon color accents === */
 .info-icon {
   color: var(--color-primary);
   stroke-width: 1.5;
@@ -127,7 +111,6 @@
   filter: drop-shadow(0 0 6px rgba(214, 3, 119, 0.25));
 }
 
-/* Subtle breathing glow animation */
 @keyframes pulseGlow {
   0% {
     box-shadow: 0 0 12px rgba(175, 9, 86, 0.1);
