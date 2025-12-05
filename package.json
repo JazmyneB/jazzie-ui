@@ -1,6 +1,8 @@
 {
   "name": "jazzie-ui",
-  "version": "0.1.0",
+  "main": "src/lib/index.js",
+  "type": "module",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
