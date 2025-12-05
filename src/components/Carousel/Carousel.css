@@ -26,12 +26,12 @@
 }
 
 .carousel-item {
-  flex: 0 0 150px;
-  height: 150px;
-  background-color: #f8f8f8;
+  flex: 0 0 auto; 
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #f8f8f8;
   border-radius: 8px;
   box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  transition: width .2s ease, height .2s ease;
 }
