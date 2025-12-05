@@ -15,4 +15,4 @@ export { default as Pagination } from "../components/Pagination/Pagination.jsx";
 export { default as SoftToggle } from "../components/SoftToggle/SoftToggle.jsx";
 export { default as Tabs } from "../components/Tabs/Tabs.jsx";
 export { default as ThemeSwitcher } from "../components/ThemeSwitcher/ThemeSwitcher.jsx";
-export { default as Toast } from "../components/Toast/Toast.jsx";
+export { default as Toast } from "../components/Toasts/Toast.jsx";
