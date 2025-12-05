@@ -6,7 +6,7 @@ const SIZE_PRESETS = {
   sm: 100,
   md: 150,
   lg: 200,
-  xl: 250
+  xl: 250,
 };
 
 const JazzieCarousel = ({
@@ -20,17 +20,19 @@ const JazzieCarousel = ({
 
   const items = React.Children.toArray(children);
 
-  const handlePrev = () => setStartIndex(Math.max(0, startIndex - 1));
-  const handleNext = () =>
-    setStartIndex(Math.min(items.length - visibleCount, startIndex + 1));
-
-  const visibleItems = items.slice(startIndex, startIndex + visibleCount);
-
-  // Size handling
   const baseSize = SIZE_PRESETS[size] || SIZE_PRESETS.md;
-
   const width = itemWidth || baseSize;
   const height = itemHeight || baseSize;
+
+  const handlePrev = () =>
+    setStartIndex((prev) => Math.max(0, prev - 1));
+
+  const handleNext = () =>
+    setStartIndex((prev) =>
+      Math.min(items.length - visibleCount, prev + 1)
+    );
+
+  const trackOffset = -(startIndex * (width + 10)); // includes gap
 
   return (
     <div className="carousel-container">
@@ -42,16 +44,27 @@ const JazzieCarousel = ({
         ◀
       </button>
 
-      <div className="carousel-window">
-        {visibleItems.map((child, idx) => (
-          <div
-            className="carousel-item"
-            key={idx}
-            style={{ width: `${width}px`, height: `${height}px` }}
-          >
-            {child}
-          </div>
-        ))}
+      <div
+        className="carousel-window"
+        style={{ width: visibleCount * (width + 10) }}
+      >
+        <div
+          className="carousel-track"
+          style={{
+            transform: `translateX(${trackOffset}px)`,
+          }}
+          data-testid="carousel-track"
+        >
+          {items.map((child, idx) => (
+            <div
+              className="carousel-item"
+              key={idx}
+              style={{ width, height }}
+            >
+              {child}
+            </div>
+          ))}
+        </div>
       </div>
 
       <button
@@ -72,6 +85,5 @@ JazzieCarousel.propTypes = {
   itemWidth: PropTypes.number,
   itemHeight: PropTypes.number,
 };
-
 
 export default JazzieCarousel;
