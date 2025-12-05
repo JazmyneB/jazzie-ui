@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { componentsData } from "../../constants";
+import { componentsData } from "../../constants.js";
 import "./ComponentsPage.css";
 
 const ComponentsPage = () => {

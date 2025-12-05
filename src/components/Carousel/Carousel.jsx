@@ -1,28 +1,28 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
 import "./Carousel.css";
 
-const JazzieCarousel = ({ children }) => {
-  const trackRef = useRef(null);
+const JazzieCarousel = ({ children, visibleCount = 4 }) => {
+  const [startIndex, setStartIndex] = React.useState(0);
 
-  const scrollLeft = () => {
-    trackRef.current.scrollBy({ left: -300, behavior: "smooth" });
-  };
+  const items = React.Children.toArray(children); // converts children to array
 
-  const scrollRight = () => {
-    trackRef.current.scrollBy({ left: 300, behavior: "smooth" });
-  };
+  const handlePrev = () => setStartIndex(Math.max(0, startIndex - 1));
+  const handleNext = () => setStartIndex(Math.min(items.length - visibleCount, startIndex + 1));
+
+  const visibleItems = items.slice(startIndex, startIndex + visibleCount);
 
   return (
-    <div className="jazzie-carousel">
-      <button className="carousel-btn left" onClick={scrollLeft}>‹</button>
-
-      <div className="carousel-track" ref={trackRef}>
-        {children}
+    <div className="carousel-container">
+      <button className="carousel-btn" onClick={handlePrev} disabled={startIndex === 0}>◀</button>
+      <div className="carousel-window">
+        {visibleItems.map((child, idx) => (
+          <div className="carousel-item" key={idx}>{child}</div>
+        ))}
       </div>
-
-      <button className="carousel-btn right" onClick={scrollRight}>›</button>
+      <button className="carousel-btn" onClick={handleNext} disabled={startIndex + visibleCount >= items.length}>▶</button>
     </div>
   );
 };
+
 
 export default JazzieCarousel;
