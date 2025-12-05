@@ -1,18 +1,18 @@
-import ButtonDocs from "./docs/ButtonDocs/ButtonDocs";
-import InputDocs from "./docs/InputDocs/InputDocs";
-import ModalDocs from "./docs/ModalDocs/ModalDocs";
-import CardDocs from "./docs/CardDocs/CardDocs";
-import ToastDocs from "./docs/ToastDocs";
-import JazzieButtonDocs from './docs/JazzieButtonDocs';
-import AvatarBadgeDocs from "./docs/AvatarBadgeDocs";
-import ToggleDocs from "./docs/ToggleDocs";
-import LoaderDocs from "./docs/LoaderDocs";
-import TabDocs from "./docs/TabDocs";
-import ThemeDocs from "./docs/ThemeDocs";
-import PaginationDocs from "./docs/PaginationDocs";
-import JazzieGridDocs from "./docs/JazzieGridDocs";
-import JazzieTableDocs from "./docs/JazzieTableDocs";
-import WidgetDocs from "./docs/WidgetDocs";
+import ButtonDocs from "./docs/ButtonDocs/ButtonDocs.jsx";
+import InputDocs from "./docs/InputDocs/InputDocs.jsx";
+import ModalDocs from "./docs/ModalDocs/ModalDocs.jsx";
+import CardDocs from "./docs/CardDocs/CardDocs.jsx";
+import ToastDocs from "./docs/ToastDocs.jsx";
+import JazzieButtonDocs from './docs/JazzieButtonDocs.jsx';
+import AvatarBadgeDocs from "./docs/AvatarBadgeDocs.jsx";
+import ToggleDocs from "./docs/ToggleDocs.jsx";
+import LoaderDocs from "./docs/LoaderDocs.jsx";
+import TabDocs from "./docs/TabDocs.jsx";
+import ThemeDocs from "./docs/ThemeDocs.jsx";
+import PaginationDocs from "./docs/PaginationDocs.jsx";
+import JazzieGridDocs from "./docs/JazzieGridDocs.jsx";
+import JazzieTableDocs from "./docs/JazzieTableDocs.jsx";
+import WidgetDocs from "./docs/WidgetDocs.jsx";
 
 export const componentsData = [
   { 

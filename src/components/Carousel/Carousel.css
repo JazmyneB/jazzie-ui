@@ -1,45 +1,37 @@
-.jazzie-carousel {
-  position: relative;
-  width: 100%;
-  padding: 20px 0;
+.carousel-container {
   display: flex;
   align-items: center;
-}
-
-.carousel-track {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding: 10px 0;
-
-  /* Hide scrollbar */
-  scrollbar-width: none;
-}
-.carousel-track::-webkit-scrollbar {
-  display: none;
+  justify-content: center;
+  gap: 10px;
 }
 
 .carousel-btn {
-  background: white;
+  background-color: #ffb6c1;
   border: none;
-  font-size: 32px;
-  cursor: pointer;
   padding: 10px 15px;
-  border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  transition: 0.2s ease;
-  z-index: 2;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 5px;
 }
 
-.carousel-btn:hover {
-  background: #ffe4e9; /* soft pink */
+.carousel-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
-.carousel-btn.left {
-  margin-right: 10px;
+.carousel-window {
+  display: flex;
+  overflow: hidden;
+  gap: 10px;
 }
 
-.carousel-btn.right {
-  margin-left: 10px;
+.carousel-item {
+  flex: 0 0 150px;
+  height: 150px;
+  background-color: #f8f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
