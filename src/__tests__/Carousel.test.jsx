@@ -2,77 +2,103 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import JazzieCarousel from "../components/Carousel/Carousel.jsx";
 
+const createItems = (count = 5) =>
+  Array.from({ length: count }, (_, i) => (
+    <div data-testid="item" key={i}>
+      {i + 1}
+    </div>
+  ));
+
 describe("JazzieCarousel", () => {
-  const renderCarousel = (visibleCount = 4) => {
-    return render(
-      <JazzieCarousel visibleCount={visibleCount}>
-        <div data-testid="item">1</div>
-        <div data-testid="item">2</div>
-        <div data-testid="item">3</div>
-        <div data-testid="item">4</div>
-        <div data-testid="item">5</div>
+  it("renders initial visible items based on visibleCount", () => {
+    render(
+      <JazzieCarousel visibleCount={3}>
+        {createItems()}
       </JazzieCarousel>
     );
-  };
-
-  it("renders the initial visible items", () => {
-    renderCarousel(4);
 
     const items = screen.getAllByTestId("item");
-    expect(items.length).toBe(4); // shows first 4 items
+    expect(items.length).toBe(3);
     expect(screen.getByText("1")).toBeInTheDocument();
-    expect(screen.getByText("4")).toBeInTheDocument();
+    expect(screen.getByText("3")).toBeInTheDocument();
   });
 
-  it("disables the prev button at start", () => {
-    renderCarousel();
+  it("disables the prev button initially", () => {
+    render(<JazzieCarousel>{createItems()}</JazzieCarousel>);
     expect(screen.getByText("◀")).toBeDisabled();
   });
 
   it("enables the next button when more items exist", () => {
-    renderCarousel();
+    render(<JazzieCarousel>{createItems()}</JazzieCarousel>);
     expect(screen.getByText("▶")).not.toBeDisabled();
   });
 
-  it("moves to next item when clicking next", () => {
-    renderCarousel();
+  it("moves forward when next is clicked", () => {
+    render(<JazzieCarousel visibleCount={4}>{createItems()}</JazzieCarousel>);
 
-    const nextBtn = screen.getByText("▶");
-    fireEvent.click(nextBtn);
+    const next = screen.getByText("▶");
+    fireEvent.click(next);
 
     expect(screen.queryByText("1")).not.toBeInTheDocument();
     expect(screen.getByText("5")).toBeInTheDocument();
   });
 
-  it("disables next button when at end", () => {
-    renderCarousel();
+  it("disables next button at the end", () => {
+    render(<JazzieCarousel visibleCount={4}>{createItems()}</JazzieCarousel>);
 
-    const nextBtn = screen.getByText("▶");
+    const next = screen.getByText("▶");
+    fireEvent.click(next);
 
-    fireEvent.click(nextBtn);
-
-    expect(nextBtn).toBeDisabled();
+    expect(next).toBeDisabled();
   });
 
-  it("allows returning back with prev button", () => {
-    renderCarousel();
+  it("allows moving back with prev button", () => {
+    render(<JazzieCarousel visibleCount={4}>{createItems()}</JazzieCarousel>);
 
-    const nextBtn = screen.getByText("▶");
-    const prevBtn = screen.getByText("◀");
+    const prev = screen.getByText("◀");
+    const next = screen.getByText("▶");
 
-    fireEvent.click(nextBtn);
-    expect(prevBtn).not.toBeDisabled();
+    fireEvent.click(next);
 
-    fireEvent.click(prevBtn);
+    expect(prev).not.toBeDisabled();
 
+    fireEvent.click(prev);
+
+    expect(prev).toBeDisabled();
     expect(screen.getByText("1")).toBeInTheDocument();
-    expect(prevBtn).toBeDisabled();
   });
 
-  it("renders correct number of items based on visibleCount", () => {
-    renderCarousel(3);
+  it("applies size presets correctly", () => {
+    const { container } = render(
+      <JazzieCarousel size="lg" visibleCount={2}>
+        {createItems(3)}
+      </JazzieCarousel>
+    );
+
+    const item = container.querySelector(".carousel-item");
+
+    // lg = 200px per your preset
+    expect(item.style.width).toBe("200px");
+    expect(item.style.height).toBe("200px");
+  });
+
+  it("allows custom width/height override", () => {
+    const { container } = render(
+      <JazzieCarousel itemWidth={300} itemHeight={180} visibleCount={2}>
+        {createItems(3)}
+      </JazzieCarousel>
+    );
+
+    const item = container.querySelector(".carousel-item");
+
+    expect(item.style.width).toBe("300px");
+    expect(item.style.height).toBe("180px");
+  });
+
+  it("renders correct number of items when size changes", () => {
+    render(<JazzieCarousel visibleCount={2} size="sm">{createItems(5)}</JazzieCarousel>);
 
     const items = screen.getAllByTestId("item");
-    expect(items.length).toBe(3);
+    expect(items.length).toBe(2);
   });
 });
