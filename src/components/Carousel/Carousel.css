@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
+  background-color: transparent;
 }
 
 .carousel-btn {
@@ -10,14 +11,14 @@
   border: none;
   padding: 10px 15px;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 20px;
   border-radius: 5px;
   transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .carousel-btn:hover:not(:disabled) {
   background-color: #ffa6b2;
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 .carousel-btn:disabled {
@@ -26,30 +27,53 @@
 }
 
 .carousel-window {
-  overflow: hidden;
+  overflow: hidden; /* keep layout */
   position: relative;
+  height: 350px; /* enough to fit zoomed item */
+  background-color: transparent; /* transparent window */
+  display: flex;
+  align-items: center;
+  padding: 20px; /* optional */
 }
 
 .carousel-track {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   transition: transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
   will-change: transform;
+  align-items: center;
+  overflow: visible; /* allow zoomed items to overflow track */
 }
+
 
 .carousel-item {
   flex: 0 0 auto;
-  background-color: #f8f8f8;
-  border-radius: 8px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
   display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  align-items: center; /* center content inside item */
+  justify-content: center; /* center content inside item */
+  border-radius: 8px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, opacity 0.35s ease;
+  will-change: transform, box-shadow, opacity;
+  overflow: visible;
+  background-color: lightpink
 }
 
-/* Hover animation for each slide */
+
+
+.carousel-item.focused {
+  transform: scale(1.45); /* slightly bigger zoom */
+  z-index: 10;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.38);
+}
+
+
+
+.carousel-item.unfocused {
+  transform: scale(0.9);
+  opacity: 0.85;
+}
+
 .carousel-item:hover {
-  transform: translateY(-5px) scale(1.03);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transform: scale(1.45) !important;
+  z-index: 3;
 }
