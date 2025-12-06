@@ -26,7 +26,17 @@ function App() {
             { label: 'Contact', path: '/contact' }
           ]}
         />
+
         <Routes>
+          <Route 
+          path="/" 
+          element=
+          {
+            <>
+            <Hero />
+            </>
+          } />
+          
           <Route path="/docs" element={<Docs />} />
           <Route path="/components" element={<ComponentsPage />} />
           <Route path="/contact" element={<p style={{padding: '2rem', paddingTop: '80px'}}>Contact Page Coming Soon!</p>} />
