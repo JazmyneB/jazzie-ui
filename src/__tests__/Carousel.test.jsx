@@ -1,104 +1,62 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import JazzieCarousel from "../components/Carousel/Carousel.jsx";
+import JazzieCarousel from "../components/Carousel/Carousel";
 
-const createItems = (count = 5) =>
-  Array.from({ length: count }, (_, i) => (
-    <div data-testid="item" key={i}>
-      {i + 1}
-    </div>
-  ));
+const items = Array.from({ length: 5 }, (_, i) => <div key={i}>Item {i+1}</div>);
 
 describe("JazzieCarousel", () => {
-  it("renders initial visible items based on visibleCount", () => {
-    render(
-      <JazzieCarousel visibleCount={3}>
-        {createItems()}
-      </JazzieCarousel>
-    );
-
-    const items = screen.getAllByTestId("item");
-    expect(items.length).toBe(3);
-    expect(screen.getByText("1")).toBeInTheDocument();
-    expect(screen.getByText("3")).toBeInTheDocument();
+  it("renders all items", () => {
+    render(<JazzieCarousel>{items}</JazzieCarousel>);
+    expect(screen.getByText("Item 1")).toBeInTheDocument();
+    expect(screen.getByText("Item 5")).toBeInTheDocument();
   });
 
-  it("disables the prev button initially", () => {
-    render(<JazzieCarousel>{createItems()}</JazzieCarousel>);
+  it("active item is focused and zoomed", () => {
+    render(<JazzieCarousel>{items}</JazzieCarousel>);
+    const firstItem = screen.getByText("Item 1").parentElement;
+    expect(firstItem).toHaveClass("focused");
+    const secondItem = screen.getByText("Item 2").parentElement;
+    expect(secondItem).toHaveClass("unfocused");
+  });
+
+  it("next button increments activeIndex", () => {
+    render(<JazzieCarousel>{items}</JazzieCarousel>);
+    const nextBtn = screen.getByText("▶");
+    fireEvent.click(nextBtn);
+    expect(screen.getByText("Item 2").parentElement).toHaveClass("focused");
+  });
+
+  it("prev button decrements activeIndex", () => {
+    render(<JazzieCarousel>{items}</JazzieCarousel>);
+    const nextBtn = screen.getByText("▶");
+    fireEvent.click(nextBtn); // move to 2
+    const prevBtn = screen.getByText("◀");
+    fireEvent.click(prevBtn);
+    expect(screen.getByText("Item 1").parentElement).toHaveClass("focused");
+  });
+
+  it("buttons are disabled at edges", () => {
+    render(<JazzieCarousel>{items}</JazzieCarousel>);
     expect(screen.getByText("◀")).toBeDisabled();
+    fireEvent.click(screen.getByText("▶"));
+    fireEvent.click(screen.getByText("▶"));
+    fireEvent.click(screen.getByText("▶"));
+    fireEvent.click(screen.getByText("▶")); // at last item
+    expect(screen.getByText("▶")).toBeDisabled();
   });
 
-  it("enables the next button when more items exist", () => {
-    render(<JazzieCarousel>{createItems()}</JazzieCarousel>);
-    expect(screen.getByText("▶")).not.toBeDisabled();
+  it("window height adjusts by size", () => {
+    const { rerender } = render(<JazzieCarousel size="sm">{items}</JazzieCarousel>);
+    const windowEl = screen.getByText("Item 1").closest(".carousel-window");
+    expect(windowEl.style.height).toBe("250px");
+
+    rerender(<JazzieCarousel size="xl">{items}</JazzieCarousel>);
+    expect(windowEl.style.height).toBe("550px");
   });
 
-  it("moves forward when next is clicked", () => {
-    render(<JazzieCarousel visibleCount={4}>{createItems()}</JazzieCarousel>);
-
-    const next = screen.getByText("▶");
-    fireEvent.click(next);
-
-    expect(screen.queryByText("1")).not.toBeInTheDocument();
-    expect(screen.getByText("5")).toBeInTheDocument();
-  });
-
-  it("disables next button at the end", () => {
-    render(<JazzieCarousel visibleCount={4}>{createItems()}</JazzieCarousel>);
-
-    const next = screen.getByText("▶");
-    fireEvent.click(next);
-
-    expect(next).toBeDisabled();
-  });
-
-  it("allows moving back with prev button", () => {
-    render(<JazzieCarousel visibleCount={4}>{createItems()}</JazzieCarousel>);
-
-    const prev = screen.getByText("◀");
-    const next = screen.getByText("▶");
-
-    fireEvent.click(next);
-
-    expect(prev).not.toBeDisabled();
-
-    fireEvent.click(prev);
-
-    expect(prev).toBeDisabled();
-    expect(screen.getByText("1")).toBeInTheDocument();
-  });
-
-  it("applies size presets correctly", () => {
-    const { container } = render(
-      <JazzieCarousel size="lg" visibleCount={2}>
-        {createItems(3)}
-      </JazzieCarousel>
-    );
-
-    const item = container.querySelector(".carousel-item");
-
-    // lg = 200px per your preset
-    expect(item.style.width).toBe("200px");
-    expect(item.style.height).toBe("200px");
-  });
-
-  it("allows custom width/height override", () => {
-    const { container } = render(
-      <JazzieCarousel itemWidth={300} itemHeight={180} visibleCount={2}>
-        {createItems(3)}
-      </JazzieCarousel>
-    );
-
-    const item = container.querySelector(".carousel-item");
-
-    expect(item.style.width).toBe("300px");
-    expect(item.style.height).toBe("180px");
-  });
-
-  it("renders correct number of items when size changes", () => {
-    render(<JazzieCarousel visibleCount={2} size="sm">{createItems(5)}</JazzieCarousel>);
-
-    const items = screen.getAllByTestId("item");
-    expect(items.length).toBe(2);
+  it("visibleCount affects window width", () => {
+    render(<JazzieCarousel visibleCount={3}>{items}</JazzieCarousel>);
+    const windowEl = screen.getByText("Item 1").closest(".carousel-window");
+    expect(parseInt(windowEl.style.width)).toBe(3 * (180 + 15)); // default md width + gap
   });
 });
