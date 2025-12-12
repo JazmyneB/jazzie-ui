@@ -14,21 +14,33 @@ const Footer = ({
   const [toast, setToast] = useState({ show: false, message: '', type: 'info' });
 
   const handleSubscribe = async (e) => {
-    e.preventDefault();
-    if (!email) return;
+  e.preventDefault();
+  if (!email) return;
 
-    const { data, error } = await supabase
-      .from('subscribers')
-      .insert([{ email }]);
+  const { data: existing } = await supabase
+    .from('subscribers')
+    .select('email')
+    .eq('email', email)
+    .single();
 
-    if (error) {
-      setToast({ show: true, message: "Oops! Something went wrong 😢", type: 'error' });
-      console.error(error);
-    } else {
-      setToast({ show: true, message: "Subscribed successfully! ✨", type: 'success' });
-      setEmail('');
-    }
-  };
+  if (existing) {
+    setToast({ show: true, message: "You're already subscribed! ✨", type: 'info' });
+    return;
+  }
+
+  const { data, error } = await supabase
+    .from('subscribers')
+    .insert([{ email }]);
+
+  if (error) {
+    setToast({ show: true, message: "Oops! Something went wrong 😢", type: 'error' });
+    console.error(error);
+  } else {
+    setToast({ show: true, message: "Subscribed successfully! ✨", type: 'success' });
+    setEmail('');
+  }
+};
+
 
   return (
     <footer className="footer">
