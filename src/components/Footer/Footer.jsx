@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './Footer.css';
 import { FaInstagram, FaTwitter, FaGithub } from 'react-icons/fa';
-import { supabase } from '../supabaseClient';
+import { supabase } from '../../utils/supabaseClient.js';
 import Toast from '../Toasts/Toast';
 
 const Footer = ({
