@@ -9,6 +9,7 @@ import ComponentsPage from './pages/ComponentsPage/ComponentsPage.jsx';
 import JazzieGrid from './components/JazzieGrid/JazzieGrid.jsx';
 import DashboardWidget from './components/DashboardWidget/DashboardWidget.jsx';
 import JazzieCarousel from './components/Carousel/Carousel.jsx';
+import Card from './components/Card/Card.jsx';
 import { FaDollarSign, FaUser } from "react-icons/fa";
 
 const items = Array.from({ length: 12 }, (_, i) => `Item ${i + 1}`);
@@ -34,6 +35,46 @@ function App() {
           {
             <>
             <Hero />
+            <div style={{ 
+        marginTop: "4rem",
+        marginBottom: "4rem",
+      }}>
+         <h2>JazzieGrid Example</h2>
+         <JazzieCarousel visibleCount={4} size="md">
+  {items.map((item, idx) => (
+    <Card title={item}>{item}</Card>
+  ))}
+</JazzieCarousel>
+
+      </div>
+      <div style={{ padding: "2rem" }} >
+      <h2>Widget Example</h2>
+      
+<br />
+
+  <JazzieCarousel visibleCount={2} size="xl"><DashboardWidget
+  title="Revenue"
+  value="$24,300"
+  trend={{ direction: "up", percentage: 12.5 }}
+  icon={<FaDollarSign />}
+  variant="soft" // soft | elevated | dark
+  footer={<button>View Details</button>}
+/>
+    <DashboardWidget
+  title="Users"
+  value="1,245"
+  trend={{ direction: "down", percentage: 4.3 }}
+  icon={<FaUser />}
+  variant="elevated" />
+  <DashboardWidget
+  title="Users"
+  value="1,245"
+  trend={{ direction: "down", percentage: 4.3 }}
+  icon={<FaUser />}
+  variant="dark" />
+  </JazzieCarousel>
+
+    </div>
             </>
           } />
           
