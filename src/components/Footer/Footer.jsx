@@ -21,7 +21,7 @@ const Footer = ({
     .from('subscribers')
     .select('email')
     .eq('email', email)
-    .single();
+    .maybeSingle();
 
   if (existing) {
     setToast({ show: true, message: "You're already subscribed! ✨", type: 'info' });
