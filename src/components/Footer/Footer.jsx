@@ -19,15 +19,20 @@ const Footer = ({
     if (!onSubscribe) return;
 
     setLoading(true);
-    try {
-      await onSubscribe(email);
-      setToast({ show: true, message: 'Subscribed successfully!✨', type: 'success' });
-      setEmail('');
-    } catch (err) {
+     try {
+    await onSubscribe(email);
+    setToast({ show: true, message: 'Subscribed successfully!✨', type: 'success' });
+    setEmail('');
+  } catch (err) {
+    if (err.message === 'already_subscribed') {
+      setToast({ show: true, message: "You're already subscribed!😍", type: 'info' });
+    } else {
       setToast({ show: true, message: 'Subscription failed. Please try again.❌', type: 'error' });
-    } finally {
-      setLoading(false);
+      console.error(err);
     }
+  } finally {
+    setLoading(false);
+  }
   };
 
   return (
