@@ -2,45 +2,33 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './Footer.css';
 import { FaInstagram, FaTwitter, FaGithub } from 'react-icons/fa';
-import { supabase } from '../../utils/supabaseClient.js';
 import Toast from '../Toasts/Toast';
 
 const Footer = ({
   links = [],
   socialLinks = {},
-  footerText = `© 2025 JazzieUI. Crafted with 🌸 and 💻`
+  footerText = `© 2025 JazzieUI. Crafted with 🌸 and 💻`,
+  onSubscribe,
 }) => {
   const [email, setEmail] = useState('');
   const [toast, setToast] = useState({ show: false, message: '', type: 'info' });
+  const [loading, setLoading] = useState(false);
 
-  const handleSubscribe = async (e) => {
-  e.preventDefault();
-  if (!email) return;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!onSubscribe) return;
 
-  const { data: existing } = await supabase
-    .from('subscribers')
-    .select('email')
-    .eq('email', email)
-    .maybeSingle();
-
-  if (existing) {
-    setToast({ show: true, message: "You're already subscribed! ✨", type: 'info' });
-    return;
-  }
-
-  const { data, error } = await supabase
-    .from('subscribers')
-    .insert([{ email }]);
-
-  if (error) {
-    setToast({ show: true, message: "Oops! Something went wrong 😢", type: 'error' });
-    console.error(error);
-  } else {
-    setToast({ show: true, message: "Subscribed successfully! ✨", type: 'success' });
-    setEmail('');
-  }
-};
-
+    setLoading(true);
+    try {
+      await onSubscribe(email);
+      setToast({ show: true, message: 'Subscribed successfully!✨', type: 'success' });
+      setEmail('');
+    } catch (err) {
+      setToast({ show: true, message: 'Subscription failed. Please try again.❌', type: 'error' });
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <footer className="footer">
@@ -74,7 +62,7 @@ const Footer = ({
 
         <div className="footer-newsletter">
           <p>Stay inspired ✨ Subscribe to our newsletter</p>
-          <form className="newsletter-form" onSubmit={handleSubscribe}>
+          <form className="newsletter-form" onSubmit={handleSubmit}>
             <input
               type="email"
               placeholder="Your email"
@@ -124,6 +112,7 @@ Footer.propTypes = {
   }),
   socialLinks: PropTypes.object,
   footerText: PropTypes.string,
+  onSubscribe: PropTypes.func,
 };
 
 export default Footer;
