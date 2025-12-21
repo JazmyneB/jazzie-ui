@@ -28,8 +28,8 @@ const NavBar = ({
   </div>
 
   <div className="navbar-right">
-    <Button buttonType='primary'>Sign In</Button>
-    <Button buttonType='secondary'>Learn More</Button>
+    {/* <Button buttonType='primary'>Sign In</Button> */}
+    {/* <Button buttonType='secondary'>Learn More</Button> */}
   </div>
 </nav>
   );
