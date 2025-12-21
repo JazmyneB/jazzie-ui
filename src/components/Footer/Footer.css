@@ -67,7 +67,7 @@
 
 .footer-section h3 {
   font-family: var(--font-accent);
-  color: var(--color-primary);
+  color: var(--deep-rose);
   font-size: var(--text-md);
   margin-bottom: var(--space-xs);
 }
