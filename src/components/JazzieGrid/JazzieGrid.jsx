@@ -5,6 +5,8 @@ import "./JazzieGrid.css";
 const JazzieGrid = ({
   children,
   columns = 3,
+  columnsTablet,
+  columnsMobile,
   gap = "var(--space-md)",
   rowHeight = "auto",
   className = "",
@@ -16,7 +18,12 @@ const JazzieGrid = ({
   };
 
   return (
-    <div className={`jazzie-grid ${className}`} style={gridStyle}>
+    <div
+      className={`jazzie-grid ${className}`}
+      style={gridStyle}
+      data-columns-tablet={columnsTablet || columns}
+      data-columns-mobile={columnsMobile || columns}
+    >
       {children}
     </div>
   );
@@ -25,6 +32,8 @@ const JazzieGrid = ({
 JazzieGrid.propTypes = {
   children: PropTypes.node.isRequired,
   columns: PropTypes.number,
+  columnsTablet: PropTypes.number,
+  columnsMobile: PropTypes.number,
   gap: PropTypes.string,
   rowHeight: PropTypes.string,
   className: PropTypes.string,
