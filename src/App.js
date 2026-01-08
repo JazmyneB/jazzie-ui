@@ -40,11 +40,13 @@ function App() {
         marginBottom: "4rem",
       }}>
          <h2>JazzieGrid Example</h2>
-         <JazzieCarousel visibleCount={4} size="md">
-  {items.map((item, idx) => (
-    <Card title={item}>{item}</Card>
-  ))}
-</JazzieCarousel>
+         <JazzieGrid columns={4} columnsTablet={2} columnsMobile={1} gap="var(--space-lg)" rowHeight="200px">
+      {items.map((item, index) => (
+        <Card key={index} className="grid-card">
+          <h3>{item}</h3>
+        </Card>
+      ))}
+    </JazzieGrid>
 
       </div>
       <div style={{ padding: "2rem" }} >

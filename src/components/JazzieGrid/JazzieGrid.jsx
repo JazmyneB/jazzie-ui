@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import "./JazzieGrid.css";
 
@@ -11,19 +11,30 @@ const JazzieGrid = ({
   rowHeight = "auto",
   className = "",
 }) => {
+  const [currentColumns, setCurrentColumns] = useState(columns);
+
+  useEffect(() => {
+    const updateColumns = () => {
+      const width = window.innerWidth;
+      if (width <= 768 && columnsMobile) setCurrentColumns(columnsMobile);
+      else if (width <= 1024 && columnsTablet) setCurrentColumns(columnsTablet);
+      else setCurrentColumns(columns);
+    };
+
+    updateColumns();
+    window.addEventListener("resize", updateColumns);
+
+    return () => window.removeEventListener("resize", updateColumns);
+  }, [columns, columnsTablet, columnsMobile]);
+
   const gridStyle = {
-    gridTemplateColumns: `repeat(${columns}, 1fr)`,
+    gridTemplateColumns: `repeat(${currentColumns}, 1fr)`,
     gap,
     gridAutoRows: rowHeight,
   };
 
   return (
-    <div
-      className={`jazzie-grid ${className}`}
-      style={gridStyle}
-      data-columns-tablet={columnsTablet || columns}
-      data-columns-mobile={columnsMobile || columns}
-    >
+    <div className={`jazzie-grid ${className}`} style={gridStyle}>
       {children}
     </div>
   );
