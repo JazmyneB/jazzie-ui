@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import './Footer.css';
 import { FaInstagram, FaTwitter, FaGithub } from 'react-icons/fa';
 import Toast from '../Toasts/Toast';
@@ -13,6 +14,7 @@ const Footer = ({
   const [email, setEmail] = useState('');
   const [toast, setToast] = useState({ show: false, message: '', type: 'info' });
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -50,13 +52,13 @@ const Footer = ({
             <div className="footer-section">
               <h3>Explore</h3>
               {links.explore?.map((link, i) => (
-                <a key={i} href={link.href}>{link.label}</a>
+                <span key={i} onClick={()=> navigate(link.href)}>{link.label}</span>
               ))}
             </div>
             <div className="footer-section">
               <h3>Resources</h3>
               {links.resources?.map((link, i) => (
-                <a key={i} href={link.href}>{link.label}</a>
+                <span key={i} onClick={()=> navigate(link.href)}>{link.label}</span>
               ))}
             </div>
           </div>
