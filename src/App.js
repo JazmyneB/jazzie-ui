@@ -54,7 +54,7 @@ function App() {
       
 <br />
 
-  <JazzieCarousel visibleCount={2} size="xl"><DashboardWidget
+  <JazzieCarousel visibleCount={2} size="lg"><DashboardWidget
   title="Revenue"
   value="$24,300"
   trend={{ direction: "up", percentage: 12.5 }}
