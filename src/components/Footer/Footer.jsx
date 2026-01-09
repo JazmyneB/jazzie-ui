@@ -37,13 +37,10 @@ const Footer = ({
 
   return (
     <footer className="footer">
-      {/* Floating shapes */}
       <div className="footer-floating-shapes">
         <div className="floating-shape shape-footer-1"></div>
         <div className="floating-shape shape-footer-2"></div>
       </div>
-
-      {/* Top content */}
       <div className="footer-top">
         <div className="footer-left">
           <div className="footer-logo">
@@ -98,8 +95,6 @@ const Footer = ({
           </div>
         </div>
       </div>
-
-      {/* Toast notifications */}
       <Toast
         message={toast.message}
         type={toast.type}
