@@ -249,9 +249,6 @@ body.menu-open {
 
 
 @media (max-width: 768px) {
-  .desktop-only {
-    display: none;
-  }
   .navbar-links {
     display: none;
   }
