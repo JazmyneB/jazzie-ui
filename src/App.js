@@ -85,7 +85,22 @@ function App() {
           <Route path="/contact" element={<p style={{padding: '2rem', paddingTop: '80px'}}>Contact Page Coming Soon!</p>} />
         </Routes>
 
-        <Footer />
+        <Footer
+         links={{
+          explore: [
+            { label: "Docs", href: "/docs" },
+            { label: "Components", href: "/components" },
+          ],
+          resources: [
+            { label: "Contact", href: "https://glowhubportal.com/contact" },
+          ],
+        }}
+        socialLinks={{
+          instagram: "https://instagram.com/yourprofile",
+          twitter: "https://twitter.com/yourprofile",
+          github: "https://github.com/yourprofile",
+        }}
+        />
       </div>
     </Router>
   );

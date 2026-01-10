@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import './Footer.css';
 import { FaInstagram, FaTwitter, FaGithub } from 'react-icons/fa';
 import Toast from '../Toasts/Toast';
@@ -52,13 +52,13 @@ const Footer = ({
             <div className="footer-section">
               <h3>Explore</h3>
               {links.explore?.map((link, i) => (
-                <span key={i} onClick={()=> navigate(link.href)}>{link.label}</span>
+                <Link to={link.href}>{link.label}</Link>
               ))}
             </div>
             <div className="footer-section">
               <h3>Resources</h3>
               {links.resources?.map((link, i) => (
-                <span key={i} onClick={()=> navigate(link.href)}>{link.label}</span>
+                <Link to={link.href}>{link.label}</Link>
               ))}
             </div>
           </div>
