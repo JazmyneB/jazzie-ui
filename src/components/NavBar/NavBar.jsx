@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import './NavBar.css';
 
 const NavBar = ({ brand, links }) => {
@@ -8,10 +8,18 @@ const NavBar = ({ brand, links }) => {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
 
+  useEffect(() => {
+  setMenuOpen(false);
+}, [location.pathname]);
+  useEffect(() => {
+  document.body.classList.toggle('menu-open', menuOpen);
+}, [menuOpen]);
+
+
   return (
     <nav className="navbar">
       <div className="navbar-left">
-  <div className="navbar-brand">
+  <div className="navbar-brand desktop-only">
     {typeof brand === 'string' ? <span className="brand-text">{brand}</span> : brand}
   </div>
    <span className="navbar-separator">|</span>
@@ -22,14 +30,14 @@ const NavBar = ({ brand, links }) => {
       return (
         <li key={link.label} className="navbar-item">
         {link.href ? (
-          <a 
-            href={link.href}
+          <Link
+            to={link.href}
             className={`navbar-link ${isActive ? 'active-link' : ''}`}
             target="_blank"
             rel="noopener noreferrer">
             {link.label}
-          </a>
-        ) : (
+          </Link>
+        ) :  (
           <button
             type="button"
             className={`navbar-link ${isActive ? 'active-link' : ''}`}
@@ -57,6 +65,28 @@ const NavBar = ({ brand, links }) => {
 </div>
 
 <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
+  <div className="mobile-menu-header">
+  <div className="mobile-menu-header-row">
+    <div className="mobile-menu-brand">
+      {typeof brand === 'string' ? (
+        <span className="brand-text">{brand}</span>
+      ) : (
+        brand
+      )}
+    </div>
+
+    <button
+      className="mobile-menu-close"
+      aria-label="Close menu"
+      onClick={() => setMenuOpen(false)}
+    >
+      ✕
+    </button>
+  </div>
+
+  <hr className="mobile-menu-divider" />
+</div>
+
  <ul>
   {links.map((link) => {
     const isActive = link.path && location.pathname === link.path;
@@ -64,14 +94,12 @@ const NavBar = ({ brand, links }) => {
     return (
       <li key={link.label}>
         {link.href ? (
-          <a
-            href={link.href}
+          <Link
+            to={link.href}
             target="_blank"
             rel="noopener noreferrer"
             className={isActive ? 'active-link' : ''}
-          >
-            {link.label}
-          </a>
+          >{link.label}</Link>
         ) : (
           <button
             type="button"
