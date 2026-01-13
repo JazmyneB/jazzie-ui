@@ -1,70 +1,71 @@
 import { useState, useRef, useEffect } from "react";
-import { useTheme } from "../../context/ThemeContext";
+import { useTheme, THEMES } from "../../context/ThemeContext";
 import "./ThemeSwitcher.css";
 
-const THEMES = [
-  { id: "rose", label: "Rose", icon: "🌸" },
-  { id: "royal-blue", label: "Royal Blue", icon: "💙" },
-  { id: "neutral", label: "Neutral", icon: "🤎" },
-  { id: "silver", label: "Silver", icon: "⚪" },
-  { id: "cotton-candy", label: "Cotton Candy", icon: "🍭" },
-  { id: "lavender-dream", label: "Lavender Dream", icon: "💜" },
-  { id: "milk-tea", label: "Milk Tea", icon: "🥛" },
-  { id: "pastel-mint", label: "Pastel Mint", icon: "🌿" },
-  { id: "jaded", label: "Jaded", icon: "🍃" },
-];
-
 export default function ThemeSwitcher() {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, mode, setMode } = useTheme();
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
 
   useEffect(() => {
-    function handleClickOutside(e) {
+    function onClick(e) {
       if (ref.current && !ref.current.contains(e.target)) {
         setOpen(false);
       }
     }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
-  useEffect(() => {
-    function handleKey(e) {
-      if (e.key === "Escape") setOpen(false);
-    }
-    document.addEventListener("keydown", handleKey);
-    return () => document.removeEventListener("keydown", handleKey);
+    document.addEventListener("mousedown", onClick);
+    return () => document.removeEventListener("mousedown", onClick);
   }, []);
 
   return (
     <div className="theme-switcher" ref={ref}>
       <button
         className="theme-trigger"
-        onClick={() => setOpen((o) => !o)}
-        aria-haspopup="menu"
+        aria-haspopup="dialog"
         aria-expanded={open}
+        onClick={() => setOpen((o) => !o)}
       >
         Theme
       </button>
 
       {open && (
-        <div className="theme-menu" role="menu">
-          {THEMES.map((t) => (
-            <button
-              key={t.id}
-              role="menuitem"
-              className={`theme-option ${theme === t.id ? "active" : ""}`}
-              onClick={() => {
-                setTheme(t.id);
-                setOpen(false);
-              }}
-            >
-              <span className="theme-icon">{t.icon}</span>
-              <span>{t.label}</span>
-              {theme === t.id && <span className="check">✓</span>}
-            </button>
-          ))}
+        <div className="theme-panel">
+          <div className="mode-toggle">
+  <button
+    className={mode === "light" ? "active" : ""}
+    onClick={() => setMode("light")}
+  >
+    ☀ Light
+    {mode === "light" && <span className="mode-check">✓</span>}
+  </button>
+
+  <button
+    className={mode === "dark" ? "active" : ""}
+    onClick={() => setMode("dark")}
+  >
+    🌙 Dark
+    {mode === "dark" && <span className="mode-check">✓</span>}
+  </button>
+</div>
+
+          <div className="theme-grid">
+            {THEMES.map((t) => (
+              <button
+  key={t.id}
+  className={`theme-swatch ${theme === t.id ? "active" : ""}`}
+  onClick={() => setTheme(t.id)}
+>
+  <span
+    className="swatch-color"
+    style={{ background: t.color }}
+  />
+  <span className="swatch-label">{t.label}</span>
+
+  {theme === t.id && <span className="check">✓</span>}
+</button>
+
+            ))}
+          </div>
         </div>
       )}
     </div>

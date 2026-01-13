@@ -56,7 +56,7 @@ const NavBar = ({
     })}
   {navExtras && (
     <>
-    <hr className="mobile-menu-divider" style={{ marginBotton: '10px' }} />
+    <span className="navbar-separator">|</span>
     <li className="navbar-item navbar-extra">
       {navExtras}
       </li>
@@ -66,11 +66,6 @@ const NavBar = ({
 </div>
 
 <div className="navbar-right">
-  {/* {rightContent && (
-    <div className="navbar-right-content">
-      {rightContent}
-    </div>
-  )} */}
   <button
     className={`hamburger ${menuOpen ? 'open' : ''}`}
     onClick={() => setMenuOpen(!menuOpen)}
@@ -131,7 +126,7 @@ const NavBar = ({
     );
   })}
 </ul>
-  <hr className="mobile-menu-divider" style={{ marginBotton: '10px'}} />
+  <hr className="mobile-menu-divider" />
   {mobileFooter && (
   <div className="mobile-menu-footer">
     {mobileFooter}

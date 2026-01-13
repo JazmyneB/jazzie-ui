@@ -1,19 +1,47 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
-export const ThemeContext = createContext();
+const ThemeContext = createContext(null);
 
-export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "rose");
+export function ThemeProvider({ children }) {
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") || "rose"
+  );
+  const [mode, setMode] = useState(
+    localStorage.getItem("mode") || "light"
+  );
 
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
+    document.documentElement.dataset.theme = theme;
     localStorage.setItem("theme", theme);
   }, [theme]);
 
-  return <ThemeContext.Provider value={{ theme, setTheme }}>{children}</ThemeContext.Provider>;
-};
+  useEffect(() => {
+    document.documentElement.dataset.mode = mode;
+    localStorage.setItem("mode", mode);
+  }, [mode]);
 
-export const useTheme = () => useContext(ThemeContext);
+  return (
+    <ThemeContext.Provider
+      value={{
+        theme,
+        setTheme,
+        mode,
+        setMode,
+      }}
+    >
+      {children}
+    </ThemeContext.Provider>
+  );
+}
+
+export function useTheme() {
+  const context = useContext(ThemeContext);
+  if (!context) {
+    throw new Error("useTheme must be used within ThemeProvider");
+  }
+  return context;
+}
+
 
 export const THEMES = [
   { id: "rose", label: "Rose", color: "#9B5C71" },

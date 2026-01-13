@@ -58,7 +58,7 @@
 .brand-text {
   font-family: var(--font-accent);
   font-size: 28px;
-  color: var(--deeper-rose);
+  color: var(--color-brand-strong);
   font-weight: 600;
   margin: 0;
 } 
@@ -142,7 +142,7 @@
   display: block;
   height: 3px;
   width: 100%;
-  background-color: var(--deeper-rose);
+  background-color: var(--color-brand-strong);
   border-radius: 2px;
   transition: 0.3s;
 }
@@ -180,7 +180,6 @@ body.menu-open {
 .mobile-menu-header {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
 }
 
 .mobile-menu-header-row {
@@ -204,7 +203,7 @@ body.menu-open {
   font-weight: 700;
   background: none;
   border: none;
-  color: var(--deeper-rose);
+  color: var(--color-brand-strong);
   cursor: pointer;
   padding: var(--space-xs);
   margin-right: 25px;
@@ -219,8 +218,7 @@ body.menu-open {
   width: 100%;
   border: none;
   height: 1px;
-  background: var(--color-secondary);
-  opacity: 0.6;
+  background: var(--color-muted);
 }
 
 
@@ -235,6 +233,7 @@ body.menu-open {
   display: flex;
   flex-direction: column;
   gap: var(--space-lg);
+  margin-bottom: 20px;
 }
 
 .mobile-menu li {
