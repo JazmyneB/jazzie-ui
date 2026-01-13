@@ -1,75 +1,73 @@
-import { useTheme } from "../../context/ThemeContext";
+import { useState, useRef, useEffect } from "react";
+import { useTheme, THEMES } from "../../context/ThemeContext";
+import "./ThemeSwitcher.css";
 
 export default function ThemeSwitcher() {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, mode, setMode } = useTheme();
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    function onClick(e) {
+      if (ref.current && !ref.current.contains(e.target)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", onClick);
+    return () => document.removeEventListener("mousedown", onClick);
+  }, []);
 
   return (
-    <div style={styles.wrapper}>
+    <div className="theme-switcher" ref={ref}>
       <button
-        style={styles.button}
-        onClick={() => setTheme("rose")}
-        className={theme === "rose" ? "active-theme" : ""}
+        className="theme-trigger"
+        aria-haspopup="dialog"
+        aria-expanded={open}
+        onClick={() => setOpen((o) => !o)}
       >
-        🌸 Rose
+        Theme
       </button>
 
-      <button
-        style={styles.button}
-        onClick={() => setTheme("royal-blue")}
-        className={theme === "royal-blue" ? "active-theme" : ""}
-      >
-        💙 Royal Blue
-      </button>
+      {open && (
+        <div className="theme-panel">
+          <div className="mode-toggle">
+  <button
+    className={mode === "light" ? "active" : ""}
+    onClick={() => setMode("light")}
+  >
+    ☀ Light
+    {mode === "light" && <span className="mode-check">✓</span>}
+  </button>
 
-      <button
-        style={styles.button}
-        onClick={() => setTheme("neutral")}
-        className={theme === "neutral" ? "active-theme" : ""}
-      >
-        🤎 Neutral
-      </button>
+  <button
+    className={mode === "dark" ? "active" : ""}
+    onClick={() => setMode("dark")}
+  >
+    🌙 Dark
+    {mode === "dark" && <span className="mode-check">✓</span>}
+  </button>
+</div>
 
-      <button
-        style={styles.button}
-        onClick={() => setTheme("silver")}
-        className={theme === "silver" ? "active-theme" : ""}
-      >
-        ⚪ Silver
-      </button>
-
-      <button style={styles.button} onClick={() => setTheme("cotton-candy")} className={theme === "cotton-candy" ? "active-theme" : ""}>🍭 Cotton Candy</button>
-<button style={styles.button} onClick={() => setTheme("lavender-dream")} className={theme === "lavender-dream" ? "active-theme" : ""}>💜 Lavender Dream</button>
-<button style={styles.button} onClick={() => setTheme("milk-tea")} className={theme === "milk-tea" ? "active-theme" : ""}>🥛 Milk Tea</button>
-<button style={styles.button} onClick={() => setTheme("pastel-mint")} className={theme === "pastel-mint" ? "active-theme" : ""}>🌿 Pastel Mint</button>
-    <button
-    style={styles.button}
-  onClick={() => setTheme("jaded")}
-  className={theme === "jaded" ? "active-theme" : ""}
+          <div className="theme-grid">
+            {THEMES.map((t) => (
+              <button
+  key={t.id}
+  className={`theme-swatch ${theme === t.id ? "active" : ""}`}
+  onClick={() => setTheme(t.id)}
 >
-  🍃 Jaded
+  <span
+    className="swatch-color"
+    style={{ background: t.color }}
+  />
+  <span className="swatch-label">{t.label}</span>
+
+  {theme === t.id && <span className="check">✓</span>}
 </button>
 
-
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
-
-const styles = {
-  wrapper: {
-    display: "flex",
-    gap: "10px",
-    justifyContent: "center",
-    marginBottom: "20px",
-  },
-  button: {
-    padding: "8px 16px",
-    borderRadius: "20px",
-    border: "none",
-    cursor: "pointer",
-    background: "var(--color-secondary)",
-    color: "var(--color-text)",
-    fontFamily: "var(--font-primary)",
-    boxShadow: "var(--shadow-soft)",
-    transition: "0.2s",
-  },
-};

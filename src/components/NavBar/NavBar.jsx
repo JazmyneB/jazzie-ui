@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import './NavBar.css';
 
-const NavBar = ({ brand, links }) => {
+const NavBar = ({
+  brand,
+  links,
+  navExtras,
+  mobileFooter
+}) => {
   const navigate = useNavigate();
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -49,6 +54,14 @@ const NavBar = ({ brand, links }) => {
       </li>
     );
     })}
+  {navExtras && (
+    <>
+    <span className="navbar-separator">|</span>
+    <li className="navbar-item navbar-extra">
+      {navExtras}
+      </li>
+    </>
+  )}
   </ul>
 </div>
 
@@ -113,6 +126,13 @@ const NavBar = ({ brand, links }) => {
     );
   })}
 </ul>
+  <hr className="mobile-menu-divider" />
+  {mobileFooter && (
+  <div className="mobile-menu-footer">
+    {mobileFooter}
+  </div>
+)}
+
 </div>
 
     </nav>
@@ -128,6 +148,8 @@ NavBar.propTypes = {
       href: PropTypes.string,
     })
   ).isRequired,
+  navExtras: PropTypes.node,
+  mobileFooter: PropTypes.node,
 };
 
 export default NavBar;
