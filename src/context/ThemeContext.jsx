@@ -45,7 +45,7 @@ export function useTheme() {
 
 export const THEMES = [
   { id: "rose", label: "Rose", color: "#9B5C71" },
-  { id: "royal-blue", label: "Royal Blue", color: "#3F4DB8" },
+  { id: "royal-blue", label: "Blue Pearl", color: "#3F4DB8" },
   { id: "neutral", label: "Neutral", color: "#6E4F3A" },
   { id: "silver", label: "Silver", color: "#7A7B88" },
   { id: "cotton-candy", label: "Cotton Candy", color: "#D96FA3" },
