@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import './NavBar.css';
 
-const NavBar = ({ brand, links }) => {
+const NavBar = ({
+  brand,
+  links,
+  navExtras,
+  mobileFooter
+}) => {
   const navigate = useNavigate();
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -49,10 +54,23 @@ const NavBar = ({ brand, links }) => {
       </li>
     );
     })}
+  {navExtras && (
+    <>
+    <hr className="mobile-menu-divider" style={{ marginBotton: '10px' }} />
+    <li className="navbar-item navbar-extra">
+      {navExtras}
+      </li>
+    </>
+  )}
   </ul>
 </div>
 
 <div className="navbar-right">
+  {/* {rightContent && (
+    <div className="navbar-right-content">
+      {rightContent}
+    </div>
+  )} */}
   <button
     className={`hamburger ${menuOpen ? 'open' : ''}`}
     onClick={() => setMenuOpen(!menuOpen)}
@@ -113,6 +131,13 @@ const NavBar = ({ brand, links }) => {
     );
   })}
 </ul>
+  <hr className="mobile-menu-divider" style={{ marginBotton: '10px'}} />
+  {mobileFooter && (
+  <div className="mobile-menu-footer">
+    {mobileFooter}
+  </div>
+)}
+
 </div>
 
     </nav>
@@ -128,6 +153,8 @@ NavBar.propTypes = {
       href: PropTypes.string,
     })
   ).isRequired,
+  navExtras: PropTypes.node,
+  mobileFooter: PropTypes.node,
 };
 
 export default NavBar;

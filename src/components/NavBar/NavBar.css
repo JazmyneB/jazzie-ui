@@ -26,6 +26,23 @@
   margin-right: var(--space-md);
 }
 
+.navbar-extra button {
+  all: unset;
+  cursor: pointer;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-full);
+  font-size: var(--text-md);
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.navbar-extra button:hover {
+  background-color: var(--rose);
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(175, 9, 86, 0.2);
+}
+
+
 .navbar-brand {
     display: flex;
     align-items: center;

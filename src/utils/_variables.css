@@ -40,6 +40,7 @@
   --blush:#DCE2FF;
   --rose:#8DA0FF;
   --deep-rose:#4A5BCF;
+  --deeper-rose: #3F4DB8;
   --cream:#F9FAFF;
   --muted:#545A78;
   --paper:#FFFFFF;
@@ -65,6 +66,7 @@
   --blush:#f3e4d9;
   --rose:#c8a892;
   --deep-rose:#8d6a50;
+  --deeper-rose: #6E4F3A;
   --cream:#fffdf9;
   --muted:#7a695c;
   --paper:#ffffff;
@@ -78,18 +80,19 @@
 /*  WARM SILVER — soft girl chrome                   */
 /* -------------------------------------------------- */
 :root[data-theme="silver"] {
-  --color-primary: #B0B0C0;          /* soft gray with warmth */
+  --color-primary: #B0B0C0;
   --color-primary-hover: #C0C0D0;
-  --color-secondary: #E0E0E5;        /* light, soft background accent */
-  --color-accent: #D1D1E0;           /* gentle lavender-tinted silver */
-  --color-bg: #F6F6F8;               /* page background */
-  --color-surface: #ffffff;          /* card/modal surface */
-  --color-text: #3A3A40;             /* deep gray for readability */
+  --color-secondary: #E0E0E5;
+  --color-accent: #D1D1E0;
+  --color-bg: #F6F6F8;
+  --color-surface: #ffffff;
+  --color-text: #3A3A40;
   --color-muted: #A8A8B0;
 
   --blush:#E6E6EB;
   --rose:#CFCFD4;
   --deep-rose:#8B8C91;
+  --deeper-rose: #7A7B88;
   --cream:#FBFBFC;
   --muted:#5E6066;
   --paper:#FFFFFF;
@@ -104,11 +107,11 @@
 /*  COTTON CANDY — soft playful pastel               */
 /* -------------------------------------------------- */
 :root[data-theme="cotton-candy"] {
-  --color-primary: #FF8EC7;       /* bubblegum pink */
+  --color-primary: #FF8EC7;
   --color-primary-hover: #FFA0D1;
-  --color-secondary: #A9C8FF;     /* baby blue */
-  --color-accent: #FFB2E0;        /* soft highlight */
-  --color-bg: #FFF5FB;            /* light pastel background */
+  --color-secondary: #A9C8FF;
+  --color-accent: #FFB2E0;
+  --color-bg: #FFF5FB;
   --color-surface: #FFFFFF;
   --color-text: #4A4A4A;
   --color-muted: #C4ACBC;
@@ -116,6 +119,7 @@
   --blush: #FFD0EB;
   --rose: #FFA3CC;
   --deep-rose: #FF7FBF;
+  --deeper-rose: #D96FA3;
   --cream: #FFF8FA;
   --muted: #A98BA5;
   --paper: #FFFFFF;
@@ -141,6 +145,7 @@
   --blush: #E5D8FF;
   --rose: #C9B2FF;
   --deep-rose: #9F7FFF;
+  --deeper-rose: #8A6BD1;
   --cream: #F9F6FF;
   --muted: #7F77A1;
   --paper: #FFFFFF;
@@ -166,6 +171,7 @@
   --blush: #F3E9E1;
   --rose: #D4B9A3;
   --deep-rose: #B18C70;
+  --deeper-rose: #8E6E56;
   --cream: #FFF8F3;
   --muted: #8C7664;
   --paper: #FFFFFF;
@@ -191,6 +197,7 @@
   --blush: #D4FFF1;
   --rose: #A8E8D1;
   --deep-rose: #5FD1B1;
+  --deeper-rose: #3E8F78;
   --cream: #F7FFFC;
   --muted: #6CA68F;
   --paper: #FFFFFF;
@@ -204,11 +211,11 @@
 /*  JADED — soft muted green                          */
 /* -------------------------------------------------- */
 :root[data-theme="jaded"] {
-  --color-primary: #7DAE7D;       /* soft muted green */
+  --color-primary: #7DAE7D;
   --color-primary-hover: #91C191;
-  --color-secondary: #DFF5DF;     /* pale minty background */
-  --color-accent: #A8D6A8;        /* highlight accent */
-  --color-bg: #F4FAF4;            /* light green background */
+  --color-secondary: #DFF5DF;
+  --color-accent: #A8D6A8;
+  --color-bg: #F4FAF4;
   --color-surface: #FFFFFF;
   --color-text: #3A4A3A;
   --color-muted: #8AA88A;
@@ -216,6 +223,7 @@
   --blush: #DFF5DF;
   --rose: #A8D6A8;
   --deep-rose: #7DAE7D;
+  --deeper-rose: #4F7F5F;
   --cream: #F6FBF6;
   --muted: #6E8B6E;
   --paper: #FFFFFF;

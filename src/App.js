@@ -11,6 +11,7 @@ import DashboardWidget from './components/DashboardWidget/DashboardWidget.jsx';
 import JazzieCarousel from './components/Carousel/Carousel.jsx';
 import Card from './components/Card/Card.jsx';
 import { FaDollarSign, FaUser } from "react-icons/fa";
+import ThemeSwitcher from './components/ThemeSwitcher/ThemeSwitcher.jsx';
 
 const items = Array.from({ length: 12 }, (_, i) => `Item ${i + 1}`);
 
@@ -26,6 +27,8 @@ function App() {
             { label: 'Docs', path: '/docs' },
             { label: 'Contact', path: '/contact' }
           ]}
+          navExtras={<ThemeSwitcher />}
+          mobileFooter={<ThemeSwitcher />}
         />
 
         <Routes>
@@ -75,6 +78,8 @@ function App() {
   icon={<FaUser />}
   variant="dark" />
   </JazzieCarousel>
+
+  <ThemeSwitcher />
 
     </div>
             </>
