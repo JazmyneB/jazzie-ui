@@ -23,7 +23,11 @@
   --grid:#F0CFCF;
   --accent:#D8A7A7;
   --body:#4a4a4a;
+  --color: rgba(255,105,180,0.4);
   --shadow: rgba(180,120,140,0.10);
+  --about-shadow: rgba(255, 182, 193, 0.35);
+  --about-glow: rgba(255, 182, 193, 0.5);
+  --about-button-shadow: rgba(255, 105, 180, 0.35);
 }
 
 /* -------------------------------------------------- */
@@ -52,6 +56,9 @@
   --accent:#B8C3FF;
   --body:#2e2e3f;
   --shadow: rgba(80,100,255,0.18);
+  --about-shadow: rgba(100, 130, 255, 0.35);
+  --about-glow: rgba(140, 170, 255, 0.5);
+  --about-button-shadow: rgba(80, 110, 255, 0.35);
 }
 
 /* -------------------------------------------------- */
@@ -80,6 +87,9 @@
   --accent:#d9c4af;
   --body:#5a4a3a;
   --shadow: rgba(162,130,100,0.15);
+  --about-shadow: rgba(162, 130, 100, 0.25);
+  --about-glow: rgba(200, 170, 140, 0.35);
+  --about-button-shadow: rgba(160, 120, 90, 0.25);
 }
 
 /* -------------------------------------------------- */
@@ -108,6 +118,9 @@
   --accent:#BFC0C7;
   --body:#3A3A40;
   --shadow: rgba(160,160,180,0.15);
+  --about-shadow: rgba(160, 160, 180, 0.25);
+  --about-glow: rgba(200, 200, 220, 0.35);
+  --about-button-shadow: rgba(170, 170, 190, 0.25);
 }
 
 
@@ -137,6 +150,9 @@
   --accent: #FFB2E0;
   --body: #4A4A4A;
   --shadow: rgba(255, 140, 199, 0.15);
+  --about-shadow: rgba(255, 140, 200, 0.35);
+  --about-glow: rgba(180, 210, 255, 0.45);
+  --about-button-shadow: rgba(255, 120, 190, 0.35);
 }
 
 /* -------------------------------------------------- */
@@ -165,6 +181,9 @@
   --accent: #DCC6FF;
   --body: #3E3A49;
   --shadow: rgba(183, 153, 255, 0.15);
+  --about-shadow: rgba(183, 153, 255, 0.30);
+  --about-glow: rgba(220, 198, 255, 0.45);
+  --about-button-shadow: rgba(155, 120, 255, 0.30);
 }
 
 /* -------------------------------------------------- */
@@ -193,6 +212,9 @@
   --accent: #D9C3B0;
   --body: #5A4E44;
   --shadow: rgba(194, 166, 140, 0.15);
+  --about-shadow: rgba(194, 166, 140, 0.28);
+  --about-glow: rgba(233, 214, 195, 0.40);
+  --about-button-shadow: rgba(177, 139, 115, 0.25);
 }
 
 /* -------------------------------------------------- */
@@ -221,6 +243,9 @@
   --accent: #C3F0E0;
   --body: #3A4A42;
   --shadow: rgba(168, 232, 209, 0.15);
+  --about-shadow: rgba(168, 232, 209, 0.28);
+  --about-glow: rgba(200, 245, 230, 0.45);
+  --about-button-shadow: rgba(95, 209, 177, 0.25);
 }
 
 /* -------------------------------------------------- */
@@ -249,6 +274,9 @@
   --accent: #A8D6A8;
   --body: #3A4A3A;
   --shadow: rgba(125, 174, 125, 0.15);
+  --about-shadow: rgba(125, 174, 125, 0.28);
+  --about-glow: rgba(180, 230, 180, 0.40);
+  --about-button-shadow: rgba(79, 127, 95, 0.25);
 }
 
 :root[data-mode="dark"] {
