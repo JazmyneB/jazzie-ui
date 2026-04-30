@@ -1,3 +1,6 @@
+import React from 'react';
+import './Version.css';
+
 const VersionTag = ({ version }) => {
   return (
     <div className="version-tag">
