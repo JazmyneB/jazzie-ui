@@ -1,0 +1,5 @@
+.version-tag {
+  font-size: 14px;
+  color: var(--color-muted);
+  opacity: 0.8;
+}

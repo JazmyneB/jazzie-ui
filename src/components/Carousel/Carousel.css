@@ -7,7 +7,7 @@
 }
 
 .carousel-btn {
-  background-color: #ffb6c1;
+  background-color: var(--carousel-button);
   border: none;
   padding: 10px 15px;
   cursor: pointer;
@@ -17,7 +17,7 @@
 }
 
 .carousel-btn:hover:not(:disabled) {
-  background-color: #ffa6b2;
+  background-color: var(--carousel-button-hover);
   transform: scale(1.1);
 }
 
@@ -29,11 +29,11 @@
 .carousel-window {
   overflow: hidden; /* keep layout */
   position: relative;
-  height: 350px; /* enough to fit zoomed item */
+  height: 350px; 
   background-color: transparent; /* transparent window */
   display: flex;
   align-items: center;
-  padding: 20px; /* optional */
+  padding: 20px;
 }
 
 .carousel-track {

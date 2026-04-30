@@ -4,12 +4,15 @@ import { useNavigate, Link } from 'react-router-dom';
 import './Footer.css';
 import { FaInstagram, FaTwitter, FaGithub } from 'react-icons/fa';
 import Toast from '../Toasts/Toast';
+import pkg from '../../../package.json';
+import VersionTag from '../VersionTag/VersionTag';
 
 const Footer = ({
   links = [],
   socialLinks = {},
   footerText = `© 2025 JazzieUI. Crafted with 🌸 and 💻`,
   onSubscribe,
+  version = pkg.version,
 }) => {
   const [email, setEmail] = useState('');
   const [toast, setToast] = useState({ show: false, message: '', type: 'info' });
@@ -88,6 +91,7 @@ const Footer = ({
           <p className="created-by">
             Created by <span>Jazmyne B.</span>
           </p>
+          <VersionTag version={version} />
         </div>
         <div className="footer-bottom-right">
           <div className="footer-social">
