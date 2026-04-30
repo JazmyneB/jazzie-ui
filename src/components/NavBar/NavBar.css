@@ -175,6 +175,8 @@ body.menu-open {
   transition: transform 0.3s ease;
   z-index: 1001;
   border-radius: 25px;
+  display: flex;
+  flex-direction: column;
 }
 
 .mobile-menu-header {
@@ -263,6 +265,15 @@ body.menu-open {
   font-weight: 600; 
 }
 
+.mobile-menu-version {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  padding-bottom: var(--space-sm);
+  font-size: 12px;
+  color: var(--color-muted);
+  opacity: 0.7;
+}
 
 @media (max-width: 768px) {
   .navbar-links {

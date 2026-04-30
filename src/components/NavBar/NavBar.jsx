@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import './NavBar.css';
+import pkg from '../../../package.json';
+import VersionTag  from '../VersionTag/VersionTag';
 
 const NavBar = ({
   brand,
   links,
   navExtras,
-  mobileFooter
+  mobileFooter,
+  version = pkg.version,
 }) => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -132,7 +135,9 @@ const NavBar = ({
     {mobileFooter}
   </div>
 )}
-
+  <div className="mobile-menu-version">
+    <VersionTag version={version} />
+  </div>
 </div>
 
     </nav>
@@ -150,6 +155,7 @@ NavBar.propTypes = {
   ).isRequired,
   navExtras: PropTypes.node,
   mobileFooter: PropTypes.node,
+  version: PropTypes.string,
 };
 
 export default NavBar;
